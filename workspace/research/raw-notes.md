@@ -4,8 +4,8 @@
 
 - [USER-INPUT] 核心句：AI 编程不是推翻软件工程，而是把 SoC、抽象、文件结构、角色协作、测试验证这些老原则，放大成 AI-native 工作系统。
 - [USER-INPUT] 核心定义：AI-native workflow = 模型推理 + 流程约束 + 状态反馈的动态系统。
-- [USER-INPUT] 核心句：模型是动的流程，流程是动的模型。
-- [USER-INPUT] 核心句：知识是 story diff，user journey 是知识。
+- [USER-INPUT] 核心句：模型负责推理，流程负责约束，状态负责让推理结果可以被恢复、检查和交接。
+- [USER-INPUT] 核心句：Story 是动态知识，Knowledge 是静态 Story；user journey 是团队发现、验证、固化知识的过程。
 - [USER-INPUT] 单仓库原则：仓库是 BA / DEV / QA / UI / Agent 共享的强状态空间。
 
 ## MindFlow / POMASA

@@ -30,7 +30,7 @@ ai-work-system-speech-20260518
 
 1. 为什么 AI 编程实践不应从“提示词技巧”或“工具使用”讲起，而应回到软件工程基本功：SoC（Separation of Concerns）、抽象/面向对象、文件目录结构、接口契约、测试验证？
 2. 如何从这些基本功出发，解释 MindFlow、POMASA、Skill、MAS、多角色协作、强状态、分层 Plan、Agent 编排、自动化无人值守等实践？
-3. 如何把“知识工程”讲清楚：知识不是静态文档，而是从 user journey 中持续产生的 story diff；这些 diff 应沉淀为工程文档、Skill、Capability、测试、eval case、workflow pattern？
+3. 如何把“知识工程”讲清楚：Story 是动态知识，Knowledge 是静态 Story；user journey 中持续产生的变化应沉淀为 AC、ADR、工程文档、Skill、Capability、测试、eval case、workflow pattern？
 4. 如何向技术团队说明 AI-native workflow 的本质：**模型推理 + 流程约束 + 状态反馈的动态系统**？
 5. 如何说明提速不是盲目让模型多写代码，而是通过上下文管理、分层计划、角色协议、测试验证、评估闭环和工具层改造来控制代码产出水平？
 6. 如何组织 BA / DEV / QA / UI / Agent 在单仓库中的协作实践：角色而非人、共享强状态、交叉检查、可追踪交付？
@@ -51,7 +51,7 @@ ai-work-system-speech-20260518
 1. **软件工程基本功：SoC、抽象、目录结构**
    - SoC 的价值：降低上下文污染、明确责任边界、支持 agent 分工、支持分层 plan、支持独立验证。
    - 抽象/面向对象的价值：封装变化、命名职责、形成接口契约、让 AI 在边界内推理。
-   - 文件目录结构的价值：不是项目收纳，而是人和 AI 共享的认知地图、状态载体、交接协议、恢复与审计基础。
+   - 文件目录结构的价值：不是项目收纳，而是一种数据结构；正确文件、正确位置、稳定 ID/link/reference 关系共同构成 Agent 可遍历的事实空间。
    - 关键句：结构越清晰，AI 越可靠；结构越混乱，AI 只是更快地制造混乱。
 
 2. **上下文管理：AI 辅助编程的核心变量**
@@ -61,30 +61,29 @@ ai-work-system-speech-20260518
 
 3. **MindFlow：从软件结构到认知结构**
    - 如果代码系统需要 SoC、抽象和目录结构，AI 工作系统同样需要认知层面的 SoC、抽象和目录结构。
-   - MindFlow 可解释为认知结构工程化：Soul、Learning、Mind、Capability、Plan/Step、State。
-   - MindFlow 不是普通 agent 编排器，而是把人的认知过程工程化。
+   - MindFlow 略讲思维即可：把目标约束、学习材料、能力单元、计划步骤、任务状态落到文件里。
+   - MindFlow 不是重点介绍对象，而是说明工程结构如何加快 AI 理解任务、恢复状态和沉淀能力。
 
 4. **知识工程理论**
    - 使用熊节“不是提示词工程，是知识工程”的五支柱：问题导向、价值/意识形态框架、信息储备、理论方法、表现形式。
    - 与 MindFlow 对齐：问题导向≈任务识别；价值框架≈Soul；信息储备≈Learning/Knowledge Base；理论方法≈Capability；表现形式≈Output Template。
    - 核心定义：**AI-native workflow = 模型推理 + 流程约束 + 状态反馈的动态系统**。
-   - 模型是动的流程，流程是动的模型。
+   - 模型负责推理，流程负责约束，状态负责让推理结果可以被恢复、检查和交接。
 
 5. **POMASA：MAS 工程与 AI 编排样本**
-   - POMASA 从研究主题和 user_input 出发，生成多智能体系统，并通过 orchestrator、researcher、reviewer 等角色产出研究成果。
-   - 说明 MAS 不能只靠多个 agent 聊天，而要依赖文件、目录、状态、角色契约、workspace/output/methodology 等强状态结构。
-   - 这里引出强状态思想，但强状态可在后续 AI 编排章节正式展开。
+   - POMASA 略讲思维即可：多智能体系统不能只靠多个 agent 聊天，而要依赖 Blueprint、references、methodology、workspace、_output 和 orchestrator。
+   - 说明 MAS 工程加速的是理解和协作：每个 Agent 能快速找到角色定义、输入来源、方法论约束、工作区和交付位置。
 
 6. **Skill / 工程文档：本质是可执行知识**
    - Skill 和工程文档的本质不是说明书，而是把人的经验、判断标准和流程约束，变成模型可调用的上下文资产。
    - 传统工程文档与 AI Skill 的共同价值：压缩经验、固化判断、降低沟通成本、提供执行约束、形成团队共同语言。
    - 渐进加载：知识不是一次性投喂，而是按需出现。知识工程不是把知识全部塞进去，而是设计知识何时、以何种粒度、被谁读取。
-   - 知识是 story diff，user journey 是知识：BA 澄清、DEV 发现边界、QA 发现缺陷、客户调整验收标准，都是 story diff，应沉淀为 skill、文档、测试、eval case。
+   - Story 是动态的知识，Knowledge 是静态下来的 Story：BA 澄清、DEV 发现边界、QA 发现缺陷、客户调整验收标准，都应沉淀为 AC、ADR、Skill、文档、测试、eval case。该观点放到角色、敏捷与单仓库协作中展开。
    - Skill 验收/评分：触发清晰、输入明确、步骤可执行、输出可消费、验证内置、权限边界清楚、能减少重复解释、能防止同类错误再次发生。
 
 7. **角色而非人：敏捷与单仓库协作编码实践**
    - AI 工作流里讨论的不是“人被替代”，而是“角色被重新定义”。BA、DEV、QA、UI 都是角色，不一定对应固定人员；Agent 也可承担部分角色，但必须有边界。
-   - 将 AI 工作流与敏捷结合：敏捷里的 Story、Backlog、Sprint、DoR、DoD、Review、Retro，本质上都是团队围绕 user journey 持续产生、验证和吸收 story diff 的机制。AI 不应绕过敏捷，而应把敏捷工件变成可执行、可检查、可回流的强状态。
+   - 将 AI 工作流与敏捷结合：敏捷里的 Story、Backlog、Sprint、DoR、DoD、Review、Retro，本质上都是团队围绕 user journey 持续发现、验证、固化知识的机制。AI 不应绕过敏捷，而应把敏捷工件变成可执行、可检查、可回流的强状态。
    - BA 的 Story / Acceptance Criteria 不只是需求文本，而是 Agent 理解业务目标、QA 生成测试、DEV 设计实现边界的共同输入；DoR 可作为 Agent 开始执行前的上下文完备性检查；DoD 可作为 Agent 完成后的验收 checklist。
    - Sprint 不只是时间盒，而是人和 Agent 协作的节奏控制器：计划阶段明确任务边界和依赖，执行阶段通过 task state / checkpoint 管理进展，Review 阶段检查 outcome，Retro 阶段把失败、返工、遗漏沉淀为 skill、测试和 eval case。
    - 单仓库原则：仓库不是代码集中管理，而是 BA / DEV / QA / UI / Agent 共享同一个强状态空间。
@@ -187,7 +186,7 @@ GitHub 项目资料：
 
 Harness Engineering 参考资料（如可访问则引用）：
 
-- https://martinfowler.com/articles/harness-engineering.html — Harness engineering for coding agent users
+- https://martinfowler.com/articles/exploring-gen-ai/harness-engineering.html — Harness engineering for coding agent users
 - https://www.humanlayer.dev/blog/skill-issue-harness-engineering-for-coding-agents — Skill Issue: Harness Engineering for Coding Agents
 - https://martinfowler.com/articles/exploring-gen-ai/harness-engineering-memo.html — Harness Engineering - first thoughts
 - https://openai.com/index/harness-engineering/ — Harness engineering: leveraging Codex in an agent-first world
@@ -280,8 +279,8 @@ Harness Engineering 参考资料（如可访问则引用）：
 2. **引用要求**：用户提供的所有资料均可引用。引用时必须添加引用，形式可以是脚注、括号引用或章节后引用列表。对本地 PDF 可引用文件名；对微信文章和网页可引用标题及 URL。
 3. **输出定位**：这是“演讲稿/讲稿大纲”，不是公众号文章。应包含口语化但有结构的讲稿段落。
 4. **重点保留用户原创观点**：
-   - 模型是动的流程，流程是动的模型。
-   - 知识是 story diff，user journey 是知识。
+   - 模型负责推理，流程负责约束，状态负责让推理结果可以被恢复、检查和交接。
+   - Story 是动态知识，Knowledge 是静态 Story；user journey 是团队发现、验证、固化知识的过程。
    - AI-native workflow = 模型推理 + 流程约束 + 状态反馈的动态系统。
    - 单仓库原则：仓库是 BA / DEV / QA / UI / Agent 共享的强状态空间。
    - AI 编程不是推翻软件工程，而是放大软件工程基本功。

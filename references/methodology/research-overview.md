@@ -8,7 +8,7 @@
 
 1. 为什么 AI 编程实践应从 SoC、抽象、目录结构、接口契约、测试验证等软件工程基本功讲起。
 2. 如何由软件结构推导到 MindFlow、POMASA、Skill、MAS、多角色协作、强状态、分层 Plan、Agent 编排和无人值守。
-3. 如何说明知识工程：知识不是静态文档，而是 user journey 中持续产生的 story diff，并沉淀为工程文档、Skill、Capability、测试、eval case、workflow pattern。
+3. 如何说明知识工程：Story 是动态知识，Knowledge 是静态 Story；user journey 中持续产生的变化应沉淀为 AC、ADR、工程文档、Skill、Capability、测试、eval case、workflow pattern。
 4. 如何解释 AI-native workflow = 模型推理 + 流程约束 + 状态反馈的动态系统。
 5. 如何说明提速来自上下文管理、角色协议、测试验证、评估闭环和工具层改造，而不是盲目让模型多写代码。
 6. 如何组织 BA / DEV / QA / UI / Agent 在单仓库中的敏捷协作编码实践。
