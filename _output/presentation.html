@@ -5,60 +5,133 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>知识工程驱动的 AI 实践</title>
   <style>
-    :root { --bg:#0f172a; --panel:#111827; --text:#f8fafc; --muted:#cbd5e1; --accent:#38bdf8; --accent2:#a78bfa; --line:#334155; }
-    * { box-sizing: border-box; }
-    body { margin:0; font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif; background:var(--bg); color:var(--text); }
+    :root {
+      --bg:#07111f; --bg2:#0f172a; --panel:#111827; --panel2:#162033;
+      --text:#f8fafc; --muted:#cbd5e1; --soft:#94a3b8;
+      --accent:#38bdf8; --accent2:#a78bfa; --ok:#34d399; --warn:#f59e0b; --bad:#fb7185;
+      --line:rgba(148,163,184,.28); --shadow:0 24px 80px rgba(0,0,0,.35);
+    }
+    * { box-sizing:border-box; }
+    body {
+      margin:0; font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;
+      background:radial-gradient(circle at 20% 15%, rgba(56,189,248,.18), transparent 32%),
+                 radial-gradient(circle at 88% 22%, rgba(167,139,250,.16), transparent 34%),
+                 linear-gradient(135deg, var(--bg), var(--bg2));
+      color:var(--text);
+    }
     main { scroll-snap-type:y mandatory; height:100vh; overflow-y:auto; }
-    section { min-height:100vh; scroll-snap-align:start; padding:6vh 8vw; display:flex; flex-direction:column; justify-content:center; border-bottom:1px solid rgba(255,255,255,.08); }
-    h1 { font-size:clamp(44px,7vw,92px); line-height:1.05; margin:0 0 24px; letter-spacing:-.04em; }
-    h2 { font-size:clamp(34px,5vw,64px); line-height:1.12; margin:0 0 28px; letter-spacing:-.03em; }
-    h3 { font-size:clamp(24px,3vw,36px); margin:0 0 18px; color:var(--accent); }
-    p, li { font-size:clamp(22px,2.4vw,34px); line-height:1.45; color:var(--muted); }
-    p { max-width:1100px; margin:0 0 18px; }
-    ul { margin:0; padding-left:1.2em; max-width:1100px; }
-    li { margin:.35em 0; }
-    .kicker { color:var(--accent); font-size:clamp(18px,2vw,28px); font-weight:700; margin-bottom:18px; letter-spacing:.08em; text-transform:uppercase; }
-    .lead { font-size:clamp(28px,3.2vw,44px); color:var(--text); max-width:1200px; }
-    .grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:22px; max-width:1200px; }
+    section {
+      position:relative; min-height:100vh; scroll-snap-align:start; padding:5.5vh 7vw;
+      display:flex; flex-direction:column; justify-content:center; border-bottom:1px solid rgba(255,255,255,.08);
+    }
+    section::after { content:attr(data-page); position:absolute; right:3vw; bottom:3vh; color:rgba(203,213,225,.38); font-size:18px; }
+    h1 { font-size:clamp(46px,7vw,98px); line-height:1.02; margin:0 0 24px; letter-spacing:-.05em; }
+    h2 { font-size:clamp(34px,5vw,68px); line-height:1.08; margin:0 0 28px; letter-spacing:-.035em; }
+    h3 { font-size:clamp(22px,2.4vw,34px); margin:0 0 14px; color:var(--accent); }
+    p, li { font-size:clamp(20px,2.05vw,30px); line-height:1.42; color:var(--muted); }
+    p { max-width:1180px; margin:0 0 16px; }
+    ul { margin:0; padding-left:1.2em; max-width:1180px; }
+    li { margin:.32em 0; }
+    .kicker { color:var(--accent); font-size:clamp(16px,1.7vw,24px); font-weight:800; margin-bottom:16px; letter-spacing:.09em; text-transform:uppercase; }
+    .lead { font-size:clamp(27px,3vw,43px); color:var(--text); max-width:1240px; }
+    .small { font-size:clamp(14px,1.25vw,19px); color:var(--soft); margin-top:22px; }
+    .quote { border-left:7px solid var(--accent); padding-left:26px; font-size:clamp(30px,3.5vw,52px); line-height:1.32; color:var(--text); max-width:1250px; }
+    .grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:20px; max-width:1280px; }
     .grid.two { grid-template-columns:repeat(2,minmax(0,1fr)); }
-    .card { border:1px solid var(--line); border-radius:22px; padding:26px; background:rgba(17,24,39,.72); min-height:180px; }
-    .card strong { display:block; color:var(--text); font-size:clamp(24px,2.4vw,34px); margin-bottom:12px; }
-    .card span { color:var(--muted); font-size:clamp(18px,1.8vw,26px); line-height:1.42; }
-    .flow { display:flex; flex-wrap:wrap; gap:14px; align-items:center; max-width:1250px; }
-    .node { padding:16px 22px; border-radius:999px; background:rgba(56,189,248,.12); border:1px solid rgba(56,189,248,.45); font-size:clamp(20px,2vw,30px); color:var(--text); }
-    .arrow { color:var(--accent); font-size:clamp(24px,2.5vw,36px); }
-    .quote { border-left:6px solid var(--accent); padding-left:26px; font-size:clamp(28px,3.4vw,48px); line-height:1.35; color:var(--text); max-width:1200px; }
-    .small { font-size:clamp(16px,1.5vw,22px); color:#94a3b8; margin-top:28px; }
-    .accent { color:var(--accent); }
-    .purple { color:var(--accent2); }
-    @media (max-width: 900px) { .grid, .grid.two { grid-template-columns:1fr; } section { padding:5vh 6vw; } }
+    .grid.four { grid-template-columns:repeat(4,minmax(0,1fr)); }
+    .card { border:1px solid var(--line); border-radius:24px; padding:24px; background:linear-gradient(180deg, rgba(17,24,39,.86), rgba(17,24,39,.58)); box-shadow:var(--shadow); min-height:170px; }
+    .card strong { display:block; color:var(--text); font-size:clamp(23px,2.15vw,32px); margin-bottom:10px; }
+    .card span { display:block; color:var(--muted); font-size:clamp(17px,1.55vw,24px); line-height:1.42; }
+    .tag { display:inline-flex; align-items:center; border:1px solid rgba(56,189,248,.42); background:rgba(56,189,248,.12); color:var(--text); border-radius:999px; padding:10px 16px; font-size:clamp(17px,1.5vw,23px); margin:5px; }
+    .flow { display:flex; flex-wrap:wrap; gap:12px; align-items:center; max-width:1320px; }
+    .node { padding:14px 20px; border-radius:999px; background:rgba(56,189,248,.12); border:1px solid rgba(56,189,248,.45); font-size:clamp(18px,1.7vw,26px); color:var(--text); }
+    .arrow { color:var(--accent); font-size:clamp(22px,2vw,32px); }
+    .matrix { display:grid; grid-template-columns:1fr 1fr; grid-template-rows:1fr 1fr; gap:18px; max-width:1120px; }
+    .quadrant { position:relative; border:1px solid var(--line); border-radius:24px; padding:24px; min-height:210px; background:rgba(17,24,39,.68); }
+    .quadrant b { color:var(--text); font-size:clamp(24px,2.2vw,34px); }
+    .axis-x, .axis-y { color:var(--soft); font-size:16px; letter-spacing:.08em; text-transform:uppercase; }
+    .axis-x { max-width:1120px; text-align:center; margin-top:12px; }
+    .axis-y { position:absolute; left:2.4vw; top:50%; transform:rotate(-90deg) translateX(-50%); transform-origin:left top; }
+    .funnel { display:grid; grid-template-columns:1.15fr .95fr .8fr .65fr .5fr; gap:12px; align-items:end; max-width:1260px; }
+    .funnel div { border:1px solid var(--line); border-radius:22px 22px 8px 8px; padding:22px 18px; background:linear-gradient(180deg, rgba(251,113,133,.34), rgba(245,158,11,.12)); min-height:var(--h); }
+    .funnel strong { display:block; font-size:clamp(20px,1.8vw,28px); color:var(--text); margin-bottom:8px; }
+    .funnel span { font-size:clamp(15px,1.25vw,20px); color:var(--muted); }
+    .compare { display:grid; grid-template-columns:1fr 1fr 1fr; border:1px solid var(--line); border-radius:26px; overflow:hidden; max-width:1280px; background:rgba(17,24,39,.66); }
+    .compare > div { padding:22px; border-right:1px solid var(--line); }
+    .compare > div:last-child { border-right:0; }
+    .compare h3 { color:var(--text); }
+    .compare p { font-size:clamp(16px,1.45vw,22px); }
+    .stack { display:grid; gap:12px; max-width:1180px; }
+    .layer { display:flex; justify-content:space-between; align-items:center; border:1px solid var(--line); border-radius:18px; padding:16px 22px; background:rgba(17,24,39,.7); }
+    .layer strong { font-size:clamp(21px,1.9vw,29px); color:var(--text); }
+    .layer span { font-size:clamp(16px,1.35vw,21px); color:var(--muted); }
+    .accent { color:var(--accent); } .purple { color:var(--accent2); } .ok { color:var(--ok); } .warn { color:var(--warn); } .bad { color:var(--bad); }
+    @media (max-width: 980px) { .grid,.grid.two,.grid.four,.compare,.matrix,.funnel { grid-template-columns:1fr; } section { padding:5vh 6vw; } .axis-y { display:none; } }
   </style>
 </head>
 <body>
 <main>
-  <section>
+  <section data-page="01">
     <div class="kicker">AI Work System Speech</div>
     <h1>知识工程驱动的 AI 实践</h1>
     <p class="lead">从 AI Coding 到可运行、可协作、可演进的 AI 工作系统。</p>
-    <p class="small">项目：ai-work-system-speech-20260518</p>
+    <p class="small">60-90 分钟演讲 · 技术团队 / 客户技术听众</p>
   </section>
 
-  <section>
+  <section data-page="02">
     <h2>今天只讲一条主线</h2>
     <div class="quote">如何构建统一流程，以及如何构建一个高质量的统一流程。</div>
+    <p class="small">所有概念最终都要回到：输入、输出、状态、角色、检查点、验收和回写。</p>
   </section>
 
-  <section>
-    <h2>第 0 章：为什么还要工程化与 SDD</h2>
-    <div class="grid">
-      <div class="card"><strong>模型更强</strong><span>一部分 planning、tool use、orchestration 被模型吸收。</span></div>
-      <div class="card"><strong>问题迁移</strong><span>工程方法从能力补丁，迁移为治理工具。</span></div>
-      <div class="card"><strong>现实风险</strong><span>模型太快开始写代码，需求、边界、验证还没想清。</span></div>
+  <section data-page="03">
+    <h2>第 0 章：问题变了</h2>
+    <div class="quote">现在的风险经常不是 AI 不会写，而是 AI 太快开始写。</div>
+    <p class="lead">需求没澄清，边界没想清，验证没设计，它已经开始补默认值、写方案、生成代码。</p>
+  </section>
+
+  <section data-page="04">
+    <h2>过早收束：流畅感掩盖问题空间</h2>
+    <div class="funnel">
+      <div style="--h:300px"><strong>模糊需求</strong><span>意图、用户路径、验收标准还没展开。</span></div>
+      <div style="--h:260px"><strong>单一路径</strong><span>模型快速选择一个看起来合理的方向。</span></div>
+      <div style="--h:220px"><strong>默认假设</strong><span>缺失信息被自动补齐，但没有显式确认。</span></div>
+      <div style="--h:180px"><strong>快速实现</strong><span>代码出现得很快，风险也被带进系统。</span></div>
+      <div style="--h:140px"><strong>隐性债务</strong><span>异常、权限、状态、验收被延后暴露。</span></div>
     </div>
-    <p class="small">来源：用户项目 framing；`references/web/24-mp-weixin-qq-com-s-b4Fh-3SQyWiB1HypUxk9wA.md`</p>
   </section>
 
-  <section>
+  <section data-page="05">
+    <h2>为什么中端 / 低端模型更需要结构</h2>
+    <div class="matrix">
+      <div class="quadrant"><b>强模型 + 明确任务</b><p>直接交互通常够用，外部结构可以轻一点。</p></div>
+      <div class="quadrant"><b>强模型 + 开放任务</b><p>需要前置边界、检查点和验收，防止越做越偏。</p></div>
+      <div class="quadrant"><b>中低端模型 + 明确任务</b><p>用清晰输入、固定格式、测试命令兜住输出质量。</p></div>
+      <div class="quadrant"><b>中低端模型 + 开放任务</b><p>SDD、MAS、Rules、状态文件都要增强。</p></div>
+    </div>
+    <div class="axis-y">模型能力 ↑</div>
+    <div class="axis-x">任务开放度 →</div>
+  </section>
+
+  <section data-page="06">
+    <h2>方法论没有消失，价值迁移了</h2>
+    <div class="grid two">
+      <div class="card"><strong>过去：能力补丁</strong><span>替模型拆任务、补步骤、补记忆、补稳定性。</span></div>
+      <div class="card"><strong>现在：治理工具</strong><span>定义边界、固定检查点、控制权限、沉淀状态、保障验收。</span></div>
+    </div>
+    <p class="lead">模型越强，越不能只问“它会不会做”，还要问“系统能不能稳定地做对”。</p>
+  </section>
+
+  <section data-page="07">
+    <h2>SDD / MAS / Rules 分别解决什么</h2>
+    <div class="compare">
+      <div><h3>SDD</h3><p>把“想清楚”和“开始干”分开。显化 what、why、guardrails、验收标准和关键边界。</p></div>
+      <div><h3>MAS</h3><p>把复杂任务拆成角色、上下文、权限、阶段、产物和验收，让协作可审计。</p></div>
+      <div><h3>Rules / Hooks</h3><p>把必须发生的动作交给确定性控制：检查、权限、引用、测试、完成声明。</p></div>
+    </div>
+  </section>
+
+  <section data-page="08">
     <h2>AI-native workflow</h2>
     <div class="grid">
       <div class="card"><strong>模型推理</strong><span>生成方案、代码、解释、判断。</span></div>
@@ -67,7 +140,7 @@
     </div>
   </section>
 
-  <section>
+  <section data-page="09">
     <h2>第 1 章：软件基本功</h2>
     <div class="grid">
       <div class="card"><strong>SoC</strong><span>Story、ADR、Spec、Plan、State、Review、Eval 各司其职。</span></div>
@@ -76,31 +149,34 @@
     </div>
   </section>
 
-  <section>
+  <section data-page="10">
     <h2>上下文管理不是越多越好</h2>
     <div class="quote">给模型低噪声、可处理、可验证的上下文。</div>
-    <p class="small">确定性的事交给确定性的工具；推理性的事交给模型或人。</p>
+    <div class="flow"><span class="node">确定性工具</span><span class="arrow">处理</span><span class="node">格式 / 测试 / 检查</span><span class="arrow">模型</span><span class="node">推理 / 权衡 / 生成</span></div>
   </section>
 
-  <section>
+  <section data-page="11">
     <h2>第 2 章：MindFlow 的自我演进</h2>
-    <div class="flow">
-      <span class="node">Soul</span><span class="arrow">→</span><span class="node">Learning</span><span class="arrow">→</span><span class="node">Capability</span><span class="arrow">→</span><span class="node">Plan</span><span class="arrow">→</span><span class="node">Task State</span><span class="arrow">→</span><span class="node">Reflection</span>
+    <div class="stack">
+      <div class="layer"><strong>Soul</strong><span>长期原则与方向</span></div>
+      <div class="layer"><strong>Learning</strong><span>外部知识与经验输入</span></div>
+      <div class="layer"><strong>Capability</strong><span>可复用能力单元</span></div>
+      <div class="layer"><strong>Plan / Task State</strong><span>执行路径与当前状态</span></div>
+      <div class="layer"><strong>Reflection</strong><span>复盘、沉淀、更新</span></div>
     </div>
-    <p class="small">来源：MindFlow README-CN、SYSTEM、tasks、capabilities。</p>
   </section>
 
-  <section>
-    <h2>MindFlow 给我们的启发</h2>
+  <section data-page="12">
+    <h2>不要把所有知识揉成一个巨大 prompt</h2>
     <ul>
-      <li>不要把所有知识揉成一个巨大 prompt。</li>
       <li>长期原则、项目知识、能力、状态、反思要分层。</li>
       <li>Lazy loading 是流程设计，不只是省 token。</li>
       <li>任务状态让系统可恢复、可交接、可复盘。</li>
+      <li>知识空间不是材料堆砌，而是可被 Agent 操作的结构。</li>
     </ul>
   </section>
 
-  <section>
+  <section data-page="13">
     <h2>软件系统的本质就是知识</h2>
     <div class="grid two">
       <div class="card"><strong>传统软件</strong><span>代码、文档、测试、规则，是知识的固化。</span></div>
@@ -108,23 +184,31 @@
     </div>
   </section>
 
-  <section>
+  <section data-page="14">
     <h2>第 3 章：POMASA 与 MAS 的强状态</h2>
     <p class="lead">MAS 的关键不是“几个 Agent 聊天”，而是围绕状态推进的编排系统。</p>
-    <p class="small">ProMaster 具体事实证据不足；本章事实主要使用 POMASA 资料。</p>
+    <div class="flow"><span class="node">谁读取</span><span class="node">谁产出</span><span class="node">放在哪里</span><span class="node">谁验收</span><span class="node">失败如何回流</span></div>
   </section>
 
-  <section>
+  <section data-page="15">
     <h2>POMASA 的工程信号</h2>
     <div class="grid">
       <div class="card"><strong>Blueprint / Pattern</strong><span>可声明、可复用的协作结构。</span></div>
       <div class="card"><strong>Filesystem Data Bus</strong><span>文件系统承载多角色产物流转。</span></div>
       <div class="card"><strong>Verifiable Data Lineage</strong><span>产物来源、验收、回流可追踪。</span></div>
     </div>
-    <p class="small">来源：POMASA README.zh-CN；POMASA SKILL。</p>
   </section>
 
-  <section>
+  <section data-page="16">
+    <h2>强状态不是“全都写下来”</h2>
+    <div class="compare">
+      <div><h3>关键产物</h3><p>有稳定位置，有命名，有所有权。</p></div>
+      <div><h3>关键判断</h3><p>有来源，有理由，有可追溯记录。</p></div>
+      <div><h3>关键验收</h3><p>有证据，有结果，有失败回流。</p></div>
+    </div>
+  </section>
+
+  <section data-page="17">
     <h2>第 4 章：状态控制三分法</h2>
     <div class="grid">
       <div class="card"><strong>强约束固定</strong><span>Rules、Hooks、必读文件、测试、提交检查。</span></div>
@@ -133,15 +217,13 @@
     </div>
   </section>
 
-  <section>
+  <section data-page="18">
     <h2>可靠性与灵活性的张力</h2>
-    <div class="flow">
-      <span class="node">强约束：可靠</span><span class="arrow">↔</span><span class="node">建议式：平衡</span><span class="arrow">↔</span><span class="node">AI 自主：灵活</span>
-    </div>
-    <p class="small">这是工程经验分类；外部 workflows / agents 材料提供支撑。</p>
+    <div class="flow"><span class="node ok">强约束：可靠</span><span class="arrow">↔</span><span class="node warn">建议式：平衡</span><span class="arrow">↔</span><span class="node purple">AI 自主：灵活</span></div>
+    <p class="lead">高质量流程的关键不是选一种，而是组合使用。</p>
   </section>
 
-  <section>
+  <section data-page="19">
     <h2>第 5 章：Skill、工程文件与 Rules</h2>
     <div class="grid">
       <div class="card"><strong>Skill</strong><span>可复用能力；触发依赖模型判断，存在随机性。</span></div>
@@ -150,28 +232,18 @@
     </div>
   </section>
 
-  <section>
+  <section data-page="20">
     <h2>成熟 Skill 像函数</h2>
-    <div class="flow">
-      <span class="node">触发</span><span class="node">输入</span><span class="node">步骤</span><span class="node">输出</span><span class="node">权限</span><span class="node">副作用</span><span class="node">验证</span><span class="node">下游消费</span>
-    </div>
-    <p class="small">来源：CLI for AI Agents；POMASA SKILL；用户项目 framing。</p>
+    <div class="flow"><span class="node">触发</span><span class="node">输入</span><span class="node">前置假设</span><span class="node">步骤</span><span class="node">输出</span><span class="node">权限</span><span class="node">副作用</span><span class="node">验证</span><span class="node">下游消费</span></div>
   </section>
 
-  <section>
+  <section data-page="21">
     <h2>第 6 章：Knowledge 与 Story</h2>
     <div class="quote">Story 是动态知识，Knowledge 是静态 Story。</div>
-    <p class="small">这是项目观点。外部材料用于支撑工程资产回写、Doc 与 Code 联动、eval 闭环。</p>
+    <p class="lead">User journey 是团队发现、验证、固化知识的过程。</p>
   </section>
 
-  <section>
-    <h2>User Journey 是知识固化过程</h2>
-    <div class="flow">
-      <span class="node">发现</span><span class="arrow">→</span><span class="node">组织</span><span class="arrow">→</span><span class="node">编码</span><span class="arrow">→</span><span class="node">验证</span><span class="arrow">→</span><span class="node">回写</span>
-    </div>
-  </section>
-
-  <section>
+  <section data-page="22">
     <h2>第 7 章：Flyway 类比</h2>
     <div class="grid two">
       <div class="card"><strong>Story = Migration</strong><span>带着时间性、变化意图和业务增量。</span></div>
@@ -179,14 +251,12 @@
     </div>
   </section>
 
-  <section>
+  <section data-page="23">
     <h2>回写闭环</h2>
-    <div class="flow">
-      <span class="node">Story</span><span class="arrow">→</span><span class="node">代码</span><span class="node">文档</span><span class="node">测试</span><span class="node">Skill</span><span class="node">Eval Case</span><span class="arrow">→</span><span class="node">Knowledge</span>
-    </div>
+    <div class="flow"><span class="node">Story</span><span class="arrow">→</span><span class="node">代码</span><span class="node">文档</span><span class="node">测试</span><span class="node">Skill</span><span class="node">Eval Case</span><span class="arrow">→</span><span class="node">Knowledge</span></div>
   </section>
 
-  <section>
+  <section data-page="24">
     <h2>第 8 章：验收 Skill 与 Story</h2>
     <div class="grid two">
       <div class="card"><strong>Skill 验收</strong><span>触发、输入、步骤、输出、权限、副作用、验证、下游消费。</span></div>
@@ -194,92 +264,70 @@
     </div>
   </section>
 
-  <section>
+  <section data-page="25">
     <h2>不要只相信“我完成了”</h2>
-    <div class="flow">
-      <span class="node">Task</span><span class="node">Trial</span><span class="node">Grader</span><span class="node">Trace</span><span class="node">Outcome</span><span class="node">Evaluation Suite</span>
-    </div>
-    <p class="small">来源：Anthropic, Demystifying evals for AI agents。</p>
+    <div class="flow"><span class="node">Task</span><span class="node">Trial</span><span class="node">Grader</span><span class="node">Trace</span><span class="node">Outcome</span><span class="node">Evaluation Suite</span></div>
   </section>
 
-  <section>
+  <section data-page="26">
     <h2>第 9 章：角色而非人</h2>
-    <div class="grid">
+    <div class="grid four">
       <div class="card"><strong>BA</strong><span>业务意图与验收标准。</span></div>
       <div class="card"><strong>DEV</strong><span>设计、实现、工程风险。</span></div>
       <div class="card"><strong>QA / UI</strong><span>可测性、业务路径、用户体验。</span></div>
+      <div class="card"><strong>Agent</strong><span>检索、执行、验证、总结。</span></div>
     </div>
-    <p class="lead"><span class="accent">Agent</span> 承担检索、执行、验证、总结等动作。</p>
   </section>
 
-  <section>
+  <section data-page="27">
     <h2>单仓库原则</h2>
     <div class="quote">仓库是 BA / DEV / QA / UI / Agent 共享的强状态空间。</div>
-    <p class="small">来源：用户项目 framing；OpenAI repository knowledge as system of record。</p>
   </section>
 
-  <section>
+  <section data-page="28">
     <h2>第 10 章：统一流程与单线程协作</h2>
-    <div class="flow">
-      <span class="node">需求</span><span class="arrow">→</span><span class="node">Tasking</span><span class="arrow">→</span><span class="node">澄清</span><span class="arrow">→</span><span class="node">设计</span><span class="arrow">→</span><span class="node">计划</span><span class="arrow">→</span><span class="node">实现</span><span class="arrow">→</span><span class="node">Review</span><span class="arrow">→</span><span class="node">测试</span><span class="arrow">→</span><span class="node">验收</span><span class="arrow">→</span><span class="node">代码输出</span>
-    </div>
+    <div class="flow"><span class="node">需求</span><span class="arrow">→</span><span class="node">Tasking</span><span class="arrow">→</span><span class="node">澄清</span><span class="arrow">→</span><span class="node">设计</span><span class="arrow">→</span><span class="node">计划</span><span class="arrow">→</span><span class="node">实现</span><span class="arrow">→</span><span class="node">Review</span><span class="arrow">→</span><span class="node">测试</span><span class="arrow">→</span><span class="node">验收</span><span class="arrow">→</span><span class="node">代码输出</span></div>
   </section>
 
-  <section>
+  <section data-page="29">
     <h2>Tasking 是前置知识整理</h2>
-    <ul>
-      <li>业务意图</li>
-      <li>用户路径</li>
-      <li>验收标准</li>
-      <li>边界条件</li>
-      <li>依赖关系</li>
-      <li>风险与未知项</li>
-    </ul>
+    <div class="grid">
+      <div class="card"><strong>业务意图</strong><span>为什么要做，解决谁的问题。</span></div>
+      <div class="card"><strong>用户路径</strong><span>用户如何触发、经过、完成。</span></div>
+      <div class="card"><strong>验收标准</strong><span>什么证据说明真的完成。</span></div>
+      <div class="card"><strong>边界条件</strong><span>哪些情况必须覆盖或明确排除。</span></div>
+      <div class="card"><strong>依赖关系</strong><span>上游、下游、并行冲突。</span></div>
+      <div class="card"><strong>风险未知项</strong><span>哪些要问，哪些要记录。</span></div>
+    </div>
   </section>
 
-  <section>
+  <section data-page="30">
     <h2>统一流程是资产生产线</h2>
-    <div class="flow">
-      <span class="node">输入</span><span class="node">输出</span><span class="node">状态</span><span class="node">角色</span><span class="node">检查点</span><span class="node">验收</span><span class="node">回写</span>
-    </div>
-    <p class="small">Skill、工程文件、Knowledge、类似 `SOUL.md` 的长期原则文件，都随流程维护。</p>
+    <div class="flow"><span class="node">输入</span><span class="node">输出</span><span class="node">状态</span><span class="node">角色</span><span class="node">检查点</span><span class="node">验收</span><span class="node">回写</span></div>
+    <p class="lead">流程中发现的新规则、新失败模式、新业务判断，要回写到 Skill、工程文件、Knowledge 或长期原则文件。</p>
   </section>
 
-  <section>
+  <section data-page="31">
     <h2>第 11 章：多线程协作流程</h2>
-    <div class="flow">
-      <span class="node">Epic</span><span class="arrow">→</span><span class="node">User Stories</span><span class="arrow">→</span><span class="node">依赖识别</span><span class="arrow">→</span><span class="node">Worktree 隔离</span><span class="arrow">→</span><span class="node">并行增量</span><span class="arrow">→</span><span class="node">验收汇合</span>
-    </div>
+    <div class="flow"><span class="node">Epic</span><span class="arrow">→</span><span class="node">User Stories</span><span class="arrow">→</span><span class="node">依赖识别</span><span class="arrow">→</span><span class="node">Worktree 隔离</span><span class="arrow">→</span><span class="node">并行增量</span><span class="arrow">→</span><span class="node">验收汇合</span></div>
   </section>
 
-  <section>
-    <h2>多线程不是跳过流程</h2>
-    <p class="lead">它是把统一流程复制到多个隔离工作流中，再通过依赖、状态和验收汇合。</p>
-  </section>
-
-  <section>
+  <section data-page="32">
     <h2>第 12 章：自动化与无人值守</h2>
     <div class="quote">长时间、低人工干预；不是完全自主魔法。</div>
+    <div class="flow"><span class="node">任务边界</span><span class="node">Worktree</span><span class="node">自动测试</span><span class="node">浏览器验证</span><span class="node">可观测</span><span class="node">人工 Gate</span><span class="node">失败回流</span></div>
   </section>
 
-  <section>
+  <section data-page="33">
     <h2>长时间运行需要强状态</h2>
     <div class="grid">
       <div class="card"><strong>Feature List</strong><span>知道要完成哪些增量。</span></div>
       <div class="card"><strong>Progress File</strong><span>知道现在做到哪里。</span></div>
       <div class="card"><strong>Clean State</strong><span>知道从哪里安全恢复。</span></div>
     </div>
-    <p class="small">来源：Anthropic, Effective harnesses for long-running agents。</p>
   </section>
 
-  <section>
-    <h2>自动化的边界</h2>
-    <div class="flow">
-      <span class="node">任务边界</span><span class="node">Worktree</span><span class="node">自动测试</span><span class="node">浏览器验证</span><span class="node">可观测</span><span class="node">人工 Gate</span><span class="node">失败回流</span>
-    </div>
-  </section>
-
-  <section>
+  <section data-page="34">
     <h2>第 13 章：Agent 设计</h2>
     <div class="grid">
       <div class="card"><strong>角色协议</strong><span>上下文、权限、输入、输出。</span></div>
@@ -288,7 +336,7 @@
     </div>
   </section>
 
-  <section>
+  <section data-page="35">
     <h2>提速来自哪里</h2>
     <ul>
       <li>上下文传递损耗下降。</li>
@@ -299,44 +347,25 @@
     </ul>
   </section>
 
-  <section>
-    <h2>AI 编排：从简单开始</h2>
-    <div class="flow">
-      <span class="node">Prompt Chaining</span><span class="node">Routing</span><span class="node">Parallelization</span><span class="node">Orchestrator-Workers</span><span class="node">Evaluator-Optimizer</span><span class="node">Agents</span>
-    </div>
-    <p class="small">来源：Anthropic, Building Effective Agents。</p>
-  </section>
-
-  <section>
+  <section data-page="36">
     <h2>工具层改造</h2>
     <div class="grid two">
       <div class="card"><strong>人类体验</strong><span>页面、说明、宽松输入、可读输出。</span></div>
       <div class="card"><strong>智能体体验</strong><span>JSON、schema、字段裁剪、稳定错误码、权限边界、输入防御。</span></div>
     </div>
-    <p class="small">来源：CLI for AI Agents。</p>
   </section>
 
-  <section>
-    <h2>展望</h2>
-    <ul>
-      <li>框架稳定后，应沉淀为工具、模板、规则、测试、Skill 或 workflow。</li>
-      <li>架构形态会被 AI 重新塑造。</li>
-      <li>AI 不是降低设计重要性，而是提高设计杠杆。</li>
-      <li>Agent Teams 是展望，不是成熟完全自治结论。</li>
-    </ul>
-  </section>
-
-  <section>
+  <section data-page="37">
     <h2>最后带走一句话</h2>
     <div class="quote">AI-native workflow 是模型推理、流程约束和状态反馈的动态系统。</div>
   </section>
 
-  <section>
-    <h2>引用说明</h2>
+  <section data-page="38">
+    <h2>参考来源</h2>
     <ul>
       <li>完整引用列表见 `_output/final-speech.md`。</li>
-      <li>用户原创观点按项目 framing 表达。</li>
-      <li>弱证据内容已降级：ProMaster、自动解析依赖、Agent Teams、工具推荐、精确数字。</li>
+      <li>第 0 章吸收归档文章关于过早收束、方法论分层、SDD/MAS 治理价值的论述。</li>
+      <li>弱证据内容已弱化：自动解析依赖、Agent Teams、工具推荐、精确数字。</li>
     </ul>
   </section>
 </main>

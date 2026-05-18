@@ -6,7 +6,7 @@ Project: ai-work-system-speech-20260518
 
 本次核验读取了 `references/methodology/data-sources.md`、`references/methodology/output-template.md`、`workspace/research/source-inventory.md`、`workspace/research/raw-notes.md`、`workspace/research/synthesis.md`，并抽查了关键本地归档与视觉摘取材料。`source-inventory.md` 中登记的本地证据路径均存在；MindFlow 与 POMASA 资料使用 GitHub URL 与本地 web archive，未使用本机绝对路径。
 
-总体判断：`synthesis.md` 的主线可支撑最终写作，但其中相当一部分是用户原创工程框架，不能写成外部资料已有结论。外部来源能支撑工程化、harness、eval、上下文管理、长时间 agent、POMASA 强状态、MindFlow 知识分层等事实与实践；对 ProMaster、数字民主化、状态控制三分法、Knowledge / Story / Flyway 类比、自动解析 Story 依赖、完全无人值守、具体指标与工具选型的证据较弱，需要降级或明确标为用户观点。
+总体判断：`synthesis.md` 的主线可支撑最终写作，但其中相当一部分是用户原创工程框架，不能写成外部资料已有结论。外部来源能支撑工程化、harness、eval、上下文管理、长时间 agent、POMASA 强状态、MindFlow 知识分层等事实与实践；已移除材料 已从本轮写作范围移除；对数字民主化、状态控制三分法、Knowledge / Story / Flyway 类比、自动解析 Story 依赖、完全无人值守、具体指标与工具选型的证据较弱，需要降级或明确标为用户观点。
 
 Completion standards: passed with cautions. 关键来源均有状态判断；关键外部事实和案例有来源 ID；用户原创观点已标为 USER；不可核验内容已列出降级、修改或删除建议；输出未包含本机绝对路径。
 
@@ -73,7 +73,7 @@ Completion standards: passed with cautions. 关键来源均有状态判断；关
 | POMASA 架构包含定义层、执行层、数据层，文件系统作为数据总线。 | SRC-026 | Keep | 可强讲。 |
 | POMASA Skill 强调 Prompt-Defined Agent、Orchestrated Pipeline、Filesystem Data Bus、Verifiable Data Lineage。 | SRC-027 | Keep | 可强讲。 |
 | MAS 不是多个 Agent 聊天，而是强状态、多阶段、多产物编排。 | USER-005, SRC-026, SRC-027, SRC-013 | Keep | 可强讲为项目判断；外部材料支撑 workflows/agents 和 POMASA 机制。 |
-| ProMaster / POMASA 章节中的 ProMaster 具体事实。 | USER-005 | Remove or Revise | 当前无独立 ProMaster 来源；保留章节名可以，具体事实只写 POMASA 或“这类实践”。 |
+| POMASA 与 MAS 章节。 | USER-005, SRC-026, SRC-027 | Keep | 已移除材料 已移除；本章只写 POMASA 与强状态 MAS。 |
 | 状态控制三分法：强约束固定、有建议的 AI 自主判断、完全 AI 控制。 | USER-006, USER-008, SRC-011, SRC-013, SRC-017 | Keep with attribution | 用户原创分类；外部资料支撑控制思想，不是三分法来源。 |
 | 可靠性与灵活性反向相关。 | USER-006, SRC-013 | Revise | 可作为工程经验表达；不要写成严格定律。 |
 | Skill、工程文件、Rules 都是可执行知识。 | USER-006, SRC-001, SRC-017, SRC-018, SRC-027 | Keep | 可强讲为项目框架。 |
@@ -140,14 +140,14 @@ Completion standards: passed with cautions. 关键来源均有状态判断；关
 ### 不得使用或必须删除
 
 - 不得使用本机绝对路径；MindFlow 与 POMASA 引用 GitHub URL 或本地 archive repository-relative path。
-- 不得把 ProMaster 写成有外部证据支撑的具体案例；当前只可保留章节名或泛称“这类实践”。
+- 已移除材料 已从本轮写作范围移除；不得再在正文或 HTML 中使用。
 - 不得把 Agent Teams、自动化、无人值守写成完全自治组织或完全无需人工 gate。
 - 不得把“AI 提速”写成 token 生成更快或代码量更多。
 - 不得把未经核验的工具/平台能力、pass@k vs pass^k、Promptfoo/Braintrust/LangSmith/Langfuse、SWE-bench/Terminal-Bench 写成确定推荐或详细对比。
 
 ## Removal or Revision List
 
-1. ProMaster 具体事实：Remove 或 Revise。当前无独立来源；如无补充材料，章节名可保留为“ProMaster / POMASA”，内容聚焦 POMASA。
+1. 已移除材料：Remove。本轮写作不再使用 已移除材料 相关材料，章节统一为 POMASA 与 MAS。
 2. 数字民主化：Downgrade。作为用户原创愿景表达，不作为外部事实。
 3. 状态控制三分法：Revise。标明为演讲者工程分类，外部材料只作支撑。
 4. Knowledge / Story / Flyway 类比：Revise。标明为用户原创类比，不需外部证明，但不能延伸为 Flyway 官方定义。

@@ -64,7 +64,7 @@ Knowledge 与 Story 的关系是本演讲的知识工程核心。Story 是动态
   - 必须保留“软件即知识、Agent 系统即知识、AI 作为未来新软件与数字民主化”。
   - 数字民主化属于用户原创判断，应作为项目观点表达，不要伪装为外部事实。
 
-### 3. ProMaster / POMASA 与 MAS 的强状态
+### 3. POMASA 与 MAS 的强状态
 - Purpose: 纠正“MAS = 多个 Agent 聊天”的误解，把 MAS 讲成围绕状态推进的编排系统。
 - Key Arguments:
   - MAS 的关键是：谁读取什么，谁产出什么，产物放在哪里，谁验收，失败如何回流，下一步由谁接手。
@@ -73,8 +73,7 @@ Knowledge 与 Story 的关系是本演讲的知识工程核心。Story 是动态
   - AI-native workflow = 模型推理 + 流程约束 + 状态反馈的动态系统。
 - Evidence: [USER-005][SRC-013][SRC-026][SRC-027][SRC-028]
 - Writing Notes:
-  - “ProMaster / POMASA”按用户章节名保留；证据主要来自 POMASA。
-  - 如果写到 ProMaster 具体事实，当前证据不足，应弱化为“这一类实践”。
+  - 本章不再使用 已移除材料；内容聚焦 POMASA 与强状态 MAS。
   - 不要把 MAS 讲成炫技，重点讲状态、产物、验收、回流。
 
 ### 4. 状态控制三分法
@@ -228,7 +227,7 @@ Knowledge 与 Story 的关系是本演讲的知识工程核心。Story 是动态
 | 0. 为什么还要工程化与 SDD | [USER-001][USER-002][SRC-011][SRC-002][SRC-017] | 中低端模型“过早收束”主要来自用户判断，可作为工程经验表达，避免写成外部研究结论。 |
 | 1. 软件基本功 | [USER-003][USER-008][SRC-001][SRC-003][SRC-017][SRC-018] | SoC/OOP 到 AI 文件工程是概念迁移，属于分析框架，不应声称外部资料逐字提出。 |
 | 2. MindFlow | [USER-004][SRC-012][SRC-022][SRC-023][SRC-024][SRC-025] | 数字民主化是用户原创判断；MindFlow 具体描述使用 GitHub URL 或本地 web archive，不用本机绝对路径。 |
-| 3. ProMaster / POMASA 与 MAS | [USER-005][SRC-013][SRC-026][SRC-027][SRC-028] | ProMaster 缺少独立证据，应弱化具体事实，主证据放在 POMASA。 |
+| 3. POMASA 与 MAS | [USER-005][SRC-013][SRC-026][SRC-027][SRC-028] | 主证据放在 POMASA；不再使用 已移除材料 相关材料。 |
 | 4. 状态控制三分法 | [USER-006][USER-008][SRC-011][SRC-013][SRC-017] | 三分法是用户原创工程分类，外部资料只作支撑。 |
 | 5. Skill、工程文件与 Rules | [USER-006][SRC-001][SRC-011][SRC-017][SRC-018][SRC-019][SRC-027] | Skill 生命周期不要采用未确认方案；强调验收标准即可。 |
 | 6. Knowledge 与 Story | [USER-004][USER-007][SRC-002][SRC-004][SRC-012][SRC-014] | Knowledge/Story 定义为用户原创概念，需保留原意。 |
@@ -243,7 +242,7 @@ Knowledge 与 Story 的关系是本演讲的知识工程核心。Story 是动态
 
 ## Risk and Gap Notes
 
-1. ProMaster 证据不足。用户章节要求写“ProMaster / POMASA”，但当前 source inventory 和 raw notes 中主要证据是 POMASA。写作时可保留章节名，但具体事实应围绕 POMASA；ProMaster 若无补充来源，只能作为用户语境中的并列实践提及。
+1. 已移除材料 相关材料已从本轮写作范围移除。POMASA 与 MAS 章节只围绕 POMASA 和强状态编排展开。
 
 2. 状态控制三分法、Knowledge / Story、Flyway Migration 类比、AI 是未来新软件、数字民主化等是用户原创观点。它们必须保留，但引用方式应标注为项目观点或用户输入，不要伪装成外部资料结论。
 
@@ -265,7 +264,7 @@ Knowledge 与 Story 的关系是本演讲的知识工程核心。Story 是动态
    0. 为什么还要工程化与 SDD。
    1. 软件基本功：SoC、抽象/面向对象、文件目录结构。
    2. MindFlow 的自我演进与知识工程。
-   3. ProMaster / POMASA 与 MAS 的强状态。
+   3. POMASA 与 MAS 的强状态。
    4. 状态控制三分法。
    5. Skill、工程文件与 Rules。
    6. Knowledge 与 Story。
