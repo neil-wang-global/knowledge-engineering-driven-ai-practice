@@ -140,3 +140,9 @@ Archived web pages for the speech manuscript. Each entry includes the source URL
   - Markdown: `references/web/23-www-inngest-com-blog-your-agent-needs-a-harness-not-a-framework.md`
   - HTML: `references/web/23-www-inngest-com-blog-your-agent-needs-a-harness-not-a-framework.html`
   - Screenshot: `references/web/23-www-inngest-com-blog-your-agent-needs-a-harness-not-a-framework.png`
+- 当顶尖 Agent 模型越来越会自己干活，Prompt Engineering、SDD、MAS 还剩什么价值
+  - Source: https://mp.weixin.qq.com/s/b4Fh-3SQyWiB1HypUxk9wA
+  - Status: 200
+  - Markdown: `references/web/24-mp-weixin-qq-com-s-b4Fh-3SQyWiB1HypUxk9wA.md`
+  - HTML: `references/web/24-mp-weixin-qq-com-s-b4Fh-3SQyWiB1HypUxk9wA.html`
+  - Screenshot: `references/web/24-mp-weixin-qq-com-s-b4Fh-3SQyWiB1HypUxk9wA.png`
