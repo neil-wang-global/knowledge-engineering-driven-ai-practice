@@ -71,17 +71,35 @@
     .step { border:1px solid var(--line); border-radius:22px; padding:20px; background:rgba(17,24,39,.72); min-height:190px; margin-bottom:8px; }
     .step b { display:block; color:var(--accent); font-size:clamp(18px,1.55vw,24px); margin-bottom:10px; }
     .step span { color:var(--muted); font-size:clamp(15px,1.25vw,20px); line-height:1.4; }
+    .rail { display:grid; grid-template-columns:repeat(4,1fr); gap:18px; max-width:1320px; align-items:stretch; }
+    .rail.three { grid-template-columns:repeat(3,1fr); }
+    .rail.five { grid-template-columns:repeat(5,1fr); }
+    .rail-card { position:relative; border:1px solid var(--line); border-radius:24px; padding:22px; background:linear-gradient(180deg, rgba(17,24,39,.86), rgba(30,41,59,.58)); min-height:230px; box-shadow:var(--shadow); }
+    .rail-card::after { content:"→"; position:absolute; right:-18px; top:42%; color:var(--accent); font-size:30px; }
+    .rail-card:last-child::after { content:""; }
+    .rail-card b { display:block; color:var(--text); font-size:clamp(20px,1.8vw,28px); margin-bottom:10px; }
+    .rail-card span { display:block; color:var(--muted); font-size:clamp(15px,1.25vw,20px); line-height:1.42; }
+    .tool { display:inline-block; margin:10px 8px 0 0; padding:7px 11px; border-radius:999px; background:rgba(167,139,250,.18); border:1px solid rgba(167,139,250,.42); color:var(--text); font-size:clamp(13px,1.05vw,17px); }
+    .swimlane { display:grid; grid-template-columns:.7fr repeat(4,1fr); gap:10px; max-width:1320px; }
+    .lane-head,.lane-cell { border:1px solid var(--line); border-radius:16px; padding:14px; background:rgba(17,24,39,.7); min-height:96px; }
+    .lane-head { color:var(--accent); font-weight:800; font-size:clamp(18px,1.5vw,24px); }
+    .lane-cell { color:var(--muted); font-size:clamp(14px,1.15vw,18px); line-height:1.35; }
+    .risk-grid { display:grid; grid-template-columns:1.1fr 1fr 1fr; gap:20px; max-width:1320px; }
+    .risk-panel { border:1px solid var(--line); border-radius:26px; padding:24px; background:rgba(17,24,39,.72); min-height:360px; }
+    .risk-panel h3 { color:var(--text); }
+    .source-list { columns:2; column-gap:48px; max-width:1320px; }
+    .source-list li { break-inside:avoid; font-size:clamp(15px,1.25vw,20px); margin:0 0 10px; }
     .accent { color:var(--accent); } .purple { color:var(--accent2); } .ok { color:var(--ok); } .warn { color:var(--warn); } .bad { color:var(--bad); }
-    @media (max-width: 980px) { .grid,.grid.two,.grid.four,.compare,.compare.two,.matrix,.funnel,.timeline { grid-template-columns:1fr; } section { padding:5vh 6vw; } .axis-y { display:none; } .layer { grid-template-columns:1fr; } }
+    @media (max-width: 980px) { .grid,.grid.two,.grid.four,.compare,.compare.two,.matrix,.funnel,.timeline,.rail,.rail.three,.rail.five,.swimlane,.risk-grid { grid-template-columns:1fr; } section { padding:5vh 6vw; } .axis-y { display:none; } .layer { grid-template-columns:1fr; } .rail-card::after { display:none; } .source-list { columns:1; } }
   </style>
 </head>
 <body>
 <main>
   <section data-page="01">
-    <div class="kicker">AI Work System Speech</div>
+    <div class="kicker">knowledge-engineering-driven-ai-practice</div>
     <h1>知识工程驱动的 AI 实践</h1>
     <p class="lead">从 AI Coding 到可运行、可协作、可演进的 AI 工作系统。</p>
-    <p class="small">60-90 分钟演讲 · 技术团队 / 客户技术听众</p>
+    <p class="small">王唯力 Neil Wang</p>
   </section>
 
   <section data-page="02">
@@ -195,6 +213,7 @@
       <div class="layer"><strong>Plan / Task State</strong><span>执行路径与当前状态，让任务跨上下文窗口可恢复。</span></div>
       <div class="layer"><strong>Reflection</strong><span>复盘、沉淀、更新，让失败变成下一次执行的资产。</span></div>
     </div>
+    <p class="small">GitHub: https://github.com/neil-wang-global/MindFlow · Paper: https://zenodo.org/records/18977748</p>
   </section>
 
   <section data-page="12">
@@ -241,6 +260,7 @@
       <div class="card"><strong>Filesystem Data Bus</strong><span>文件系统承载多角色产物流转，降低对聊天上下文的依赖。</span></div>
       <div class="card"><strong>Verifiable Data Lineage</strong><span>产物来源、验收、回流可追踪，出错时能定位阶段。</span></div>
     </div>
+    <p class="small">GitHub: https://github.com/eXtremeProgramming-cn/pomasa</p>
   </section>
 
   <section data-page="16">
@@ -376,14 +396,6 @@
     </div>
   </section>
 
-  <section data-page="24">
-    <h2>第 8 章：验收 Skill 与 Story</h2>
-    <div class="grid two">
-      <div class="card"><strong>Skill 验收</strong><span>触发、输入、步骤、输出、权限、副作用、验证、下游消费；重点是能否稳定复用。</span></div>
-      <div class="card"><strong>Story 验收</strong><span>业务意图、AC、依赖、边界、可测试性、知识沉淀；重点是是否进入当前状态。</span></div>
-    </div>
-  </section>
-
 
   <section data-page="26">
     <h2>第 9 章：角色而非人</h2>
@@ -403,45 +415,48 @@
   </section>
 
   <section data-page="27A">
-    <h2>UI 流程：从用户路径到可点击界面</h2>
-    <div class="grid">
-      <div class="card"><strong>调度 Figma MCP</strong><span>把 Story 和用户路径转成页面草图、组件结构、布局方案，让 AI 直接进入可视化协作。</span></div>
-      <div class="card"><strong>调用 UI/UX Pro Max</strong><span>检查信息架构、交互路径、空态、错态、加载态和文案，让页面不是“能看”，而是“能用”。</span></div>
-      <div class="card"><strong>检查方式</strong><span>用浏览器走查、截图对比、可访问性基础检查、用户路径回放，确认设计真的承接 BA 的业务意图。</span></div>
+    <h2>UI 技能调度：从用户路径到可点击界面</h2>
+    <div class="rail four">
+      <div class="rail-card"><b>读取 Story</b><span>拿到用户路径、业务意图、关键状态和验收标准。</span><em class="tool">BA Scope</em><em class="tool">AC</em></div>
+      <div class="rail-card"><b>页面结构</b><span>把路径翻译成页面、组件、布局和信息层级。</span><em class="tool">Figma MCP</em></div>
+      <div class="rail-card"><b>交互设计</b><span>补齐空态、错态、加载态、反馈文案和操作路径。</span><em class="tool">UI/UX Pro Max</em></div>
+      <div class="rail-card"><b>可用性检查</b><span>用浏览器走查、截图对比和路径回放确认“能用”。</span><em class="tool">Browser</em><em class="tool">Snapshot</em></div>
     </div>
-    <p class="note">UI 角色的核心不是画漂亮页面，而是把业务路径翻译成可操作、可验证、可交付的交互状态。</p>
+    <p class="note">UI 角色不是单纯画图，而是把业务路径调度成可操作、可验证、可交付的交互状态。</p>
   </section>
 
   <section data-page="27B">
-    <h2>Dev 流程：用 SDD 框架把编码变成工程动作</h2>
-    <div class="grid four">
-      <div class="card"><strong>BMAD</strong><span>适合从业务目标拆角色、产物和执行步骤，帮助 Agent 先理解系统再动手。</span></div>
-      <div class="card"><strong>OpenSpec</strong><span>把需求、接口、约束和验收写成规范，减少“边写边猜”。</span></div>
-      <div class="card"><strong>SpecKit</strong><span>把规格、计划、任务和实现连接起来，适合演示从 Spec 到代码的闭环。</span></div>
-      <div class="card"><strong>Superpowers</strong><span>用 Skill 驱动设计、计划、执行和验证，让 Agent 按工程纪律推进。</span></div>
+    <h2>Dev 技能调度：Tasking 进入编码流水线</h2>
+    <div class="rail five">
+      <div class="rail-card"><b>Tasking</b><span>把 Scope、边界、依赖和风险拆成可执行任务。</span><em class="tool">BMAD</em><em class="tool">Superpowers</em></div>
+      <div class="rail-card"><b>Spec / Plan</b><span>先写规格、接口、约束和执行计划，避免边写边猜。</span><em class="tool">OpenSpec</em><em class="tool">SpecKit</em></div>
+      <div class="rail-card"><b>测试先行</b><span>从 QA 用例生成单元、集成和关键路径测试。</span><em class="tool">TDD</em><em class="tool">E2E</em></div>
+      <div class="rail-card"><b>AI Coding</b><span>让 Agent 在同一知识体系下实现，而不是自由发挥。</span><em class="tool">Claude Code</em></div>
+      <div class="rail-card"><b>Review / 重构</b><span>检查风格、边界、覆盖率、可维护性，并执行必要重构。</span><em class="tool">Code Review</em><em class="tool">Refactor</em></div>
     </div>
-    <p class="note">Demo 里可以重点展示：Tasking 进入 Dev 环节后，先形成规格和测试，再让 AI 编码，最后用测试和 Review 收口。</p>
+    <p class="note">Dev 流程的重点是让编码成为被规格、测试和 Review 约束的工程动作。</p>
   </section>
 
   <section data-page="27C">
-    <h2>BA + QA：开卡时就把测试拉进来</h2>
-    <div class="timeline">
-      <div class="step"><b>BA 拆需求</b><span>把模糊需求拆成 Story、Scope、业务规则、边界条件和验收标准。</span></div>
-      <div class="step"><b>AI 生成用例</b><span>基于 Scope 直接生成大量测试场景：主路径、异常路径、权限边界、状态变化。</span></div>
-      <div class="step"><b>QA 开卡介入</b><span>检查测试用例是否齐全，不足就补，不等开发完成后再补洞。</span></div>
-      <div class="step"><b>Dev 测试先行</b><span>先生成测试，再写代码，始终以同一组 QA/BA 认可的测试为标准。</span></div>
-      <div class="step"><b>统一 Scope</b><span>Dev 和 QA 不再各说各话，所有实现和验收都围绕同一个 Scope 工作。</span></div>
+    <h2>BA + QA 技能调度：开卡时就定义质量</h2>
+    <div class="swimlane">
+      <div class="lane-head">角色</div><div class="lane-head">开卡</div><div class="lane-head">生成</div><div class="lane-head">校准</div><div class="lane-head">交付标准</div>
+      <div class="lane-head">BA</div><div class="lane-cell">拆 Story、Scope、业务规则和验收标准。</div><div class="lane-cell">让 AI 扩展用户路径与边界条件。</div><div class="lane-cell">确认业务意图没有被测试用例误读。</div><div class="lane-cell">业务路径可证明，AC 可测试。</div>
+      <div class="lane-head">QA</div><div class="lane-cell">开卡阶段介入，而不是开发后补洞。</div><div class="lane-cell">生成主路径、异常、权限、状态测试。</div><div class="lane-cell">补足遗漏用例，统一 Scope。</div><div class="lane-cell">测试用例成为 Dev 的执行标准。</div>
+      <div class="lane-head">Dev</div><div class="lane-cell">读取同一 Scope 和 QA 用例。</div><div class="lane-cell">先生成测试，再写实现。</div><div class="lane-cell">用失败测试驱动修复。</div><div class="lane-cell">通过测试后再进入 Review。</div>
     </div>
   </section>
 
   <section data-page="27D">
-    <h2>AI Coding + Review：知识体系让代码不跑偏</h2>
-    <div class="compare">
-      <div><h3>编码前</h3><p>AI 读取 Story、Spec、测试用例、工程规则、SOUL.md 和相关 Skill，先进入同一个知识体系。</p></div>
-      <div><h3>编码中</h3><p>按测试先行推进：单元测试、集成测试、E2E 测试逐步收口，不让实现脱离验收标准。</p></div>
-      <div><h3>编码后</h3><p>Review 技能检查代码风格、测试符合度、边界覆盖、可维护性和重构机会。</p></div>
+    <h2>AI Coding + Review：从知识输入到可用性确认</h2>
+    <div class="rail five">
+      <div class="rail-card"><b>知识装载</b><span>读取 Story、Spec、测试、工程规则、SOUL.md 和相关 Skill。</span><em class="tool">Knowledge</em></div>
+      <div class="rail-card"><b>编码执行</b><span>按计划实现最小增量，不自行扩大范围。</span><em class="tool">AI Coding</em></div>
+      <div class="rail-card"><b>自动测试</b><span>单元、集成、E2E 分层验证，Playwright 可做浏览器点击与录制回放。</span><em class="tool">Unit</em><em class="tool">Playwright</em></div>
+      <div class="rail-card"><b>Review 重构</b><span>检查代码风格、测试符合度、边界覆盖、可维护性和重构机会。</span><em class="tool">Review Skill</em></div>
+      <div class="rail-card"><b>验收回写</b><span>把通过证据、失败模式和新规则写回 Knowledge。</span><em class="tool">Eval Case</em><em class="tool">ADR</em></div>
     </div>
-    <p class="note">代码是否确信可用，不靠 Agent 自信，而靠 QA 测试用例和 Review 体系共同确认。</p>
+    <p class="note">代码是否确信可用，不靠 Agent 自信，而靠 QA 测试用例、自动化测试和 Review 体系共同确认。</p>
   </section>
 
   <section data-page="27E">
@@ -453,7 +468,12 @@
 
   <section data-page="28">
     <h2>第 10 章：统一流程与协同调度</h2>
-    <div class="flow"><span class="node">需求</span><span class="arrow">→</span><span class="node">Scope / Tasking</span><span class="arrow">→</span><span class="node">测试用例</span><span class="arrow">→</span><span class="node">UI / Spec</span><span class="arrow">→</span><span class="node">编码</span><span class="arrow">→</span><span class="node">Review</span><span class="arrow">→</span><span class="node">自动化测试</span><span class="arrow">→</span><span class="node">验收回写</span></div>
+    <div class="swimlane">
+      <div class="lane-head">阶段</div><div class="lane-head">输入</div><div class="lane-head">角色动作</div><div class="lane-head">检查方式</div><div class="lane-head">回写资产</div>
+      <div class="lane-head">开卡</div><div class="lane-cell">需求、用户路径、业务目标。</div><div class="lane-cell">BA 拆 Scope，QA 补测试视角。</div><div class="lane-cell">AC 是否可测，边界是否清楚。</div><div class="lane-cell">Story / Scope / Test Case。</div>
+      <div class="lane-head">实现</div><div class="lane-cell">Spec、Plan、测试用例、工程规则。</div><div class="lane-cell">Dev 调度 SDD 框架，Agent 编码。</div><div class="lane-cell">单元、集成、E2E、Review。</div><div class="lane-cell">代码、ADR、Skill 更新。</div>
+      <div class="lane-head">验收</div><div class="lane-cell">测试结果、Review 结论、浏览器证据。</div><div class="lane-cell">BA / QA / UI 共同确认业务路径。</div><div class="lane-cell">Outcome 优先，不看自述完成。</div><div class="lane-cell">Knowledge / Eval Case / SOUL.md。</div>
+    </div>
     <p class="note">重点不是把流程画长，而是让每个角色在同一个 Scope、同一组测试、同一个仓库知识体系下协同工作。</p>
   </section>
 
@@ -464,25 +484,31 @@
   </section>
 
   <section data-page="30A">
-    <h2>先跑通单线程，再谈并行</h2>
-    <div class="stack">
-      <div class="layer"><strong>单线程闭环</strong><span>一个需求能从输入到验收稳定跑通。</span></div>
-      <div class="layer"><strong>多线程并行</strong><span>把统一流程复制到多个隔离 worktree。</span></div>
-      <div class="layer"><strong>长时间运行</strong><span>依赖 progress file、feature list、clean state。</span></div>
-      <div class="layer"><strong>低人工干预</strong><span>自动化检查 + 人工 gate + 失败回流。</span></div>
+    <h2>从单线程到低人工干预</h2>
+    <div class="rail four">
+      <div class="rail-card"><b>单线程闭环</b><span>一个需求先能从输入、实现、测试到验收稳定跑通。</span></div>
+      <div class="rail-card"><b>Worktree 并行</b><span>把统一流程复制到多个隔离增量，不把并行当成自由发挥。</span></div>
+      <div class="rail-card"><b>长时间运行</b><span>用 feature list、progress file、clean state 保持状态连续。</span></div>
+      <div class="rail-card"><b>低人工干预</b><span>自动检查、可观测、人工 gate 和失败回流共同兜底。</span></div>
     </div>
+    <p class="note">这三章讲的是一件事：先把闭环做稳，再把稳定闭环复制到并行和长时间运行里。</p>
   </section>
 
   <section data-page="31">
-    <h2>第 11 章：多线程协作流程</h2>
-    <div class="flow"><span class="node">Epic</span><span class="arrow">→</span><span class="node">User Stories</span><span class="arrow">→</span><span class="node">依赖识别</span><span class="arrow">→</span><span class="node">Worktree 隔离</span><span class="arrow">→</span><span class="node">并行增量</span><span class="arrow">→</span><span class="node">验收汇合</span></div>
-    <p class="note">Worktree 是隔离机制，不是随意并发；每条线程仍然需要状态、测试、Review、合并门禁和知识回写。</p>
+    <h2>多线程不是更多 Agent 同时写代码</h2>
+    <div class="swimlane">
+      <div class="lane-head">层次</div><div class="lane-head">拆分</div><div class="lane-head">隔离</div><div class="lane-head">验证</div><div class="lane-head">汇合</div>
+      <div class="lane-head">Epic</div><div class="lane-cell">拆成可验收 User Story。</div><div class="lane-cell">识别共享接口和依赖。</div><div class="lane-cell">定义全局验收路径。</div><div class="lane-cell">确认业务目标满足。</div>
+      <div class="lane-head">Story</div><div class="lane-cell">明确 Scope、AC、边界。</div><div class="lane-cell">进入独立 worktree。</div><div class="lane-cell">运行测试、Review、浏览器验证。</div><div class="lane-cell">合并前回写状态和知识。</div>
+      <div class="lane-head">Gate</div><div class="lane-cell">判断是否可并行。</div><div class="lane-cell">避免互相覆盖。</div><div class="lane-cell">重跑合并后验证。</div><div class="lane-cell">统一验收和失败回流。</div>
+    </div>
   </section>
 
   <section data-page="32">
-    <h2>第 12 章：自动化与无人值守</h2>
-    <div class="quote">长时间、低人工干预；不是完全自主魔法。</div>
-    <div class="flow"><span class="node">任务边界</span><span class="node">Worktree</span><span class="node">自动测试</span><span class="node">浏览器验证</span><span class="node">可观测</span><span class="node">人工 Gate</span><span class="node">失败回流</span></div>
+    <h2>低人工干预：降低沟通损耗，不是取消治理</h2>
+    <div class="quote">人月神话讲的是沟通损耗；结构化知识让 AI 协作的沟通损耗大幅下降。</div>
+    <div class="flow"><span class="node">任务边界</span><span class="node">Worktree</span><span class="node">Progress File</span><span class="node">自动测试</span><span class="node">可观测</span><span class="node">人工 Gate</span></div>
+    <p class="note">当 Agent 共享同一套知识资产、状态文件和验收标准，软件迭代速度的跃迁来自协作结构变化，而不是 token 生成更快。</p>
   </section>
 
   <section data-page="33">
@@ -495,14 +521,6 @@
     <p class="note">无人值守的前提不是“没人管”，而是状态足够清楚、验证足够自动、风险点有人工 gate。</p>
   </section>
 
-  <section data-page="34">
-    <h2>第 13 章：Agent 设计</h2>
-    <div class="grid">
-      <div class="card"><strong>角色协议</strong><span>上下文、权限、输入、输出；Agent 不是万能助手，而是流程节点。</span></div>
-      <div class="card"><strong>契约</strong><span>完成条件、错误处理、副作用；让 Agent 知道什么时候停。</span></div>
-      <div class="card"><strong>验收</strong><span>测试、trace、outcome、回写；让完成声明有证据。</span></div>
-    </div>
-  </section>
 
   <section data-page="35">
     <h2>提速来自哪里</h2>
@@ -523,8 +541,154 @@
 
   <section data-page="36A">
     <h2>Agent 是不受信任的操作员</h2>
-    <div class="flow"><span class="node">最小权限</span><span class="node">结构化输入</span><span class="node">稳定错误码</span><span class="node">副作用可控</span><span class="node">危险动作确认</span><span class="node">trace 可回看</span></div>
-    <p class="note">工具层要做纵深防御：不要把安全、权限和副作用控制交给模型记忆。</p>
+    <div class="risk-grid">
+      <div class="risk-panel"><h3>为什么不能默认信任</h3><p>Agent 没有恶意，但会误解上下文、过早收束、遗漏边界，也会把看起来合理的动作当成正确动作。</p></div>
+      <div class="risk-panel"><h3>人类操作员</h3><p>会停下来问、能读空气、知道组织禁区，很多约束来自经验和责任。</p></div>
+      <div class="risk-panel"><h3>Agent 操作员</h3><p>只能依赖上下文、工具协议和反馈信号；如果工具层没有边界，它就会把风险带进系统。</p></div>
+    </div>
+  </section>
+
+  <section data-page="36B">
+    <h2>纵深防御：不要靠模型记住安全边界</h2>
+    <div class="rail three">
+      <div class="rail-card"><b>最小权限</b><span>默认只给完成任务所需权限，写入、删除、发布、生产操作都要显式授权。</span><em class="tool">Permission</em></div>
+      <div class="rail-card"><b>结构化输入</b><span>工具输入用 schema、枚举和字段裁剪，减少 prompt 注入和参数误解。</span><em class="tool">JSON</em><em class="tool">Schema</em></div>
+      <div class="rail-card"><b>副作用隔离</b><span>高风险动作先预览、再确认、再执行，执行后留下可回看的 trace。</span><em class="tool">Confirm</em><em class="tool">Trace</em></div>
+    </div>
+  </section>
+
+  <section data-page="36C">
+    <h2>Agent 友好的工具协议</h2>
+    <div class="compare">
+      <div><h3>稳定错误码</h3><p>不要只返回“失败了”，要让 Agent 知道是权限、校验、网络、状态冲突还是服务端错误。</p></div>
+      <div><h3>可审计轨迹</h3><p>记录读了什么、改了什么、调用了什么工具、为什么停下，Review 才能判断是否可信。</p></div>
+      <div><h3>可恢复状态</h3><p>失败后能回到安全状态，下一轮 Agent 能从状态文件和工具结果继续，而不是重新猜。</p></div>
+    </div>
+    <p class="note">工具层的目标不是限制 AI，而是把不确定性关在可观察、可回滚、可验收的边界内。</p>
+  </section>
+
+  <section data-page="36D">
+    <h2>最后一个议题：先选形态，再谈 Agent</h2>
+    <div class="compare">
+      <div><h3>Workflow</h3><p>路径预定义，LLM 和工具按固定代码路径执行。适合可拆解、验收明确、需要一致性的任务。</p></div>
+      <div><h3>Agent</h3><p>模型动态决定步骤和工具。适合开放、多轮、路径难以预判的问题。</p></div>
+      <div><h3>选择原则</h3><p>先用最简单方案，只有当复杂度明确改善 outcome 时才升级。</p></div>
+    </div>
+    <p class="note">建立有效代理不是追求最复杂，而是为问题选择合适的复杂度。</p>
+  </section>
+
+  <section data-page="36E">
+    <h2>Prompt Chaining：把大任务切成固定链路</h2>
+    <div class="rail four">
+      <div class="rail-card"><b>Step 1</b><span>先产出中间结果，例如大纲、方案、草稿。</span></div>
+      <div class="rail-card"><b>Gate</b><span>用程序或模型检查中间结果是否达标。</span><em class="tool">Check</em></div>
+      <div class="rail-card"><b>Step 2</b><span>下一步只处理上一步通过后的产物。</span></div>
+      <div class="rail-card"><b>Outcome</b><span>用更小、更清晰的任务换取更高准确率。</span></div>
+    </div>
+    <p class="note">适合能清晰拆成固定子任务的问题；优势是稳，代价是多轮调用带来延迟。</p>
+  </section>
+
+  <section data-page="36F">
+    <h2>Routing：先分类，再进入专门流程</h2>
+    <div class="flow"><span class="node">输入</span><span class="arrow">→</span><span class="node">分类器</span><span class="arrow">→</span><span class="node">流程 A</span><span class="node">流程 B</span><span class="node">流程 C</span><span class="arrow">→</span><span class="node">结果</span></div>
+    <div class="grid three">
+      <div class="card"><strong>解决问题</strong><span>不同类型输入需要不同提示、工具、模型或权限。</span></div>
+      <div class="card"><strong>优势</strong><span>SoC 清晰，避免一个提示同时优化所有场景。</span></div>
+      <div class="card"><strong>风险</strong><span>分类错了，后面的专业流程会越做越偏。</span></div>
+    </div>
+  </section>
+
+  <section data-page="36G">
+    <h2>Parallelization：并行处理，最后聚合</h2>
+    <div class="flow"><span class="node">任务</span><span class="arrow">→</span><span class="node">子任务 1</span><span class="node">子任务 2</span><span class="node">子任务 3</span><span class="arrow">→</span><span class="node">聚合 / 投票</span></div>
+    <div class="compare">
+      <div><h3>Sectioning</h3><p>把独立子任务并行处理，适合多维检查、多模块分析。</p></div>
+      <div><h3>Voting</h3><p>同一任务跑多次或多视角判断，适合安全审查、质量评估。</p></div>
+      <div><h3>代价</h3><p>需要处理结果冲突、聚合规则和成本上升。</p></div>
+    </div>
+  </section>
+
+  <section data-page="36H">
+    <h2>Orchestrator-workers：动态拆解和委派</h2>
+    <div class="rail four">
+      <div class="rail-card"><b>Orchestrator</b><span>先理解任务，再决定要拆哪些子任务。</span></div>
+      <div class="rail-card"><b>Workers</b><span>多个 worker 分别处理文件、模块、资料或检查项。</span></div>
+      <div class="rail-card"><b>Synthesis</b><span>主控汇总结果，处理冲突，决定下一步。</span></div>
+      <div class="rail-card"><b>Verification</b><span>用测试、Review、trace 判断是否真的完成。</span></div>
+    </div>
+    <p class="note">适合跨文件编码和复杂搜索；风险是 worker 上下文不完整、并行冲突和主控漏验收。</p>
+  </section>
+
+  <section data-page="36I">
+    <h2>Evaluator-optimizer：生成、评价、再优化</h2>
+    <div class="flow"><span class="node">生成器</span><span class="arrow">→</span><span class="node">草稿 / 代码</span><span class="arrow">→</span><span class="node">评价器</span><span class="arrow">→</span><span class="node">反馈</span><span class="arrow">↺</span><span class="node">优化</span></div>
+    <div class="grid three">
+      <div class="card"><strong>适用前提</strong><span>评价标准清楚，反馈能稳定提升结果。</span></div>
+      <div class="card"><strong>适合场景</strong><span>写作润色、翻译、复杂搜索、代码修复。</span></div>
+      <div class="card"><strong>风险</strong><span>评价器标准不稳，会把系统带进反复修改。</span></div>
+    </div>
+  </section>
+
+  <section data-page="36J">
+    <h2>Autonomous Agent：开放任务才需要高自主</h2>
+    <div class="rail four">
+      <div class="rail-card"><b>目标</b><span>人给出任务或通过对话澄清目标。</span></div>
+      <div class="rail-card"><b>环境反馈</b><span>Agent 通过工具结果、代码执行、测试结果获得 ground truth。</span></div>
+      <div class="rail-card"><b>检查点</b><span>遇到阻塞或高风险判断时暂停请求人类反馈。</span></div>
+      <div class="rail-card"><b>停止条件</b><span>完成条件、最大轮次、成本上限或人工 gate。</span></div>
+    </div>
+    <p class="note">自主性越高，越要配 sandbox、guardrails、测试和人工检查点。</p>
+  </section>
+
+  <section data-page="36K">
+    <h2>AI 辅助编程：代码规模决定方案强度</h2>
+    <div class="rail three">
+      <div class="rail-card"><b>百行级</b><span>直接 Vibe Coding 或单次提示通常够用，重点是快速反馈。</span><em class="tool">Prompt</em></div>
+      <div class="rail-card"><b>千行级</b><span>轻量 SDD 更合适：澄清、Plan、Task、Impl，把阶段产物留下来。</span><em class="tool">OpenSpec</em><em class="tool">SpecKit</em></div>
+      <div class="rail-card"><b>万行级</b><span>单会话上下文会滚雪球，需要子代理委派隔离执行过程。</span><em class="tool">Sub-agent</em><em class="tool">Superpowers</em></div>
+    </div>
+    <p class="note">生成速度的上限不是单纯由模型决定，而由上下文密度、任务拆分、验证反馈和状态隔离共同决定。</p>
+  </section>
+
+  <section data-page="36L">
+    <h2>百行级：直接生成，快速反馈</h2>
+    <div class="flow"><span class="node">明确小需求</span><span class="arrow">→</span><span class="node">单次提示 / Vibe Coding</span><span class="arrow">→</span><span class="node">运行检查</span><span class="arrow">→</span><span class="node">小步修正</span></div>
+    <div class="grid three">
+      <div class="card"><strong>为什么可行</strong><span>上下文短，模型容易抓住重心。</span></div>
+      <div class="card"><strong>检查重点</strong><span>lint、局部测试、人工快速 Review。</span></div>
+      <div class="card"><strong>不要过度工程化</strong><span>小任务不必先搭复杂框架。</span></div>
+    </div>
+  </section>
+
+  <section data-page="36M">
+    <h2>千行级：轻量 SDD 留下阶段产物</h2>
+    <div class="rail four">
+      <div class="rail-card"><b>Brainstorming</b><span>澄清需求，确认模型对任务的理解。</span></div>
+      <div class="rail-card"><b>Plan</b><span>把实现方案写下来，避免边写边猜。</span></div>
+      <div class="rail-card"><b>Task</b><span>拆成可执行步骤，降低单次生成复杂度。</span></div>
+      <div class="rail-card"><b>Impl + Check</b><span>逐步实现，并用测试和一致性检查兜底。</span></div>
+    </div>
+    <p class="note">这类方案适合日常需求开发：流程不重，但能留下可恢复、可检查的阶段产物。</p>
+  </section>
+
+  <section data-page="36N">
+    <h2>万行级：子代理委派突破上下文滚雪球</h2>
+    <div class="flow"><span class="node">主 Agent</span><span class="arrow">拆 Task</span><span class="node">Sub-agent A</span><span class="node">Sub-agent B</span><span class="node">Sub-agent C</span><span class="arrow">→</span><span class="node">汇总 / 验收</span></div>
+    <div class="compare">
+      <div><h3>优势</h3><p>每个子代理上下文更干净，执行过程不挤占主会话。</p></div>
+      <div><h3>风险</h3><p>委派 prompt 可能不完整，并行工作可能冲突。</p></div>
+      <div><h3>兜底</h3><p>用测试、Review、Playwright、状态文件和人工 gate 验收。</p></div>
+    </div>
+  </section>
+
+  <section data-page="36O">
+    <h2>选择方法：先问四个问题</h2>
+    <div class="grid four">
+      <div class="card"><strong>路径能否预定义？</strong><span>能预定义就优先 workflow；不能预定义才考虑更自主的 agent。</span></div>
+      <div class="card"><strong>上下文会不会爆？</strong><span>会爆就拆 task、隔离会话、分层处理，而不是硬撑一个窗口。</span></div>
+      <div class="card"><strong>结果能否验证？</strong><span>测试、lint、eval、review 越清楚，越适合自动化推进。</span></div>
+      <div class="card"><strong>错误代价多高？</strong><span>代价高就加强 gate、权限、trace 和人工确认。</span></div>
+    </div>
   </section>
 
   <section data-page="37">
@@ -533,13 +697,50 @@
     <p class="note">模型负责推理，流程负责约束，状态负责让推理结果可以被恢复、检查和交接。</p>
   </section>
 
-  <section data-page="38">
-    <h2>参考来源</h2>
-    <ul>
-      <li>完整引用列表见 `_output/final-speech.md`。</li>
-      <li>知识工程定义化用《不是提示词工程，是知识工程》。</li>
-      <li>Skill 构建及评定吸收 Anthropic Agent eval 体系：Task、Trial、Transcript、Outcome、Grader、Evaluation Suite。</li>
-      <li>弱证据内容已弱化：自动解析依赖、Agent Teams、工具推荐、精确数字。</li>
+  <section data-page="38A">
+    <h2>参考来源（一）：项目输入与核心案例</h2>
+    <ul class="source-list">
+      <li>`user_input_template.md`</li>
+      <li>https://mp.weixin.qq.com/s/b4Fh-3SQyWiB1HypUxk9wA</li>
+      <li>https://mp.weixin.qq.com/s/MGnWz2b2H63lC8tK7UbrDA</li>
+      <li>https://mp.weixin.qq.com/s/pwhg5Kmh3wMlxqIlbVqGMw</li>
+      <li>https://mp.weixin.qq.com/s/9Dh-e7Z139QoOqrWOqkKJA</li>
+      <li>https://github.com/neil-wang-global/MindFlow</li>
+      <li>https://github.com/neil-wang-global/MindFlow/blob/main/README-CN.md</li>
+      <li>https://github.com/neil-wang-global/MindFlow/blob/main/SYSTEM.md</li>
+      <li>https://zenodo.org/records/18977748</li>
+      <li>https://github.com/eXtremeProgramming-cn/pomasa</li>
+      <li>https://github.com/eXtremeProgramming-cn/pomasa/blob/main/README.zh-cn.md</li>
+      <li>https://github.com/eXtremeProgramming-cn/pomasa/blob/main/skills/pomasa/SKILL.md</li>
+    </ul>
+  </section>
+
+  <section data-page="38B">
+    <h2>参考来源（二）：Agent / Harness / Eval</h2>
+    <ul class="source-list">
+      <li>`references/papers/CLI_for_AI_Agents.pdf`</li>
+      <li>https://www.anthropic.com/engineering/building-effective-agents</li>
+      <li>https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents</li>
+      <li>https://www.anthropic.com/engineering/effective-harnesses-for-long-running-agents</li>
+      <li>https://www.anthropic.com/engineering/harness-design-long-running-apps</li>
+      <li>https://martinfowler.com/articles/exploring-gen-ai/harness-engineering.html</li>
+      <li>https://openai.com/index/harness-engineering/</li>
+      <li>https://www.humanlayer.dev/blog/skill-issue-harness-engineering-for-coding-agents</li>
+      <li>https://blog.langchain.com/the-anatomy-of-an-agent-harness/</li>
+      <li>https://www.inngest.com/blog/your-agent-needs-a-harness-not-a-framework</li>
+    </ul>
+  </section>
+
+  <section data-page="38C">
+    <h2>参考来源（三）：工程实践与组织协作</h2>
+    <ul class="source-list">
+      <li>`references/papers/李文鹏-让 AI 运行在工程资产上：从 PRD 到上线的交付闭环、Hybrid 执行、 Doc 与 Code 联动.pdf`</li>
+      <li>`references/papers/牛万鹏-构建 Coding Agent 的飞轮：Feedback Loop、Benchmark、Agent Engineers.pdf`</li>
+      <li>`references/papers/钱世俊-给 Agent 做&ldquo;CT&rdquo;：大规模 Agent 的可观测与质量保障体系.pdf`</li>
+      <li>`references/papers/章平-从盲目调优到数据驱动-大规模 Agent 的评估工程实践.pdf`</li>
+      <li>`references/papers/陶宇田-OpenSandbox：重新思考 Agent 时代的 Runtime.pdf`</li>
+      <li>`references/papers/打破&ldquo;人月神话&rdquo;，Agent 重塑风控场景产运研职能-王东旭.pdf`</li>
+      <li>`references/papers/黄闻欣-超级团队进行时：从用 AI 到 AI 自己找活干.pdf`</li>
     </ul>
   </section>
 </main>
