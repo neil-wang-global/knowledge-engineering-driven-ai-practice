@@ -21,30 +21,31 @@
     }
     main { scroll-snap-type:y mandatory; height:100vh; overflow-y:auto; }
     section {
-      position:relative; min-height:100vh; scroll-snap-align:start; padding:5.5vh 7vw;
+      position:relative; min-height:100vh; scroll-snap-align:start; padding:5.2vh 7vw;
       display:flex; flex-direction:column; justify-content:center; border-bottom:1px solid rgba(255,255,255,.08);
     }
     section::after { content:attr(data-page); position:absolute; right:3vw; bottom:3vh; color:rgba(203,213,225,.38); font-size:18px; }
     h1 { font-size:clamp(46px,7vw,98px); line-height:1.02; margin:0 0 24px; letter-spacing:-.05em; }
-    h2 { font-size:clamp(34px,5vw,68px); line-height:1.08; margin:0 0 28px; letter-spacing:-.035em; }
+    h2 { font-size:clamp(34px,5vw,66px); line-height:1.08; margin:0 0 26px; letter-spacing:-.035em; }
     h3 { font-size:clamp(22px,2.4vw,34px); margin:0 0 14px; color:var(--accent); }
-    p, li { font-size:clamp(20px,2.05vw,30px); line-height:1.42; color:var(--muted); }
-    p { max-width:1180px; margin:0 0 16px; }
-    ul { margin:0; padding-left:1.2em; max-width:1180px; }
+    p, li { font-size:clamp(19px,1.92vw,28px); line-height:1.42; color:var(--muted); }
+    p { max-width:1220px; margin:0 0 16px; }
+    ul { margin:0; padding-left:1.2em; max-width:1220px; }
     li { margin:.32em 0; }
     .kicker { color:var(--accent); font-size:clamp(16px,1.7vw,24px); font-weight:800; margin-bottom:16px; letter-spacing:.09em; text-transform:uppercase; }
-    .lead { font-size:clamp(27px,3vw,43px); color:var(--text); max-width:1240px; }
+    .lead { font-size:clamp(26px,2.85vw,42px); color:var(--text); max-width:1250px; }
     .small { font-size:clamp(14px,1.25vw,19px); color:var(--soft); margin-top:22px; }
-    .quote { border-left:7px solid var(--accent); padding-left:26px; font-size:clamp(30px,3.5vw,52px); line-height:1.32; color:var(--text); max-width:1250px; }
-    .grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:20px; max-width:1280px; }
+    .quote { border-left:7px solid var(--accent); padding-left:26px; font-size:clamp(30px,3.35vw,50px); line-height:1.32; color:var(--text); max-width:1260px; }
+    .note { border:1px solid rgba(56,189,248,.34); border-radius:22px; padding:20px 24px; background:rgba(56,189,248,.08); max-width:1260px; color:var(--muted); font-size:clamp(18px,1.6vw,24px); line-height:1.45; }
+    .grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); column-gap:20px; row-gap:24px; max-width:1320px; }
     .grid.two { grid-template-columns:repeat(2,minmax(0,1fr)); }
     .grid.four { grid-template-columns:repeat(4,minmax(0,1fr)); }
-    .card { border:1px solid var(--line); border-radius:24px; padding:24px; background:linear-gradient(180deg, rgba(17,24,39,.86), rgba(17,24,39,.58)); box-shadow:var(--shadow); min-height:170px; }
-    .card strong { display:block; color:var(--text); font-size:clamp(23px,2.15vw,32px); margin-bottom:10px; }
-    .card span { display:block; color:var(--muted); font-size:clamp(17px,1.55vw,24px); line-height:1.42; }
+    .card { border:1px solid var(--line); border-radius:24px; padding:24px; background:linear-gradient(180deg, rgba(17,24,39,.86), rgba(17,24,39,.58)); box-shadow:var(--shadow); min-height:180px; margin-bottom:8px; }
+    .card strong { display:block; color:var(--text); font-size:clamp(22px,2.05vw,31px); margin-bottom:10px; }
+    .card span { display:block; color:var(--muted); font-size:clamp(16px,1.45vw,22px); line-height:1.45; }
     .tag { display:inline-flex; align-items:center; border:1px solid rgba(56,189,248,.42); background:rgba(56,189,248,.12); color:var(--text); border-radius:999px; padding:10px 16px; font-size:clamp(17px,1.5vw,23px); margin:5px; }
-    .flow { display:flex; flex-wrap:wrap; gap:12px; align-items:center; max-width:1320px; }
-    .node { padding:14px 20px; border-radius:999px; background:rgba(56,189,248,.12); border:1px solid rgba(56,189,248,.45); font-size:clamp(18px,1.7vw,26px); color:var(--text); }
+    .flow { display:flex; flex-wrap:wrap; column-gap:12px; row-gap:18px; align-items:center; max-width:1320px; }
+    .node { padding:14px 20px; border-radius:999px; background:rgba(56,189,248,.12); border:1px solid rgba(56,189,248,.45); font-size:clamp(18px,1.65vw,25px); color:var(--text); margin:4px 0; }
     .arrow { color:var(--accent); font-size:clamp(22px,2vw,32px); }
     .matrix { display:grid; grid-template-columns:1fr 1fr; grid-template-rows:1fr 1fr; gap:18px; max-width:1120px; }
     .quadrant { position:relative; border:1px solid var(--line); border-radius:24px; padding:24px; min-height:210px; background:rgba(17,24,39,.68); }
@@ -56,17 +57,22 @@
     .funnel div { border:1px solid var(--line); border-radius:22px 22px 8px 8px; padding:22px 18px; background:linear-gradient(180deg, rgba(251,113,133,.34), rgba(245,158,11,.12)); min-height:var(--h); }
     .funnel strong { display:block; font-size:clamp(20px,1.8vw,28px); color:var(--text); margin-bottom:8px; }
     .funnel span { font-size:clamp(15px,1.25vw,20px); color:var(--muted); }
-    .compare { display:grid; grid-template-columns:1fr 1fr 1fr; border:1px solid var(--line); border-radius:26px; overflow:hidden; max-width:1280px; background:rgba(17,24,39,.66); }
+    .compare { display:grid; grid-template-columns:1fr 1fr 1fr; border:1px solid var(--line); border-radius:26px; overflow:hidden; max-width:1300px; background:rgba(17,24,39,.66); }
+    .compare.two { grid-template-columns:1fr 1fr; }
     .compare > div { padding:22px; border-right:1px solid var(--line); }
     .compare > div:last-child { border-right:0; }
     .compare h3 { color:var(--text); }
-    .compare p { font-size:clamp(16px,1.45vw,22px); }
-    .stack { display:grid; gap:12px; max-width:1180px; }
-    .layer { display:flex; justify-content:space-between; align-items:center; border:1px solid var(--line); border-radius:18px; padding:16px 22px; background:rgba(17,24,39,.7); }
+    .compare p { font-size:clamp(16px,1.42vw,22px); }
+    .stack { display:grid; gap:12px; max-width:1220px; }
+    .layer { display:grid; grid-template-columns:.34fr .66fr; gap:18px; align-items:center; border:1px solid var(--line); border-radius:18px; padding:16px 22px; background:rgba(17,24,39,.7); }
     .layer strong { font-size:clamp(21px,1.9vw,29px); color:var(--text); }
-    .layer span { font-size:clamp(16px,1.35vw,21px); color:var(--muted); }
+    .layer span { font-size:clamp(16px,1.35vw,21px); color:var(--muted); line-height:1.4; }
+    .timeline { display:grid; grid-template-columns:repeat(5,1fr); column-gap:12px; row-gap:20px; max-width:1320px; }
+    .step { border:1px solid var(--line); border-radius:22px; padding:20px; background:rgba(17,24,39,.72); min-height:190px; margin-bottom:8px; }
+    .step b { display:block; color:var(--accent); font-size:clamp(18px,1.55vw,24px); margin-bottom:10px; }
+    .step span { color:var(--muted); font-size:clamp(15px,1.25vw,20px); line-height:1.4; }
     .accent { color:var(--accent); } .purple { color:var(--accent2); } .ok { color:var(--ok); } .warn { color:var(--warn); } .bad { color:var(--bad); }
-    @media (max-width: 980px) { .grid,.grid.two,.grid.four,.compare,.matrix,.funnel { grid-template-columns:1fr; } section { padding:5vh 6vw; } .axis-y { display:none; } }
+    @media (max-width: 980px) { .grid,.grid.two,.grid.four,.compare,.compare.two,.matrix,.funnel,.timeline { grid-template-columns:1fr; } section { padding:5vh 6vw; } .axis-y { display:none; } .layer { grid-template-columns:1fr; } }
   </style>
 </head>
 <body>
@@ -81,7 +87,7 @@
   <section data-page="02">
     <h2>今天只讲一条主线</h2>
     <div class="quote">如何构建统一流程，以及如何构建一个高质量的统一流程。</div>
-    <p class="small">所有概念最终都要回到：输入、输出、状态、角色、检查点、验收和回写。</p>
+    <p class="note">每个概念都要落回流程位置：输入是什么，输出是什么，状态在哪里，谁负责，如何验收，失败如何回流，知识如何沉淀。</p>
   </section>
 
   <section data-page="03">
@@ -99,6 +105,7 @@
       <div style="--h:180px"><strong>快速实现</strong><span>代码出现得很快，风险也被带进系统。</span></div>
       <div style="--h:140px"><strong>隐性债务</strong><span>异常、权限、状态、验收被延后暴露。</span></div>
     </div>
+    <p class="small">这页用于解释为什么“能生成”不等于“能交付”。</p>
   </section>
 
   <section data-page="05">
@@ -116,8 +123,8 @@
   <section data-page="06">
     <h2>方法论没有消失，价值迁移了</h2>
     <div class="grid two">
-      <div class="card"><strong>过去：能力补丁</strong><span>替模型拆任务、补步骤、补记忆、补稳定性。</span></div>
-      <div class="card"><strong>现在：治理工具</strong><span>定义边界、固定检查点、控制权限、沉淀状态、保障验收。</span></div>
+      <div class="card"><strong>过去：能力补丁</strong><span>替模型拆任务、补步骤、补记忆、补稳定性。方法论主要是让模型“会做”。</span></div>
+      <div class="card"><strong>现在：治理工具</strong><span>定义边界、固定检查点、控制权限、沉淀状态、保障验收。方法论主要是让系统“稳定做对”。</span></div>
     </div>
     <p class="lead">模型越强，越不能只问“它会不会做”，还要问“系统能不能稳定地做对”。</p>
   </section>
@@ -129,91 +136,137 @@
       <div><h3>MAS</h3><p>把复杂任务拆成角色、上下文、权限、阶段、产物和验收，让协作可审计。</p></div>
       <div><h3>Rules / Hooks</h3><p>把必须发生的动作交给确定性控制：检查、权限、引用、测试、完成声明。</p></div>
     </div>
+    <p class="note">三者不是互斥工具，而是不同层次的流程控制。</p>
   </section>
 
   <section data-page="08">
     <h2>AI-native workflow</h2>
     <div class="grid">
-      <div class="card"><strong>模型推理</strong><span>生成方案、代码、解释、判断。</span></div>
-      <div class="card"><strong>流程约束</strong><span>先想清楚，固定检查点，验收显化。</span></div>
-      <div class="card"><strong>状态反馈</strong><span>可恢复、可检查、可交接、可回写。</span></div>
+      <div class="card"><strong>模型推理</strong><span>生成方案、代码、解释、判断；负责开放问题里的推理能力。</span></div>
+      <div class="card"><strong>流程约束</strong><span>先想清楚，固定检查点，验收显化；负责把开放推理收束到工程轨道。</span></div>
+      <div class="card"><strong>状态反馈</strong><span>可恢复、可检查、可交接、可回写；负责让一次执行变成系统记忆。</span></div>
     </div>
   </section>
 
   <section data-page="09">
     <h2>第 1 章：软件基本功</h2>
     <div class="grid">
-      <div class="card"><strong>SoC</strong><span>Story、ADR、Spec、Plan、State、Review、Eval 各司其职。</span></div>
-      <div class="card"><strong>抽象 / OOP</strong><span>Skill、Rule、Capability、Agent Blueprint 是知识对象。</span></div>
-      <div class="card"><strong>目录结构</strong><span>不是收纳方式，而是 Agent 可导航的知识地址空间。</span></div>
+      <div class="card"><strong>SoC</strong><span>Story、ADR、Spec、Plan、State、Review、Eval 各司其职。材料不混放，职责才清楚。</span></div>
+      <div class="card"><strong>抽象 / OOP</strong><span>Skill、Rule、Capability、Agent Blueprint 是知识对象。对象边界不清，Agent 就会误用。</span></div>
+      <div class="card"><strong>目录结构</strong><span>不是收纳方式，而是 Agent 可导航的知识地址空间。路径本身就是提示和协议。</span></div>
     </div>
   </section>
 
   <section data-page="10">
-    <h2>上下文管理不是越多越好</h2>
-    <div class="quote">给模型低噪声、可处理、可验证的上下文。</div>
-    <div class="flow"><span class="node">确定性工具</span><span class="arrow">处理</span><span class="node">格式 / 测试 / 检查</span><span class="arrow">模型</span><span class="node">推理 / 权衡 / 生成</span></div>
+    <h2>软件基本功迁移到 AI 文件工程</h2>
+    <div class="compare">
+      <div><h3>传统工程</h3><p>模块、接口、测试、目录结构，让人能协作维护。</p></div>
+      <div><h3>AI 文件工程</h3><p>Story、Spec、Plan、State、Skill、Eval，让 Agent 能理解、执行、验收。</p></div>
+      <div><h3>共同目标</h3><p>降低耦合、减少歧义、让变化有位置、让错误可定位。</p></div>
+    </div>
+  </section>
+
+  <section data-page="10A">
+    <h2>嵌套知识对象：不要平铺材料</h2>
+    <div class="stack">
+      <div class="layer"><strong>Repository</strong><span>团队共享强状态空间，承载当前事实和流程入口。</span></div>
+      <div class="layer"><strong>Story</strong><span>业务意图、用户路径、验收标准，描述一次知识变化。</span></div>
+      <div class="layer"><strong>ADR / Spec</strong><span>决策、接口、边界、不可做事项，固定关键判断。</span></div>
+      <div class="layer"><strong>Plan / State</strong><span>执行路径、当前进度、失败回流，让任务可恢复。</span></div>
+      <div class="layer"><strong>Test / Eval / Skill</strong><span>验证证据、复用能力、知识回写，让经验可复用。</span></div>
+    </div>
+  </section>
+
+  <section data-page="10B">
+    <h2>事实分叉：Agent 最怕多个权威</h2>
+    <div class="compare">
+      <div><h3>复制式文档</h3><p>同一规则散落在 Story、Plan、Review。改一处，漏两处，下次 Agent 不知道信谁。</p></div>
+      <div><h3>引用式知识</h3><p>事实有唯一权威位置，其他文件通过 ID / link / reference 依赖。</p></div>
+      <div><h3>工程效果</h3><p>Agent 能判断当前状态，团队能追踪变化来源，Review 能定位责任边界。</p></div>
+    </div>
   </section>
 
   <section data-page="11">
     <h2>第 2 章：MindFlow 的自我演进</h2>
     <div class="stack">
-      <div class="layer"><strong>Soul</strong><span>长期原则与方向</span></div>
-      <div class="layer"><strong>Learning</strong><span>外部知识与经验输入</span></div>
-      <div class="layer"><strong>Capability</strong><span>可复用能力单元</span></div>
-      <div class="layer"><strong>Plan / Task State</strong><span>执行路径与当前状态</span></div>
-      <div class="layer"><strong>Reflection</strong><span>复盘、沉淀、更新</span></div>
+      <div class="layer"><strong>Soul</strong><span>长期原则与方向，回答系统为什么存在、不能偏离什么。</span></div>
+      <div class="layer"><strong>Learning</strong><span>外部知识与经验输入，避免把材料一次性塞进 prompt。</span></div>
+      <div class="layer"><strong>Capability</strong><span>可复用能力单元，把反复出现的做法沉淀下来。</span></div>
+      <div class="layer"><strong>Plan / Task State</strong><span>执行路径与当前状态，让任务跨上下文窗口可恢复。</span></div>
+      <div class="layer"><strong>Reflection</strong><span>复盘、沉淀、更新，让失败变成下一次执行的资产。</span></div>
     </div>
   </section>
 
   <section data-page="12">
     <h2>不要把所有知识揉成一个巨大 prompt</h2>
-    <ul>
-      <li>长期原则、项目知识、能力、状态、反思要分层。</li>
-      <li>Lazy loading 是流程设计，不只是省 token。</li>
-      <li>任务状态让系统可恢复、可交接、可复盘。</li>
-      <li>知识空间不是材料堆砌，而是可被 Agent 操作的结构。</li>
-    </ul>
+    <div class="compare">
+      <div><h3>巨大 prompt</h3><p>长期原则、项目知识、任务状态、历史材料混在一起，权威关系不清。</p></div>
+      <div><h3>分层知识</h3><p>长期原则、能力、计划、状态、反思各有位置，按阶段加载。</p></div>
+      <div><h3>自我演进</h3><p>任务状态不丢，能力可复用，反思能回写，系统沿着已有知识继续推进。</p></div>
+    </div>
   </section>
 
   <section data-page="13">
+    <h2>知识工程是什么</h2>
+    <p class="lead">不是把提示词写长，而是把人类判断组织成 AI 可消费的知识资产。</p>
+    <div class="timeline">
+      <div class="step"><b>问题导向</b><span>定义要解决什么问题，以及为什么值得解决。</span></div>
+      <div class="step"><b>价值框架</b><span>选择分析视角、约束和判断标准。</span></div>
+      <div class="step"><b>信息储备</b><span>积累、筛选、组织高质量材料。</span></div>
+      <div class="step"><b>理论方法</b><span>决定研究路径、拆解方法和执行范式。</span></div>
+      <div class="step"><b>表现形式</b><span>根据场景选择报告、代码、演示、流程或系统资产。</span></div>
+    </div>
+  </section>
+
+  <section data-page="13A">
     <h2>软件系统的本质就是知识</h2>
     <div class="grid two">
-      <div class="card"><strong>传统软件</strong><span>代码、文档、测试、规则，是知识的固化。</span></div>
-      <div class="card"><strong>Agent 系统</strong><span>上下文、状态、工具、反馈，也是知识的表达。</span></div>
+      <div class="card"><strong>传统软件</strong><span>代码固化业务规则，文档解释意图，测试描述期望行为，规则沉淀团队经验。</span></div>
+      <div class="card"><strong>Agent 系统</strong><span>上下文、状态、工具、反馈、Skill、eval case，同样都是知识的表达。</span></div>
     </div>
+    <p class="note">知识工程关注的不是一次回答，而是系统如何持续积累、复用和校正知识。</p>
   </section>
 
   <section data-page="14">
     <h2>第 3 章：POMASA 与 MAS 的强状态</h2>
     <p class="lead">MAS 的关键不是“几个 Agent 聊天”，而是围绕状态推进的编排系统。</p>
     <div class="flow"><span class="node">谁读取</span><span class="node">谁产出</span><span class="node">放在哪里</span><span class="node">谁验收</span><span class="node">失败如何回流</span></div>
+    <p class="note">先定义状态和产物，再定义 Agent；否则多智能体只会变成聊天接力。</p>
   </section>
 
   <section data-page="15">
     <h2>POMASA 的工程信号</h2>
     <div class="grid">
-      <div class="card"><strong>Blueprint / Pattern</strong><span>可声明、可复用的协作结构。</span></div>
-      <div class="card"><strong>Filesystem Data Bus</strong><span>文件系统承载多角色产物流转。</span></div>
-      <div class="card"><strong>Verifiable Data Lineage</strong><span>产物来源、验收、回流可追踪。</span></div>
+      <div class="card"><strong>Blueprint / Pattern</strong><span>把角色、阶段、输入输出声明出来，让协作结构可复用。</span></div>
+      <div class="card"><strong>Filesystem Data Bus</strong><span>文件系统承载多角色产物流转，降低对聊天上下文的依赖。</span></div>
+      <div class="card"><strong>Verifiable Data Lineage</strong><span>产物来源、验收、回流可追踪，出错时能定位阶段。</span></div>
     </div>
   </section>
 
   <section data-page="16">
     <h2>强状态不是“全都写下来”</h2>
     <div class="compare">
-      <div><h3>关键产物</h3><p>有稳定位置，有命名，有所有权。</p></div>
-      <div><h3>关键判断</h3><p>有来源，有理由，有可追溯记录。</p></div>
-      <div><h3>关键验收</h3><p>有证据，有结果，有失败回流。</p></div>
+      <div><h3>关键产物</h3><p>有稳定位置，有命名，有所有权。下游知道读什么。</p></div>
+      <div><h3>关键判断</h3><p>有来源，有理由，有可追溯记录。Review 知道为什么。</p></div>
+      <div><h3>关键验收</h3><p>有证据，有结果，有失败回流。系统知道是否完成。</p></div>
+    </div>
+  </section>
+
+  <section data-page="16A">
+    <h2>聊天接力 vs 强状态流水线</h2>
+    <div class="compare">
+      <div><h3>聊天接力</h3><p>A 总结给 B，B 总结给 C。信息持续压缩，责任边界模糊。</p></div>
+      <div><h3>强状态流水线</h3><p>每一步产出文件，每一步有验收，下游读取明确产物。</p></div>
+      <div><h3>关键差异</h3><p>能恢复、能审计、能定位错误来自哪个阶段。</p></div>
     </div>
   </section>
 
   <section data-page="17">
     <h2>第 4 章：状态控制三分法</h2>
     <div class="grid">
-      <div class="card"><strong>强约束固定</strong><span>Rules、Hooks、必读文件、测试、提交检查。</span></div>
-      <div class="card"><strong>建议式调度</strong><span>Skill、推荐流程、可选 checklist。</span></div>
-      <div class="card"><strong>完全 AI 控制</strong><span>探索、低风险实验、一次性任务。</span></div>
+      <div class="card"><strong>强约束固定</strong><span>Rules、Hooks、必读文件、测试、提交检查。适合安全、权限、验收声明。</span></div>
+      <div class="card"><strong>建议式调度</strong><span>Skill、推荐流程、可选 checklist。适合可复用能力和经验方法。</span></div>
+      <div class="card"><strong>完全 AI 控制</strong><span>探索、低风险实验、一次性任务。适合开放发散，不适合关键交付兜底。</span></div>
     </div>
   </section>
 
@@ -221,20 +274,76 @@
     <h2>可靠性与灵活性的张力</h2>
     <div class="flow"><span class="node ok">强约束：可靠</span><span class="arrow">↔</span><span class="node warn">建议式：平衡</span><span class="arrow">↔</span><span class="node purple">AI 自主：灵活</span></div>
     <p class="lead">高质量流程的关键不是选一种，而是组合使用。</p>
+    <p class="note">必须发生的动作交给强约束；可复用方法交给 Skill；开放探索交给模型自由判断。</p>
   </section>
 
   <section data-page="19">
     <h2>第 5 章：Skill、工程文件与 Rules</h2>
     <div class="grid">
-      <div class="card"><strong>Skill</strong><span>可复用能力；触发依赖模型判断，存在随机性。</span></div>
-      <div class="card"><strong>工程文件</strong><span>结构化上下文；处在流程规定位置，更确定。</span></div>
-      <div class="card"><strong>Rules</strong><span>Hook 式强约束；稳定，但自由度低。</span></div>
+      <div class="card"><strong>Skill</strong><span>可复用能力；触发依赖模型判断，存在漏触发和误触发。</span></div>
+      <div class="card"><strong>工程文件</strong><span>结构化上下文；处在流程规定位置，比 Skill 更确定。</span></div>
+      <div class="card"><strong>Rules</strong><span>Hook 式强约束；稳定，但自由度低，适合兜底动作。</span></div>
     </div>
+    <p class="note">三者都是可执行知识，但进入流程的方式不同。</p>
   </section>
 
   <section data-page="20">
-    <h2>成熟 Skill 像函数</h2>
-    <div class="flow"><span class="node">触发</span><span class="node">输入</span><span class="node">前置假设</span><span class="node">步骤</span><span class="node">输出</span><span class="node">权限</span><span class="node">副作用</span><span class="node">验证</span><span class="node">下游消费</span></div>
+    <h2>Skill 构建及评定：先变成任务</h2>
+    <p class="lead">一个 Skill 不是“写得很完整”就算成熟，它要能被一组任务检验。</p>
+    <div class="grid">
+      <div class="card"><strong>Task</strong><span>独立测试用例：输入、上下文、工具、成功标准都要明确。</span></div>
+      <div class="card"><strong>真实来源</strong><span>从手动测试、线上失败、用户反馈、Review 问题中提取任务。</span></div>
+      <div class="card"><strong>平衡样本</strong><span>既测应该触发，也测不该触发，避免 Skill 过度调用。</span></div>
+    </div>
+  </section>
+
+  <section data-page="20A">
+    <h2>Skill 评定：看一次 Trial 的完整轨迹</h2>
+    <div class="timeline">
+      <div class="step"><b>输入</b><span>任务是否清楚，参考答案或成功标准是否可判定。</span></div>
+      <div class="step"><b>触发</b><span>Agent 是否在正确时机加载 Skill，是否漏触发。</span></div>
+      <div class="step"><b>执行</b><span>是否读取必要文件、调用必要工具、产出中间状态。</span></div>
+      <div class="step"><b>Transcript</b><span>记录推理、工具调用、错误和修正路径，用于审查。</span></div>
+      <div class="step"><b>Outcome</b><span>最终环境是否真的满足任务，而不是只看模型自述。</span></div>
+    </div>
+  </section>
+
+  <section data-page="20B">
+    <h2>Outcome 优先：不要只看 Agent 说了什么</h2>
+    <div class="compare">
+      <div><h3>自述完成</h3><p>“我已经完成了”“我检查过了”。这是信号，不是证据。</p></div>
+      <div><h3>轨迹证据</h3><p>读了什么文件、用了什么工具、跑了什么检查、遇到什么失败。</p></div>
+      <div><h3>最终状态</h3><p>测试结果、文件 diff、引用链、浏览器状态、数据库状态或交付物状态。</p></div>
+    </div>
+    <p class="note">Agent eval 的核心提醒：评估最终状态，必要时再回看路径。</p>
+  </section>
+
+  <section data-page="20C">
+    <h2>Grader：评分器要组合使用</h2>
+    <div class="grid">
+      <div class="card"><strong>代码评分器</strong><span>单元测试、静态分析、格式检查、状态检查。快、便宜、客观、可复现。</span></div>
+      <div class="card"><strong>LLM 评分器</strong><span>用于开放判断、质量标准、自然语言断言，但要和人工校准。</span></div>
+      <div class="card"><strong>人工评分器</strong><span>用于关键场景、价值判断和抽样校准。贵，但能提供黄金标准。</span></div>
+    </div>
+    <p class="note">尽可能用确定性评分器兜住客观部分，把模型评分留给真正需要语义判断的部分。</p>
+  </section>
+
+  <section data-page="20D">
+    <h2>Evaluation Suite：让 Skill 能回归</h2>
+    <div class="compare">
+      <div><h3>能力评估</h3><p>问“这个 Skill 擅长什么，还能提升到哪里”。任务要有挑战性，不能太快饱和。</p></div>
+      <div><h3>回归评估</h3><p>问“以前能做对的事，现在还做不做得对”。通过率应接近 100%。</p></div>
+      <div><h3>失败回流</h3><p>真实失败进入任务集，防止同类错误复发。失败不是结束，是 eval case 的来源。</p></div>
+    </div>
+  </section>
+
+  <section data-page="20E">
+    <h2>三类控制要组合使用</h2>
+    <div class="compare">
+      <div><h3>Skill</h3><p>提供可复用能力，但触发依赖模型判断，所以要用任务集评估触发质量。</p></div>
+      <div><h3>工程文件</h3><p>提供稳定上下文和流程位置，但需要流程规定什么时候读取、写回哪里。</p></div>
+      <div><h3>Rules / Hooks</h3><p>提供确定性兜底，但太宽会打断，太窄会漏风险，需要持续校准。</p></div>
+    </div>
   </section>
 
   <section data-page="21">
@@ -244,61 +353,108 @@
   </section>
 
   <section data-page="22">
-    <h2>第 7 章：Flyway 类比</h2>
-    <div class="grid two">
-      <div class="card"><strong>Story = Migration</strong><span>带着时间性、变化意图和业务增量。</span></div>
-      <div class="card"><strong>Knowledge = 当前状态</strong><span>所有已验证增量执行后的知识系统。</span></div>
+    <h2>Story 是一次知识变化</h2>
+    <div class="grid">
+      <div class="card"><strong>为什么变</strong><span>用户为什么要这个变化，旧系统哪里不满足。</span></div>
+      <div class="card"><strong>怎么变</strong><span>新的业务路径、边界条件、规则和设计选择。</span></div>
+      <div class="card"><strong>如何证明</strong><span>验收标准、测试、trace、outcome 和知识回写。</span></div>
     </div>
   </section>
 
   <section data-page="23">
     <h2>回写闭环</h2>
-    <div class="flow"><span class="node">Story</span><span class="arrow">→</span><span class="node">代码</span><span class="node">文档</span><span class="node">测试</span><span class="node">Skill</span><span class="node">Eval Case</span><span class="arrow">→</span><span class="node">Knowledge</span></div>
+    <div class="flow"><span class="node">Story</span><span class="arrow">→</span><span class="node">代码</span><span class="node">文档</span><span class="node">测试</span><span class="node">Eval Case</span><span class="arrow">→</span><span class="node">Knowledge</span></div>
+    <div class="flow"><span class="node purple">SOUL.md</span><span class="arrow">指导</span><span class="node">Skill 进化</span><span class="arrow">→</span><span class="node">流程规则</span><span class="arrow">→</span><span class="node">下一次执行</span></div>
+    <p class="lead">完成一个需求，不只是代码变了；长期原则、Skill 和当前知识状态都要一起演进。</p>
+  </section>
+
+  <section data-page="23A">
+    <h2>Story 完成后，知识必须进入当前状态</h2>
+    <div class="grid two">
+      <div class="card"><strong>只改代码</strong><span>下次仍要重新解释需求，失败模式无法复用，Agent 不知道历史判断。</span></div>
+      <div class="card"><strong>代码 + Knowledge</strong><span>文档、测试、Skill、eval case 一起更新，资产增长，流程越跑越稳。</span></div>
+    </div>
   </section>
 
   <section data-page="24">
     <h2>第 8 章：验收 Skill 与 Story</h2>
     <div class="grid two">
-      <div class="card"><strong>Skill 验收</strong><span>触发、输入、步骤、输出、权限、副作用、验证、下游消费。</span></div>
-      <div class="card"><strong>Story 验收</strong><span>业务意图、AC、依赖、边界、可测试性、知识沉淀。</span></div>
+      <div class="card"><strong>Skill 验收</strong><span>触发、输入、步骤、输出、权限、副作用、验证、下游消费；重点是能否稳定复用。</span></div>
+      <div class="card"><strong>Story 验收</strong><span>业务意图、AC、依赖、边界、可测试性、知识沉淀；重点是是否进入当前状态。</span></div>
     </div>
   </section>
 
-  <section data-page="25">
-    <h2>不要只相信“我完成了”</h2>
-    <div class="flow"><span class="node">Task</span><span class="node">Trial</span><span class="node">Grader</span><span class="node">Trace</span><span class="node">Outcome</span><span class="node">Evaluation Suite</span></div>
-  </section>
 
   <section data-page="26">
     <h2>第 9 章：角色而非人</h2>
     <div class="grid four">
-      <div class="card"><strong>BA</strong><span>业务意图与验收标准。</span></div>
-      <div class="card"><strong>DEV</strong><span>设计、实现、工程风险。</span></div>
-      <div class="card"><strong>QA / UI</strong><span>可测性、业务路径、用户体验。</span></div>
-      <div class="card"><strong>Agent</strong><span>检索、执行、验证、总结。</span></div>
+      <div class="card"><strong>BA</strong><span>业务意图、用户路径、验收标准。</span></div>
+      <div class="card"><strong>DEV</strong><span>设计、实现、工程风险和技术边界。</span></div>
+      <div class="card"><strong>QA / UI</strong><span>可测性、用户体验、异常路径和真实使用场景。</span></div>
+      <div class="card"><strong>Agent</strong><span>检索、执行、验证、总结、回写。</span></div>
     </div>
+    <p class="note">角色是思考帽，不是固定人头；一个人或一个 Agent 都可能承担多个角色动作。</p>
   </section>
 
   <section data-page="27">
     <h2>单仓库原则</h2>
     <div class="quote">仓库是 BA / DEV / QA / UI / Agent 共享的强状态空间。</div>
+    <p class="note">需求、设计、实现、测试、验收和回写都在同一个可审计空间里发生，减少部门墙和上下文传递损耗。</p>
+  </section>
+
+  <section data-page="27A">
+    <h2>UI 流程：从用户路径到可点击界面</h2>
+    <div class="grid">
+      <div class="card"><strong>调度 Figma MCP</strong><span>把 Story 和用户路径转成页面草图、组件结构、布局方案，让 AI 直接进入可视化协作。</span></div>
+      <div class="card"><strong>调用 UI/UX Pro Max</strong><span>检查信息架构、交互路径、空态、错态、加载态和文案，让页面不是“能看”，而是“能用”。</span></div>
+      <div class="card"><strong>检查方式</strong><span>用浏览器走查、截图对比、可访问性基础检查、用户路径回放，确认设计真的承接 BA 的业务意图。</span></div>
+    </div>
+    <p class="note">UI 角色的核心不是画漂亮页面，而是把业务路径翻译成可操作、可验证、可交付的交互状态。</p>
+  </section>
+
+  <section data-page="27B">
+    <h2>Dev 流程：用 SDD 框架把编码变成工程动作</h2>
+    <div class="grid four">
+      <div class="card"><strong>BMAD</strong><span>适合从业务目标拆角色、产物和执行步骤，帮助 Agent 先理解系统再动手。</span></div>
+      <div class="card"><strong>OpenSpec</strong><span>把需求、接口、约束和验收写成规范，减少“边写边猜”。</span></div>
+      <div class="card"><strong>SpecKit</strong><span>把规格、计划、任务和实现连接起来，适合演示从 Spec 到代码的闭环。</span></div>
+      <div class="card"><strong>Superpowers</strong><span>用 Skill 驱动设计、计划、执行和验证，让 Agent 按工程纪律推进。</span></div>
+    </div>
+    <p class="note">Demo 里可以重点展示：Tasking 进入 Dev 环节后，先形成规格和测试，再让 AI 编码，最后用测试和 Review 收口。</p>
+  </section>
+
+  <section data-page="27C">
+    <h2>BA + QA：开卡时就把测试拉进来</h2>
+    <div class="timeline">
+      <div class="step"><b>BA 拆需求</b><span>把模糊需求拆成 Story、Scope、业务规则、边界条件和验收标准。</span></div>
+      <div class="step"><b>AI 生成用例</b><span>基于 Scope 直接生成大量测试场景：主路径、异常路径、权限边界、状态变化。</span></div>
+      <div class="step"><b>QA 开卡介入</b><span>检查测试用例是否齐全，不足就补，不等开发完成后再补洞。</span></div>
+      <div class="step"><b>Dev 测试先行</b><span>先生成测试，再写代码，始终以同一组 QA/BA 认可的测试为标准。</span></div>
+      <div class="step"><b>统一 Scope</b><span>Dev 和 QA 不再各说各话，所有实现和验收都围绕同一个 Scope 工作。</span></div>
+    </div>
+  </section>
+
+  <section data-page="27D">
+    <h2>AI Coding + Review：知识体系让代码不跑偏</h2>
+    <div class="compare">
+      <div><h3>编码前</h3><p>AI 读取 Story、Spec、测试用例、工程规则、SOUL.md 和相关 Skill，先进入同一个知识体系。</p></div>
+      <div><h3>编码中</h3><p>按测试先行推进：单元测试、集成测试、E2E 测试逐步收口，不让实现脱离验收标准。</p></div>
+      <div><h3>编码后</h3><p>Review 技能检查代码风格、测试符合度、边界覆盖、可维护性和重构机会。</p></div>
+    </div>
+    <p class="note">代码是否确信可用，不靠 Agent 自信，而靠 QA 测试用例和 Review 体系共同确认。</p>
+  </section>
+
+  <section data-page="27E">
+    <h2>组合流程：角色调用技能，仓库沉淀知识</h2>
+    <div class="flow"><span class="node">BA 拆 Scope</span><span class="arrow">→</span><span class="node">QA 补测试</span><span class="arrow">→</span><span class="node">UI 画交互</span><span class="arrow">→</span><span class="node">Dev 用 SDD 编码</span><span class="arrow">→</span><span class="node">Review 重构</span><span class="arrow">→</span><span class="node">E2E 验收</span></div>
+    <div class="flow"><span class="node purple">Figma MCP</span><span class="node purple">UI/UX Pro Max</span><span class="node purple">BMAD</span><span class="node purple">OpenSpec</span><span class="node purple">SpecKit</span><span class="node purple">Superpowers</span><span class="node purple">Playwright</span></div>
+    <p class="note">这不是工具堆砌，而是一种协同调度方法：角色调用技能，技能产出资产，资产回到仓库，仓库继续指导下一次执行。</p>
   </section>
 
   <section data-page="28">
-    <h2>第 10 章：统一流程与单线程协作</h2>
-    <div class="flow"><span class="node">需求</span><span class="arrow">→</span><span class="node">Tasking</span><span class="arrow">→</span><span class="node">澄清</span><span class="arrow">→</span><span class="node">设计</span><span class="arrow">→</span><span class="node">计划</span><span class="arrow">→</span><span class="node">实现</span><span class="arrow">→</span><span class="node">Review</span><span class="arrow">→</span><span class="node">测试</span><span class="arrow">→</span><span class="node">验收</span><span class="arrow">→</span><span class="node">代码输出</span></div>
-  </section>
-
-  <section data-page="29">
-    <h2>Tasking 是前置知识整理</h2>
-    <div class="grid">
-      <div class="card"><strong>业务意图</strong><span>为什么要做，解决谁的问题。</span></div>
-      <div class="card"><strong>用户路径</strong><span>用户如何触发、经过、完成。</span></div>
-      <div class="card"><strong>验收标准</strong><span>什么证据说明真的完成。</span></div>
-      <div class="card"><strong>边界条件</strong><span>哪些情况必须覆盖或明确排除。</span></div>
-      <div class="card"><strong>依赖关系</strong><span>上游、下游、并行冲突。</span></div>
-      <div class="card"><strong>风险未知项</strong><span>哪些要问，哪些要记录。</span></div>
-    </div>
+    <h2>第 10 章：统一流程与协同调度</h2>
+    <div class="flow"><span class="node">需求</span><span class="arrow">→</span><span class="node">Scope / Tasking</span><span class="arrow">→</span><span class="node">测试用例</span><span class="arrow">→</span><span class="node">UI / Spec</span><span class="arrow">→</span><span class="node">编码</span><span class="arrow">→</span><span class="node">Review</span><span class="arrow">→</span><span class="node">自动化测试</span><span class="arrow">→</span><span class="node">验收回写</span></div>
+    <p class="note">重点不是把流程画长，而是让每个角色在同一个 Scope、同一组测试、同一个仓库知识体系下协同工作。</p>
   </section>
 
   <section data-page="30">
@@ -307,9 +463,20 @@
     <p class="lead">流程中发现的新规则、新失败模式、新业务判断，要回写到 Skill、工程文件、Knowledge 或长期原则文件。</p>
   </section>
 
+  <section data-page="30A">
+    <h2>先跑通单线程，再谈并行</h2>
+    <div class="stack">
+      <div class="layer"><strong>单线程闭环</strong><span>一个需求能从输入到验收稳定跑通。</span></div>
+      <div class="layer"><strong>多线程并行</strong><span>把统一流程复制到多个隔离 worktree。</span></div>
+      <div class="layer"><strong>长时间运行</strong><span>依赖 progress file、feature list、clean state。</span></div>
+      <div class="layer"><strong>低人工干预</strong><span>自动化检查 + 人工 gate + 失败回流。</span></div>
+    </div>
+  </section>
+
   <section data-page="31">
     <h2>第 11 章：多线程协作流程</h2>
     <div class="flow"><span class="node">Epic</span><span class="arrow">→</span><span class="node">User Stories</span><span class="arrow">→</span><span class="node">依赖识别</span><span class="arrow">→</span><span class="node">Worktree 隔离</span><span class="arrow">→</span><span class="node">并行增量</span><span class="arrow">→</span><span class="node">验收汇合</span></div>
+    <p class="note">Worktree 是隔离机制，不是随意并发；每条线程仍然需要状态、测试、Review、合并门禁和知识回写。</p>
   </section>
 
   <section data-page="32">
@@ -321,50 +488,57 @@
   <section data-page="33">
     <h2>长时间运行需要强状态</h2>
     <div class="grid">
-      <div class="card"><strong>Feature List</strong><span>知道要完成哪些增量。</span></div>
-      <div class="card"><strong>Progress File</strong><span>知道现在做到哪里。</span></div>
-      <div class="card"><strong>Clean State</strong><span>知道从哪里安全恢复。</span></div>
+      <div class="card"><strong>Feature List</strong><span>知道要完成哪些增量，避免 Agent 自己扩大范围。</span></div>
+      <div class="card"><strong>Progress File</strong><span>知道现在做到哪里，下一次接手不用重新猜。</span></div>
+      <div class="card"><strong>Clean State</strong><span>知道从哪里安全恢复，避免脏状态污染判断。</span></div>
     </div>
+    <p class="note">无人值守的前提不是“没人管”，而是状态足够清楚、验证足够自动、风险点有人工 gate。</p>
   </section>
 
   <section data-page="34">
     <h2>第 13 章：Agent 设计</h2>
     <div class="grid">
-      <div class="card"><strong>角色协议</strong><span>上下文、权限、输入、输出。</span></div>
-      <div class="card"><strong>契约</strong><span>完成条件、错误处理、副作用。</span></div>
-      <div class="card"><strong>验收</strong><span>测试、trace、outcome、回写。</span></div>
+      <div class="card"><strong>角色协议</strong><span>上下文、权限、输入、输出；Agent 不是万能助手，而是流程节点。</span></div>
+      <div class="card"><strong>契约</strong><span>完成条件、错误处理、副作用；让 Agent 知道什么时候停。</span></div>
+      <div class="card"><strong>验收</strong><span>测试、trace、outcome、回写；让完成声明有证据。</span></div>
     </div>
   </section>
 
   <section data-page="35">
     <h2>提速来自哪里</h2>
-    <ul>
-      <li>上下文传递损耗下降。</li>
-      <li>等待和协调成本下降。</li>
-      <li>反馈更快，测试更靠前。</li>
-      <li>失败更快变成 eval case。</li>
-      <li>知识资产持续增长。</li>
-    </ul>
+    <div class="grid">
+      <div class="card"><strong>上下文损耗下降</strong><span>强状态空间减少重复解释和交接误差。</span></div>
+      <div class="card"><strong>反馈更快</strong><span>测试、评估、浏览器验证前移，失败更早暴露。</span></div>
+      <div class="card"><strong>资产持续增长</strong><span>失败变成 eval case，经验变成 Skill，判断变成 Knowledge。</span></div>
+    </div>
   </section>
 
   <section data-page="36">
     <h2>工具层改造</h2>
     <div class="grid two">
-      <div class="card"><strong>人类体验</strong><span>页面、说明、宽松输入、可读输出。</span></div>
-      <div class="card"><strong>智能体体验</strong><span>JSON、schema、字段裁剪、稳定错误码、权限边界、输入防御。</span></div>
+      <div class="card"><strong>人类体验</strong><span>页面、说明、宽松输入、可读输出。目标是让人看懂、愿意用。</span></div>
+      <div class="card"><strong>智能体体验</strong><span>JSON、schema、字段裁剪、稳定错误码、权限边界、输入防御。目标是让 Agent 稳定调用。</span></div>
     </div>
+  </section>
+
+  <section data-page="36A">
+    <h2>Agent 是不受信任的操作员</h2>
+    <div class="flow"><span class="node">最小权限</span><span class="node">结构化输入</span><span class="node">稳定错误码</span><span class="node">副作用可控</span><span class="node">危险动作确认</span><span class="node">trace 可回看</span></div>
+    <p class="note">工具层要做纵深防御：不要把安全、权限和副作用控制交给模型记忆。</p>
   </section>
 
   <section data-page="37">
     <h2>最后带走一句话</h2>
     <div class="quote">AI-native workflow 是模型推理、流程约束和状态反馈的动态系统。</div>
+    <p class="note">模型负责推理，流程负责约束，状态负责让推理结果可以被恢复、检查和交接。</p>
   </section>
 
   <section data-page="38">
     <h2>参考来源</h2>
     <ul>
       <li>完整引用列表见 `_output/final-speech.md`。</li>
-      <li>第 0 章吸收归档文章关于过早收束、方法论分层、SDD/MAS 治理价值的论述。</li>
+      <li>知识工程定义化用《不是提示词工程，是知识工程》。</li>
+      <li>Skill 构建及评定吸收 Anthropic Agent eval 体系：Task、Trial、Transcript、Outcome、Grader、Evaluation Suite。</li>
       <li>弱证据内容已弱化：自动解析依赖、Agent Teams、工具推荐、精确数字。</li>
     </ul>
   </section>
