@@ -1,0 +1,344 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>知识工程驱动的 AI 实践</title>
+  <style>
+    :root { --bg:#0f172a; --panel:#111827; --text:#f8fafc; --muted:#cbd5e1; --accent:#38bdf8; --accent2:#a78bfa; --line:#334155; }
+    * { box-sizing: border-box; }
+    body { margin:0; font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif; background:var(--bg); color:var(--text); }
+    main { scroll-snap-type:y mandatory; height:100vh; overflow-y:auto; }
+    section { min-height:100vh; scroll-snap-align:start; padding:6vh 8vw; display:flex; flex-direction:column; justify-content:center; border-bottom:1px solid rgba(255,255,255,.08); }
+    h1 { font-size:clamp(44px,7vw,92px); line-height:1.05; margin:0 0 24px; letter-spacing:-.04em; }
+    h2 { font-size:clamp(34px,5vw,64px); line-height:1.12; margin:0 0 28px; letter-spacing:-.03em; }
+    h3 { font-size:clamp(24px,3vw,36px); margin:0 0 18px; color:var(--accent); }
+    p, li { font-size:clamp(22px,2.4vw,34px); line-height:1.45; color:var(--muted); }
+    p { max-width:1100px; margin:0 0 18px; }
+    ul { margin:0; padding-left:1.2em; max-width:1100px; }
+    li { margin:.35em 0; }
+    .kicker { color:var(--accent); font-size:clamp(18px,2vw,28px); font-weight:700; margin-bottom:18px; letter-spacing:.08em; text-transform:uppercase; }
+    .lead { font-size:clamp(28px,3.2vw,44px); color:var(--text); max-width:1200px; }
+    .grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:22px; max-width:1200px; }
+    .grid.two { grid-template-columns:repeat(2,minmax(0,1fr)); }
+    .card { border:1px solid var(--line); border-radius:22px; padding:26px; background:rgba(17,24,39,.72); min-height:180px; }
+    .card strong { display:block; color:var(--text); font-size:clamp(24px,2.4vw,34px); margin-bottom:12px; }
+    .card span { color:var(--muted); font-size:clamp(18px,1.8vw,26px); line-height:1.42; }
+    .flow { display:flex; flex-wrap:wrap; gap:14px; align-items:center; max-width:1250px; }
+    .node { padding:16px 22px; border-radius:999px; background:rgba(56,189,248,.12); border:1px solid rgba(56,189,248,.45); font-size:clamp(20px,2vw,30px); color:var(--text); }
+    .arrow { color:var(--accent); font-size:clamp(24px,2.5vw,36px); }
+    .quote { border-left:6px solid var(--accent); padding-left:26px; font-size:clamp(28px,3.4vw,48px); line-height:1.35; color:var(--text); max-width:1200px; }
+    .small { font-size:clamp(16px,1.5vw,22px); color:#94a3b8; margin-top:28px; }
+    .accent { color:var(--accent); }
+    .purple { color:var(--accent2); }
+    @media (max-width: 900px) { .grid, .grid.two { grid-template-columns:1fr; } section { padding:5vh 6vw; } }
+  </style>
+</head>
+<body>
+<main>
+  <section>
+    <div class="kicker">AI Work System Speech</div>
+    <h1>知识工程驱动的 AI 实践</h1>
+    <p class="lead">从 AI Coding 到可运行、可协作、可演进的 AI 工作系统。</p>
+    <p class="small">项目：ai-work-system-speech-20260518</p>
+  </section>
+
+  <section>
+    <h2>今天只讲一条主线</h2>
+    <div class="quote">如何构建统一流程，以及如何构建一个高质量的统一流程。</div>
+  </section>
+
+  <section>
+    <h2>第 0 章：为什么还要工程化与 SDD</h2>
+    <div class="grid">
+      <div class="card"><strong>模型更强</strong><span>一部分 planning、tool use、orchestration 被模型吸收。</span></div>
+      <div class="card"><strong>问题迁移</strong><span>工程方法从能力补丁，迁移为治理工具。</span></div>
+      <div class="card"><strong>现实风险</strong><span>模型太快开始写代码，需求、边界、验证还没想清。</span></div>
+    </div>
+    <p class="small">来源：用户项目 framing；`references/web/24-mp-weixin-qq-com-s-b4Fh-3SQyWiB1HypUxk9wA.md`</p>
+  </section>
+
+  <section>
+    <h2>AI-native workflow</h2>
+    <div class="grid">
+      <div class="card"><strong>模型推理</strong><span>生成方案、代码、解释、判断。</span></div>
+      <div class="card"><strong>流程约束</strong><span>先想清楚，固定检查点，验收显化。</span></div>
+      <div class="card"><strong>状态反馈</strong><span>可恢复、可检查、可交接、可回写。</span></div>
+    </div>
+  </section>
+
+  <section>
+    <h2>第 1 章：软件基本功</h2>
+    <div class="grid">
+      <div class="card"><strong>SoC</strong><span>Story、ADR、Spec、Plan、State、Review、Eval 各司其职。</span></div>
+      <div class="card"><strong>抽象 / OOP</strong><span>Skill、Rule、Capability、Agent Blueprint 是知识对象。</span></div>
+      <div class="card"><strong>目录结构</strong><span>不是收纳方式，而是 Agent 可导航的知识地址空间。</span></div>
+    </div>
+  </section>
+
+  <section>
+    <h2>上下文管理不是越多越好</h2>
+    <div class="quote">给模型低噪声、可处理、可验证的上下文。</div>
+    <p class="small">确定性的事交给确定性的工具；推理性的事交给模型或人。</p>
+  </section>
+
+  <section>
+    <h2>第 2 章：MindFlow 的自我演进</h2>
+    <div class="flow">
+      <span class="node">Soul</span><span class="arrow">→</span><span class="node">Learning</span><span class="arrow">→</span><span class="node">Capability</span><span class="arrow">→</span><span class="node">Plan</span><span class="arrow">→</span><span class="node">Task State</span><span class="arrow">→</span><span class="node">Reflection</span>
+    </div>
+    <p class="small">来源：MindFlow README-CN、SYSTEM、tasks、capabilities。</p>
+  </section>
+
+  <section>
+    <h2>MindFlow 给我们的启发</h2>
+    <ul>
+      <li>不要把所有知识揉成一个巨大 prompt。</li>
+      <li>长期原则、项目知识、能力、状态、反思要分层。</li>
+      <li>Lazy loading 是流程设计，不只是省 token。</li>
+      <li>任务状态让系统可恢复、可交接、可复盘。</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>软件系统的本质就是知识</h2>
+    <div class="grid two">
+      <div class="card"><strong>传统软件</strong><span>代码、文档、测试、规则，是知识的固化。</span></div>
+      <div class="card"><strong>Agent 系统</strong><span>上下文、状态、工具、反馈，也是知识的表达。</span></div>
+    </div>
+  </section>
+
+  <section>
+    <h2>第 3 章：POMASA 与 MAS 的强状态</h2>
+    <p class="lead">MAS 的关键不是“几个 Agent 聊天”，而是围绕状态推进的编排系统。</p>
+    <p class="small">ProMaster 具体事实证据不足；本章事实主要使用 POMASA 资料。</p>
+  </section>
+
+  <section>
+    <h2>POMASA 的工程信号</h2>
+    <div class="grid">
+      <div class="card"><strong>Blueprint / Pattern</strong><span>可声明、可复用的协作结构。</span></div>
+      <div class="card"><strong>Filesystem Data Bus</strong><span>文件系统承载多角色产物流转。</span></div>
+      <div class="card"><strong>Verifiable Data Lineage</strong><span>产物来源、验收、回流可追踪。</span></div>
+    </div>
+    <p class="small">来源：POMASA README.zh-CN；POMASA SKILL。</p>
+  </section>
+
+  <section>
+    <h2>第 4 章：状态控制三分法</h2>
+    <div class="grid">
+      <div class="card"><strong>强约束固定</strong><span>Rules、Hooks、必读文件、测试、提交检查。</span></div>
+      <div class="card"><strong>建议式调度</strong><span>Skill、推荐流程、可选 checklist。</span></div>
+      <div class="card"><strong>完全 AI 控制</strong><span>探索、低风险实验、一次性任务。</span></div>
+    </div>
+  </section>
+
+  <section>
+    <h2>可靠性与灵活性的张力</h2>
+    <div class="flow">
+      <span class="node">强约束：可靠</span><span class="arrow">↔</span><span class="node">建议式：平衡</span><span class="arrow">↔</span><span class="node">AI 自主：灵活</span>
+    </div>
+    <p class="small">这是工程经验分类；外部 workflows / agents 材料提供支撑。</p>
+  </section>
+
+  <section>
+    <h2>第 5 章：Skill、工程文件与 Rules</h2>
+    <div class="grid">
+      <div class="card"><strong>Skill</strong><span>可复用能力；触发依赖模型判断，存在随机性。</span></div>
+      <div class="card"><strong>工程文件</strong><span>结构化上下文；处在流程规定位置，更确定。</span></div>
+      <div class="card"><strong>Rules</strong><span>Hook 式强约束；稳定，但自由度低。</span></div>
+    </div>
+  </section>
+
+  <section>
+    <h2>成熟 Skill 像函数</h2>
+    <div class="flow">
+      <span class="node">触发</span><span class="node">输入</span><span class="node">步骤</span><span class="node">输出</span><span class="node">权限</span><span class="node">副作用</span><span class="node">验证</span><span class="node">下游消费</span>
+    </div>
+    <p class="small">来源：CLI for AI Agents；POMASA SKILL；用户项目 framing。</p>
+  </section>
+
+  <section>
+    <h2>第 6 章：Knowledge 与 Story</h2>
+    <div class="quote">Story 是动态知识，Knowledge 是静态 Story。</div>
+    <p class="small">这是项目观点。外部材料用于支撑工程资产回写、Doc 与 Code 联动、eval 闭环。</p>
+  </section>
+
+  <section>
+    <h2>User Journey 是知识固化过程</h2>
+    <div class="flow">
+      <span class="node">发现</span><span class="arrow">→</span><span class="node">组织</span><span class="arrow">→</span><span class="node">编码</span><span class="arrow">→</span><span class="node">验证</span><span class="arrow">→</span><span class="node">回写</span>
+    </div>
+  </section>
+
+  <section>
+    <h2>第 7 章：Flyway 类比</h2>
+    <div class="grid two">
+      <div class="card"><strong>Story = Migration</strong><span>带着时间性、变化意图和业务增量。</span></div>
+      <div class="card"><strong>Knowledge = 当前状态</strong><span>所有已验证增量执行后的知识系统。</span></div>
+    </div>
+  </section>
+
+  <section>
+    <h2>回写闭环</h2>
+    <div class="flow">
+      <span class="node">Story</span><span class="arrow">→</span><span class="node">代码</span><span class="node">文档</span><span class="node">测试</span><span class="node">Skill</span><span class="node">Eval Case</span><span class="arrow">→</span><span class="node">Knowledge</span>
+    </div>
+  </section>
+
+  <section>
+    <h2>第 8 章：验收 Skill 与 Story</h2>
+    <div class="grid two">
+      <div class="card"><strong>Skill 验收</strong><span>触发、输入、步骤、输出、权限、副作用、验证、下游消费。</span></div>
+      <div class="card"><strong>Story 验收</strong><span>业务意图、AC、依赖、边界、可测试性、知识沉淀。</span></div>
+    </div>
+  </section>
+
+  <section>
+    <h2>不要只相信“我完成了”</h2>
+    <div class="flow">
+      <span class="node">Task</span><span class="node">Trial</span><span class="node">Grader</span><span class="node">Trace</span><span class="node">Outcome</span><span class="node">Evaluation Suite</span>
+    </div>
+    <p class="small">来源：Anthropic, Demystifying evals for AI agents。</p>
+  </section>
+
+  <section>
+    <h2>第 9 章：角色而非人</h2>
+    <div class="grid">
+      <div class="card"><strong>BA</strong><span>业务意图与验收标准。</span></div>
+      <div class="card"><strong>DEV</strong><span>设计、实现、工程风险。</span></div>
+      <div class="card"><strong>QA / UI</strong><span>可测性、业务路径、用户体验。</span></div>
+    </div>
+    <p class="lead"><span class="accent">Agent</span> 承担检索、执行、验证、总结等动作。</p>
+  </section>
+
+  <section>
+    <h2>单仓库原则</h2>
+    <div class="quote">仓库是 BA / DEV / QA / UI / Agent 共享的强状态空间。</div>
+    <p class="small">来源：用户项目 framing；OpenAI repository knowledge as system of record。</p>
+  </section>
+
+  <section>
+    <h2>第 10 章：统一流程与单线程协作</h2>
+    <div class="flow">
+      <span class="node">需求</span><span class="arrow">→</span><span class="node">Tasking</span><span class="arrow">→</span><span class="node">澄清</span><span class="arrow">→</span><span class="node">设计</span><span class="arrow">→</span><span class="node">计划</span><span class="arrow">→</span><span class="node">实现</span><span class="arrow">→</span><span class="node">Review</span><span class="arrow">→</span><span class="node">测试</span><span class="arrow">→</span><span class="node">验收</span><span class="arrow">→</span><span class="node">代码输出</span>
+    </div>
+  </section>
+
+  <section>
+    <h2>Tasking 是前置知识整理</h2>
+    <ul>
+      <li>业务意图</li>
+      <li>用户路径</li>
+      <li>验收标准</li>
+      <li>边界条件</li>
+      <li>依赖关系</li>
+      <li>风险与未知项</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>统一流程是资产生产线</h2>
+    <div class="flow">
+      <span class="node">输入</span><span class="node">输出</span><span class="node">状态</span><span class="node">角色</span><span class="node">检查点</span><span class="node">验收</span><span class="node">回写</span>
+    </div>
+    <p class="small">Skill、工程文件、Knowledge、类似 `SOUL.md` 的长期原则文件，都随流程维护。</p>
+  </section>
+
+  <section>
+    <h2>第 11 章：多线程协作流程</h2>
+    <div class="flow">
+      <span class="node">Epic</span><span class="arrow">→</span><span class="node">User Stories</span><span class="arrow">→</span><span class="node">依赖识别</span><span class="arrow">→</span><span class="node">Worktree 隔离</span><span class="arrow">→</span><span class="node">并行增量</span><span class="arrow">→</span><span class="node">验收汇合</span>
+    </div>
+  </section>
+
+  <section>
+    <h2>多线程不是跳过流程</h2>
+    <p class="lead">它是把统一流程复制到多个隔离工作流中，再通过依赖、状态和验收汇合。</p>
+  </section>
+
+  <section>
+    <h2>第 12 章：自动化与无人值守</h2>
+    <div class="quote">长时间、低人工干预；不是完全自主魔法。</div>
+  </section>
+
+  <section>
+    <h2>长时间运行需要强状态</h2>
+    <div class="grid">
+      <div class="card"><strong>Feature List</strong><span>知道要完成哪些增量。</span></div>
+      <div class="card"><strong>Progress File</strong><span>知道现在做到哪里。</span></div>
+      <div class="card"><strong>Clean State</strong><span>知道从哪里安全恢复。</span></div>
+    </div>
+    <p class="small">来源：Anthropic, Effective harnesses for long-running agents。</p>
+  </section>
+
+  <section>
+    <h2>自动化的边界</h2>
+    <div class="flow">
+      <span class="node">任务边界</span><span class="node">Worktree</span><span class="node">自动测试</span><span class="node">浏览器验证</span><span class="node">可观测</span><span class="node">人工 Gate</span><span class="node">失败回流</span>
+    </div>
+  </section>
+
+  <section>
+    <h2>第 13 章：Agent 设计</h2>
+    <div class="grid">
+      <div class="card"><strong>角色协议</strong><span>上下文、权限、输入、输出。</span></div>
+      <div class="card"><strong>契约</strong><span>完成条件、错误处理、副作用。</span></div>
+      <div class="card"><strong>验收</strong><span>测试、trace、outcome、回写。</span></div>
+    </div>
+  </section>
+
+  <section>
+    <h2>提速来自哪里</h2>
+    <ul>
+      <li>上下文传递损耗下降。</li>
+      <li>等待和协调成本下降。</li>
+      <li>反馈更快，测试更靠前。</li>
+      <li>失败更快变成 eval case。</li>
+      <li>知识资产持续增长。</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>AI 编排：从简单开始</h2>
+    <div class="flow">
+      <span class="node">Prompt Chaining</span><span class="node">Routing</span><span class="node">Parallelization</span><span class="node">Orchestrator-Workers</span><span class="node">Evaluator-Optimizer</span><span class="node">Agents</span>
+    </div>
+    <p class="small">来源：Anthropic, Building Effective Agents。</p>
+  </section>
+
+  <section>
+    <h2>工具层改造</h2>
+    <div class="grid two">
+      <div class="card"><strong>人类体验</strong><span>页面、说明、宽松输入、可读输出。</span></div>
+      <div class="card"><strong>智能体体验</strong><span>JSON、schema、字段裁剪、稳定错误码、权限边界、输入防御。</span></div>
+    </div>
+    <p class="small">来源：CLI for AI Agents。</p>
+  </section>
+
+  <section>
+    <h2>展望</h2>
+    <ul>
+      <li>框架稳定后，应沉淀为工具、模板、规则、测试、Skill 或 workflow。</li>
+      <li>架构形态会被 AI 重新塑造。</li>
+      <li>AI 不是降低设计重要性，而是提高设计杠杆。</li>
+      <li>Agent Teams 是展望，不是成熟完全自治结论。</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>最后带走一句话</h2>
+    <div class="quote">AI-native workflow 是模型推理、流程约束和状态反馈的动态系统。</div>
+  </section>
+
+  <section>
+    <h2>引用说明</h2>
+    <ul>
+      <li>完整引用列表见 `_output/final-speech.md`。</li>
+      <li>用户原创观点按项目 framing 表达。</li>
+      <li>弱证据内容已降级：ProMaster、自动解析依赖、Agent Teams、工具推荐、精确数字。</li>
+    </ul>
+  </section>
+</main>
+</body>
+</html>
