@@ -2,11 +2,11 @@
 
 ## 数据源类型
 
-### 1. 用户指定本地资料
+### 1. 用户指定资料
 - 优先级：最高
 - 可信度：高
-- 包含：/Users/weili.wang/Downloads/170、/Users/weili.wang/Downloads/180/CLI_for_AI_Agents.pdf、MindFlow 与 POMASA 本地项目资料。
-- 引用方式：文件名、页码/章节（如可得）、本地路径。
+- 包含：`references/papers/` 中归档的 PDF，以及 MindFlow 与 POMASA GitHub 项目资料。
+- 引用方式：仓库相对路径、GitHub URL、页码/章节（如可得）。
 
 ### 2. 用户指定微信文章
 - 优先级：高

@@ -146,9 +146,9 @@ ai-work-system-speech-20260518
 
 **Data Sources**:
 
-1. 用户提供的本地资料目录与 PDF：`~/Downloads/170`、`~/Downloads/180/CLI_for_AI_Agents.pdf`。
+1. 用户提供并归档到仓库的 PDF：`references/papers`、`references/papers/CLI_for_AI_Agents.pdf`。
 2. 用户提供的微信文章链接。
-3. POMASA / MindFlow 本地项目资料。
+3. POMASA / MindFlow GitHub 项目资料。
 4. 公开 Harness Engineering、Agent Eval、AI Coding、Agent Runtime、Agent Observability、Agent QA、企业知识沉淀相关资料。
 5. 必要时补充公开网页、技术博客、论文、产品文档等，但必须保持引用可追溯。
 
@@ -160,30 +160,30 @@ ai-work-system-speech-20260518
 - https://mp.weixin.qq.com/s/9Dh-e7Z139QoOqrWOqkKJA — 《我希望用一篇文章帮你叩响AI辅助编程的大门》
 - https://mp.weixin.qq.com/s/pwhg5Kmh3wMlxqIlbVqGMw — 《Anthropic 万字长文：AI Agent 评估体系全解析》
 
-本地项目资料：
+GitHub 项目资料：
 
-- /Users/weili.wang/workspace/MindFlow/README-CN.md
-- /Users/weili.wang/workspace/MindFlow/SYSTEM.md
-- /Users/weili.wang/workspace/MindFlow/tasks/README.md
-- /Users/weili.wang/workspace/MindFlow/capabilities/README.md
-- /Users/weili.wang/.pomasa/pomasa/README.md
-- /Users/weili.wang/.pomasa/pomasa/README.zh-cn.md
-- /Users/weili.wang/.pomasa/pomasa/skills/pomasa/SKILL.md
+- https://github.com/neil-wang-global/MindFlow/blob/main/README-CN.md
+- https://github.com/neil-wang-global/MindFlow/blob/main/SYSTEM.md
+- https://github.com/neil-wang-global/MindFlow/blob/main/tasks/README.md
+- https://github.com/neil-wang-global/MindFlow/blob/main/capabilities/README.md
+- https://github.com/eXtremeProgramming-cn/pomasa/blob/main/README.md
+- https://github.com/eXtremeProgramming-cn/pomasa/blob/main/README.zh-cn.md
+- https://github.com/eXtremeProgramming-cn/pomasa/blob/main/skills/pomasa/SKILL.md
 
 本地 PDF 资料：
 
-- /Users/weili.wang/Downloads/180/CLI_for_AI_Agents.pdf
-- /Users/weili.wang/Downloads/170/牛万鹏-构建 Coding Agent 的飞轮：Feedback Loop、Benchmark、Agent Engineers.pdf
-- /Users/weili.wang/Downloads/170/彭佩乔-让每个员工都有一个 Coding Agent：蚂蚁 Vibe Coding 平台落地半年后的实践经验 .pdf
-- /Users/weili.wang/Downloads/170/曹偲-DSL-Spec：TocoAI 的后端 Harness Engineering 实践.pdf
-- /Users/weili.wang/Downloads/170/徐翔-尽在上下文&mdash;&mdash;JoyCode 的企业级 AI Coding 实践.pdf
-- /Users/weili.wang/Downloads/170/李文鹏-让 AI 运行在工程资产上：从 PRD 到上线的交付闭环、Hybrid 执行、 Doc 与 Code 联动.pdf
-- /Users/weili.wang/Downloads/170/钱世俊-给 Agent 做&ldquo;CT&rdquo;：大规模 Agent 的可观测与质量保障体系.pdf
-- /Users/weili.wang/Downloads/170/章平-从盲目调优到数据驱动-大规模 Agent 的评估工程实践.pdf
-- /Users/weili.wang/Downloads/170/赵文成-从个人经验到组织资产：小米运维知识沉淀的闭环实践.pdf
-- /Users/weili.wang/Downloads/170/黄闻欣-超级团队进行时：从用 AI 到 AI 自己找活干.pdf
-- /Users/weili.wang/Downloads/170/陶宇田-OpenSandbox：重新思考 Agent 时代的 Runtime.pdf
-- /Users/weili.wang/Downloads/170/蔡明哲-从单点辅助到 Agent 闭环.pdf
+- references/papers/CLI_for_AI_Agents.pdf
+- references/papers/牛万鹏-构建 Coding Agent 的飞轮：Feedback Loop、Benchmark、Agent Engineers.pdf
+- references/papers/彭佩乔-让每个员工都有一个 Coding Agent：蚂蚁 Vibe Coding 平台落地半年后的实践经验 .pdf
+- references/papers/曹偲-DSL-Spec：TocoAI 的后端 Harness Engineering 实践.pdf
+- references/papers/徐翔-尽在上下文&mdash;&mdash;JoyCode 的企业级 AI Coding 实践.pdf
+- references/papers/李文鹏-让 AI 运行在工程资产上：从 PRD 到上线的交付闭环、Hybrid 执行、 Doc 与 Code 联动.pdf
+- references/papers/钱世俊-给 Agent 做&ldquo;CT&rdquo;：大规模 Agent 的可观测与质量保障体系.pdf
+- references/papers/章平-从盲目调优到数据驱动-大规模 Agent 的评估工程实践.pdf
+- references/papers/赵文成-从个人经验到组织资产：小米运维知识沉淀的闭环实践.pdf
+- references/papers/黄闻欣-超级团队进行时：从用 AI 到 AI 自己找活干.pdf
+- references/papers/陶宇田-OpenSandbox：重新思考 Agent 时代的 Runtime.pdf
+- references/papers/蔡明哲-从单点辅助到 Agent 闭环.pdf
 
 Harness Engineering 参考资料（如可访问则引用）：
 
@@ -204,7 +204,7 @@ Harness Engineering 参考资料（如可访问则引用）：
 ## Analysis Methods
 
 1. **概念谱系分析**：从软件工程基本功（SoC、抽象、目录结构、契约、测试）推导到 AI-native 工作流、MindFlow、POMASA、Skill、MAS、Agent 编排。
-2. **案例归纳**：从 MindFlow、POMASA、本地 AI Coding / Agent 工程 PDF、微信文章中提取可讲述案例与思想片段。
+2. **案例归纳**：从 MindFlow、POMASA、归档 AI Coding / Agent 工程 PDF、微信文章中提取可讲述案例与思想片段。
 3. **工程模式抽象**：总结上下文管理、渐进加载、强状态、契约驱动、Agent/Skill/Script 分工、分层 Plan、Eval、CLI for Agents 等通用模式。
 4. **演讲叙事设计**：避免资料堆砌，按“软件工程基本功 → 认知/知识工程 → MAS/Skill/角色协作 → 提速/测试/编排 → 工具/自动化/展望”组织。
 5. **引用与可追溯性**：所有外部观点或资料中的具体事实、术语、案例，需在正文中添加引用。引用可采用脚注或括号形式，但最终稿必须让读者知道观点来源。
