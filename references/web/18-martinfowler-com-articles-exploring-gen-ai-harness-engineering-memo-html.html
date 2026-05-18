@@ -1,0 +1,404 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html><head><meta charset="UTF-8">
+<title>Harness Engineering - first thoughts</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8"><script defer="" src="https://cloud.umami.is/script.js" data-website-id="eb12527f-b713-4afa-905a-8a50f8a7f157"></script>
+<meta content="summary" name="twitter:card">
+
+<meta content="16665197" name="twitter:site:id">
+
+<meta content="@martinfowler" name="twitter:site">
+
+<meta content="Harness Engineering - first thoughts" property="og:title">
+
+<meta content="https://martinfowler.com/articles/exploring-gen-ai.html/harness-engineering-memo.html" property="og:url">
+
+<meta content="Notes from my Thoughtworks colleagues on AI-assisted software delivery" property="og:description">
+
+<meta content="https://martinfowler.com/articles/exploring-gen-ai/donkey-card.png" property="og:image">
+
+<meta content="martinfowler.com" property="og:site_name">
+
+<meta content="article" property="og:type">
+
+<meta content="17 February 2026" property="og:article:modified_time">
+
+<meta content="width=device-width, initial-scale=1" name="viewport">
+
+<link href="exploring-gen-ai.css" rel="stylesheet" type="text/css">
+</head>
+
+<body><header id="banner" style="background-image: url(&quot;/banner.png&quot;); background-repeat: no-repeat">
+
+<div class="name-logo"><a href="https://martinfowler.com"><img src="/mf-name-white.png"></a></div>
+  <div class="search">
+    <!-- SiteSearch Google -->
+    <form method="GET" action="https://www.google.com/search">
+      <input type="hidden" name="ie" value="UTF-8">
+      <input type="hidden" name="oe" value="UTF-8">
+      <input class="field" type="text" name="q" size="15" maxlength="255" value="">
+      <button class="button" type="submit" name="btnG" value=" " title="Search">
+      <input type="hidden" name="domains" value="martinfowler.com">
+      <input type="hidden" name="sitesearch" value=""> 
+      <input type="hidden" name="sitesearch" value="martinfowler.com">
+    
+  </button></form></div>
+
+<div class="menu-button navmenu-button"><a class="icon icon-bars" href="#navmenu-bottom"></a></div>
+
+<nav class="top-menu">
+<ul>
+<li><a class="" href="https://refactoring.com">Refactoring</a></li>
+
+<li><a class="" href="/agile.html">Agile</a></li>
+
+<li><a class="" href="/architecture">Architecture</a></li>
+
+<li><a class="" href="/aboutMe.html">About</a></li>
+
+<li><a class="tw" href="https://www.thoughtworks.com/engineering">Thoughtworks</a></li>
+
+<li><a class="icon icon-rss" href="/feed.atom" title="feed"></a></li>
+
+<li><a class="icon icon-twitter" href="https://www.twitter.com/martinfowler" title="Twitter stream"></a></li>
+
+<li class="icon"><a href="https://toot.thoughtworks.com/@mfowler" title="Mastodon stream"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M21.2595 13.9898C20.9852 15.4006 18.8033 16.9446 16.2974 17.2439C14.9907 17.3998 13.7041 17.5431 12.3321 17.4802C10.0885 17.3774 8.31809 16.9446 8.31809 16.9446C8.31809 17.163 8.33156 17.371 8.3585 17.5655C8.65019 19.7797 10.5541 19.9124 12.3576 19.9742C14.1779 20.0365 15.7987 19.5254 15.7987 19.5254L15.8735 21.1711C15.8735 21.1711 14.6003 21.8548 12.3321 21.9805C11.0814 22.0493 9.52849 21.9491 7.71973 21.4703C3.79684 20.432 3.12219 16.2504 3.01896 12.0074C2.98749 10.7477 3.00689 9.55981 3.00689 8.56632C3.00689 4.22771 5.84955 2.95599 5.84955 2.95599C7.2829 2.29772 9.74238 2.0209 12.2993 2H12.3621C14.919 2.0209 17.3801 2.29772 18.8133 2.95599C18.8133 2.95599 21.6559 4.22771 21.6559 8.56632C21.6559 8.56632 21.6916 11.7674 21.2595 13.9898ZM18.3029 8.9029C18.3029 7.82924 18.0295 6.97604 17.4805 6.34482C16.9142 5.71359 16.1726 5.39001 15.2522 5.39001C14.187 5.39001 13.3805 5.79937 12.8473 6.61819L12.3288 7.48723L11.8104 6.61819C11.2771 5.79937 10.4706 5.39001 9.40554 5.39001C8.485 5.39001 7.74344 5.71359 7.17719 6.34482C6.62807 6.97604 6.3547 7.82924 6.3547 8.9029V14.1562H8.43597V9.05731C8.43597 7.98246 8.88822 7.4369 9.79281 7.4369C10.793 7.4369 11.2944 8.08408 11.2944 9.36376V12.1547H13.3634V9.36376C13.3634 8.08408 13.8646 7.4369 14.8648 7.4369C15.7694 7.4369 16.2216 7.98246 16.2216 9.05731V14.1562H18.3029V8.9029Z"></path></svg>
+</a></li>
+
+<li class="icon"><a href="https://www.linkedin.com/in/martin-fowler-com/" title="LinkedIn"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M4.00098 3H20.001C20.5533 3 21.001 3.44772 21.001 4V20C21.001 20.5523 20.5533 21 20.001 21H4.00098C3.44869 21 3.00098 20.5523 3.00098 20V4C3.00098 3.44772 3.44869 3 4.00098 3ZM5.00098 5V19H19.001V5H5.00098ZM7.50098 9C6.67255 9 6.00098 8.32843 6.00098 7.5C6.00098 6.67157 6.67255 6 7.50098 6C8.3294 6 9.00098 6.67157 9.00098 7.5C9.00098 8.32843 8.3294 9 7.50098 9ZM6.50098 10H8.50098V17.5H6.50098V10ZM12.001 10.4295C12.5854 9.86534 13.2665 9.5 14.001 9.5C16.072 9.5 17.501 11.1789 17.501 13.25V17.5H15.501V13.25C15.501 12.2835 14.7175 11.5 13.751 11.5C12.7845 11.5 12.001 12.2835 12.001 13.25V17.5H10.001V10H12.001V10.4295Z"></path></svg>
+</a></li>
+
+<li class="icon"><a href="https://bsky.app/profile/martinfowler.com" title="BlueSky"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12 11.3884C11.0942 9.62673 8.62833 6.34423 6.335 4.7259C4.13833 3.17506 3.30083 3.4434 2.75167 3.69256C2.11583 3.9784 2 4.95506 2 5.52839C2 6.10339 2.315 10.2367 2.52 10.9276C3.19917 13.2076 5.61417 13.9776 7.83917 13.7309C4.57917 14.2142 1.68333 15.4017 5.48083 19.6292C9.65833 23.9542 11.2058 18.7017 12 16.0392C12.7942 18.7017 13.7083 23.7651 18.4442 19.6292C22 16.0392 19.4208 14.2142 16.1608 13.7309C18.3858 13.9784 20.8008 13.2076 21.48 10.9276C21.685 10.2376 22 6.10256 22 5.52923C22 4.95423 21.8842 3.97839 21.2483 3.6909C20.6992 3.44256 19.8617 3.17423 17.665 4.72423C15.3717 6.34506 12.9058 9.62756 12 11.3884Z"></path></svg></a></li>
+</ul>
+</nav>
+</header>
+<nav id="top-navmenu">
+<nav class="navmenu">
+<div class="nav-head">  <div class="search">
+    <!-- SiteSearch Google -->
+    <form method="GET" action="https://www.google.com/search">
+      <input type="hidden" name="ie" value="UTF-8">
+      <input type="hidden" name="oe" value="UTF-8">
+      <input class="field" type="text" name="q" size="15" maxlength="255" value="">
+      <button class="button" type="submit" name="btnG" value=" " title="Search">
+      <input type="hidden" name="domains" value="martinfowler.com">
+      <input type="hidden" name="sitesearch" value=""> 
+      <input type="hidden" name="sitesearch" value="martinfowler.com">
+    
+  </button></form></div>
+
+<div class="closediv">
+<span class="close" title="close"></span>
+</div>
+</div>
+
+<div class="nav-body">
+<div class="topics">
+<h2>Topics</h2>
+
+<p><a href="/architecture">Architecture</a></p>
+
+<p><a href="https://refactoring.com">Refactoring</a></p>
+
+<p><a href="/agile.html">Agile</a></p>
+
+<p><a href="/delivery.html">Delivery</a></p>
+
+<p><a href="/microservices">Microservices</a></p>
+
+<p><a href="/data">Data</a></p>
+
+<p><a href="/testing">Testing</a></p>
+
+<p><a href="/dsl.html">DSL</a></p>
+</div>
+
+<div class="about">
+<h2>about me</h2>
+
+<p><a href="/aboutMe.html">About</a></p>
+
+<p><a href="/books">Books</a></p>
+
+<p><a href="/faq.html">FAQ</a></p>
+</div>
+
+<div class="content">
+<h2>content</h2>
+
+<p><a href="/videos.html">Videos</a></p>
+
+<p><a href="/tags">Content Index</a></p>
+
+<p><a href="/fragments">Fragments</a></p>
+
+<p><a href="/boardgames">Board Games</a></p>
+
+<p><a href="/photos">Photography</a></p>
+</div>
+
+<div class="tw">
+<h2>Thoughtworks</h2>
+
+<p><a href="https://thoughtworks.com">Home</a></p>
+
+<p><a href="https://thoughtworks.com/insights">Insights</a></p>
+
+<p><a href="https://thoughtworks.com/careers">Careers</a></p>
+
+<p><a href="https://thoughtworks.com/radar">Radar</a></p>
+
+<p><a href="https://www.thoughtworks.com/engineering">Engineering</a></p>
+</div>
+
+<div class="feeds">
+<h2>follow</h2>
+
+<p><a href="/feed.atom">RSS</a></p>
+
+<p><a href="https://toot.thoughtworks.com/@mfowler">Mastodon</a></p>
+
+<p><a href="https://www.linkedin.com/in/martin-fowler-com/">LinkedIn</a></p>
+
+<p><a href="https://bsky.app/profile/martinfowler.com">Bluesky</a></p>
+
+<p><a href="https://www.twitter.com/martinfowler">X</a></p>
+
+<p><a href="https://boardgamegeek.com/blog/13064/martins-7th-decade">BGG</a></p>
+</div>
+</div>
+</nav>
+</nav>
+
+<main class="memo ">
+<div class="frontMatter">
+<div class="main">
+<h1>Harness Engineering - first thoughts</h1>
+
+<div class="front-grid">
+<div class="author-list">
+<div class="author">
+<div class="photo"><a href="https://birgitta.info"><img alt="Photo of Birgitta Böckeler" src="bb.jpg" width="80"></a></div>
+
+<address class="name"><a href="https://birgitta.info" rel="author">Birgitta Böckeler</a></address>
+
+<div class="bio">
+<p>Birgitta is a Distinguished Engineer and AI-assisted delivery
+    expert at Thoughtworks. She has over 20 years of experience as a software
+    developer, architect and technical leader.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="right">
+<div class="catalog-notice">
+<p><a href="../exploring-gen-ai.html"><img src="donkey-card.png"></a></p>
+
+<p>This article is part of <a href="../exploring-gen-ai.html">“Exploring Gen
+  AI”</a>. A series capturing Thoughtworks technologists' explorations of using gen ai technology for
+  software development.</p>
+</div>
+
+<p class="date">17 February 2026</p>
+</div>
+</div>
+
+<div class="paperBody"><p class="announcement">Since writing this memo, I have had time to analyze the topic further and write a <a href="https://martinfowler.com/articles/harness-engineering.html">more considered article describing Harness Engineering</a>. This frames the elements of a harness as guides and sensors, which may be computational or inferential. Harness templates allow us to share common guides and sensors around a larger software organization. Harnesses attempt to externalise and make explicit what human developer experience brings to the table, but they can only go so far. A good harness should not necessarily aim to fully eliminate human input, but to direct it to where our input is most important.</p>
+
+<p>It was very interesting to read <a href="https://openai.com/index/harness-engineering/">OpenAI’s recent write-up on “Harness engineering”</a> which describes how a team used “no manually typed code at all” as a forcing function to build a harness for maintaining a large application with AI agents. After 5 months, they’ve built a real product that’s now over 1 million lines of code.</p>
+
+<p>The article is titled “Harness engineering: leveraging Codex in an agent-first world”, but only mentions “harness” once in the text. Maybe the term was an afterthought inspired by <a href="https://mitchellh.com/writing/my-ai-adoption-journey#step-5-engineer-the-harness">Mitchell Hashimoto</a>’s recent blog post. Either way, I like “harness” as a word to describe the tooling and practices we can use to keep AI agents in check.</p>
+
+<p>The OpenAI team’s harness components mix deterministic and LLM-based approaches across 3 categories (grouping based on my interpretation):</p>
+
+<ol>
+  <li><strong>Context engineering</strong>: Continuously enhanced knowledge base in the codebase, plus agent access to dynamic context like observability data and browser navigation</li>
+  <li><strong>Architectural constraints</strong>: Monitored not only by the LLM-based agents, but also deterministic custom linters and structural tests</li>
+  <li><strong>“Garbage collection”</strong>: Agents that run periodically to find inconsistencies in documentation or violations of architectural constraints, fighting entropy and decay</li>
+</ol>
+
+<p>They also highlight how iterative this is: “When the agent struggles, we treat it as a signal: identify what is missing — tools, guardrails, documentation — and feed it back into the repository, always by having Codex itself write the fix.”</p>
+
+<p>All of the described measures focus on increasing long-term internal quality and maintainability. What I am missing in the write-up is verification of functionality and behaviour.</p>
+
+<p>Leaving that gap aside, and assuming we can trust OpenAI’s representation of the success of this (with respect to the author and the team, OpenAI do have a vested interest in us believing in AI-maintainable code) — here are my thoughts on what <em>is</em> in the article.</p>
+
+<h3 id="harnesses---the-future-service-templates">Harnesses - the future service templates?</h3>
+
+<p>Most organizations have just two or three main tech stacks — not every application is its own snowflake. The article made me imagine a future where teams pick from a set of harnesses for common application topologies to get started. This evokes today’s service templates, which help teams instantiate new services on a “golden path”. Will harnesses — with custom linters, structural tests, basic context and knowledge documentation, and additional context providers — become the new service templates? Will teams use them as a starting point, then shape them over time for their application’s specifics?</p>
+
+<p>With service templates, teams contribute back as they gain experience, then other teams often struggle to incorporate updates. Would we see a similar forking and synchronization challenge with harnesses?</p>
+
+<p>The article also made me revisit some of my older hypotheses:</p>
+
+<h3 id="the-runtime-has-to-be-constrained-for-more-ai-autonomy">The runtime has to be constrained for more AI autonomy?</h3>
+
+<p>A lot of early and current AI coding hype assumes LLMs will give us unlimited flexibility of the target runtime. Generate in any language, any pattern, without constraints — the LLM will figure it out. But for maintainable, AI-generated code at scale that we can trust, something has to give.</p>
+
+<p>The harness described suggests that increasing trust and reliability required constraining the solution space: specific architectural patterns, enforced boundaries, standardized structures. That means giving up some “generate anything” flexibility for prompts, rules, and harnesses full of technical specifics.</p>
+
+<h3 id="a-convergence-on-a-limited-number-of-tech-stacks-and-topologies">A convergence on a limited number of tech stacks and topologies?</h3>
+
+<p>As coding becomes less about typing code and more about steering its generation, AI might push us toward fewer tech stacks. Usability of frameworks and SDKs still matters — we’re seeing repeatedly that what’s good for humans is good for AI. But developer tastes will matter less at that level of detail. Little inefficiencies and idiosyncracies in interfaces will be less annoying since we don’t deal with them directly. We might choose stacks with good harnesses available and prioritize “AI-friendliness”.</p>
+
+<p>This might apply not just to tech stacks, but also to codebase structures and topologies. We might default to structures that are easier to maintain with AI because they’re easier to harness. The OpenAI team discusses architectural rigidity and enforcement rules. The main focus areas I can see are keeping data structures stable and defining and enforcing module boundaries. Sounds reasonable — but without concrete examples, I’m still struggling to imagine what “we require Codex to parse data shapes at the boundary” looks like in practice in their harness.</p>
+
+<p>But if we can figure out widely how to harness codebase design patterns, will these topologies become the new abstraction layer, not natural language itself like so many AI enthusiasts hope?</p>
+
+<h3 id="two-future-worlds-pre-ai-vs-post-ai-application-maintenance">Two future worlds: Pre-AI vs post-AI application maintenance?</h3>
+
+<p>Say we develop good harnessing techniques to turn AI autonomy up to 9 and increase our confidence in the results. Which techniques could we apply to existing applications, and which would only work for applications built from scratch with a harness in mind?</p>
+
+<p>For older codebases, we’d need to consider whether retrofitting a harness is worth the effort. AI can help us do that faster, but those applications are often so non-standardized and full of entropy that it might not be worthwhile. It makes me think of running a static code analysis tool on a codebase that’s never had one, and then drowning in alerts.</p>
+
+<h3 id="whats-your-harness-today">What’s your harness today?</h3>
+
+<p>That this team worked on their harness for 5 months shows this isn’t something you can jump into for quick results. But it’s worth reflecting on what your harness is today. Do you have a pre-commit hook? What’s in it? Do you have ideas for custom linters? What architectural constraints would you like to impose on your codebase? Have you experimented with structural testing frameworks like ArchUnit?</p>
+
+<h3 id="final-thoughts">Final thoughts</h3>
+
+<p>Unsurprisingly, what they describe sounds like much more work than just generating and maintaining a bunch of Markdown rules files. They built extensive tooling for the deterministic part of the harness. Their context engineering involved not only curating a knowledge base, but also significant design work — the code design itself is a huge part of the context.</p>
+
+<p>The OpenAI team says: “Our most difficult challenges now center on designing environments, feedback loops, and control systems.” This reminded me of <a href="https://aicoding.leaflet.pub/3mbrvhyye4k2e">Chad Fowler’s recent post on “Relocating Rigor”</a>. It’s refreshing to hear concrete ideas and experiences about where that rigor might go, rather than just hoping “better models” will magically solve maintainability issues.</p>
+
+<p>And finally, for once, I like a term in this space. Though it’s only 2 weeks old — I can probably hold my metaphorical breath until somebody calls their one-prompt, LLM-based code review agent a harness…</p>
+</div>
+
+<div class="series-nav">
+<div class="latest">
+<p class="label">latest article (Mar 04):</p>
+
+<p><a href="humans-and-agents.html">Humans and Agents in Software Engineering Loops</a></p>
+</div>
+
+<div class="prev">
+<p class="label">previous article:</p>
+
+<p><a href="context-engineering-coding-agents.html">Context Engineering for Coding Agents</a></p>
+</div>
+
+<div class="next">
+<p class="label">next article:</p>
+
+<p><a href="humans-and-agents.html">Humans and Agents in Software Engineering Loops</a></p>
+</div>
+
+<div class="index">
+<p><a href="/articles/exploring-gen-ai.html"><img src="donkey-card.png"></a></p>
+</div>
+</div>
+</main>
+
+<nav id="bottom-navmenu">
+<nav class="navmenu">
+<div class="nav-head">  <div class="search">
+    <!-- SiteSearch Google -->
+    <form method="GET" action="https://www.google.com/search">
+      <input type="hidden" name="ie" value="UTF-8">
+      <input type="hidden" name="oe" value="UTF-8">
+      <input class="field" type="text" name="q" size="15" maxlength="255" value="">
+      <button class="button" type="submit" name="btnG" value=" " title="Search">
+      <input type="hidden" name="domains" value="martinfowler.com">
+      <input type="hidden" name="sitesearch" value=""> 
+      <input type="hidden" name="sitesearch" value="martinfowler.com">
+    
+  </button></form></div>
+
+<div class="closediv">
+<span class="close" title="close"></span>
+</div>
+</div>
+
+<div class="nav-body">
+<div class="topics">
+<h2>Topics</h2>
+
+<p><a href="/architecture">Architecture</a></p>
+
+<p><a href="https://refactoring.com">Refactoring</a></p>
+
+<p><a href="/agile.html">Agile</a></p>
+
+<p><a href="/delivery.html">Delivery</a></p>
+
+<p><a href="/microservices">Microservices</a></p>
+
+<p><a href="/data">Data</a></p>
+
+<p><a href="/testing">Testing</a></p>
+
+<p><a href="/dsl.html">DSL</a></p>
+</div>
+
+<div class="about">
+<h2>about me</h2>
+
+<p><a href="/aboutMe.html">About</a></p>
+
+<p><a href="/books">Books</a></p>
+
+<p><a href="/faq.html">FAQ</a></p>
+</div>
+
+<div class="content">
+<h2>content</h2>
+
+<p><a href="/videos.html">Videos</a></p>
+
+<p><a href="/tags">Content Index</a></p>
+
+<p><a href="/fragments">Fragments</a></p>
+
+<p><a href="/boardgames">Board Games</a></p>
+
+<p><a href="/photos">Photography</a></p>
+</div>
+
+<div class="tw">
+<h2>Thoughtworks</h2>
+
+<p><a href="https://thoughtworks.com">Home</a></p>
+
+<p><a href="https://thoughtworks.com/insights">Insights</a></p>
+
+<p><a href="https://thoughtworks.com/careers">Careers</a></p>
+
+<p><a href="https://thoughtworks.com/radar">Radar</a></p>
+
+<p><a href="https://www.thoughtworks.com/engineering">Engineering</a></p>
+</div>
+
+<div class="feeds">
+<h2>follow</h2>
+
+<p><a href="/feed.atom">RSS</a></p>
+
+<p><a href="https://toot.thoughtworks.com/@mfowler">Mastodon</a></p>
+
+<p><a href="https://www.linkedin.com/in/martin-fowler-com/">LinkedIn</a></p>
+
+<p><a href="https://bsky.app/profile/martinfowler.com">Bluesky</a></p>
+
+<p><a href="https://www.twitter.com/martinfowler">X</a></p>
+
+<p><a href="https://boardgamegeek.com/blog/13064/martins-7th-decade">BGG</a></p>
+</div>
+</div>
+</nav>
+</nav>
+<footer id="page-footer">
+<div class="tw-logo">
+<a href="https://www.thoughtworks.com/engineering">
+<img src="/thoughtworks_white.png">
+</a>
+</div>
+<div class="menu-button">
+<div class="icon-bars navmenu-button"></div>
+</div>
+<div class="copyright">
+<p>© Martin Fowler | <a href="/aboutMe.html#disclosures">Disclosures</a></p>
+</div>
+</footer>
+
+
+</body></html>

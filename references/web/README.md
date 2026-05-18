@@ -1,0 +1,142 @@
+# Web Reference Archive
+
+Archived web pages for the speech manuscript. Each entry includes the source URL and local capture files.
+
+- 不是提示词工程，是知识工程
+  - Source: https://mp.weixin.qq.com/s/MGnWz2b2H63lC8tK7UbrDA
+  - Status: 200
+  - Markdown: `references/web/01-mp-weixin-qq-com-s-MGnWz2b2H63lC8tK7UbrDA.md`
+  - HTML: `references/web/01-mp-weixin-qq-com-s-MGnWz2b2H63lC8tK7UbrDA.html`
+  - Screenshot: `references/web/01-mp-weixin-qq-com-s-MGnWz2b2H63lC8tK7UbrDA.png`
+- 我希望用一篇文章帮你叩响AI辅助编程的大门
+  - Source: https://mp.weixin.qq.com/s/9Dh-e7Z139QoOqrWOqkKJA
+  - Status: 200
+  - Markdown: `references/web/02-mp-weixin-qq-com-s-9Dh-e7Z139QoOqrWOqkKJA.md`
+  - HTML: `references/web/02-mp-weixin-qq-com-s-9Dh-e7Z139QoOqrWOqkKJA.html`
+  - Screenshot: `references/web/02-mp-weixin-qq-com-s-9Dh-e7Z139QoOqrWOqkKJA.png`
+- Anthropic 万字长文：AI Agent 评估体系全解析
+  - Source: https://mp.weixin.qq.com/s/pwhg5Kmh3wMlxqIlbVqGMw
+  - Status: 200
+  - Markdown: `references/web/03-mp-weixin-qq-com-s-pwhg5Kmh3wMlxqIlbVqGMw.md`
+  - HTML: `references/web/03-mp-weixin-qq-com-s-pwhg5Kmh3wMlxqIlbVqGMw.html`
+  - Screenshot: `references/web/03-mp-weixin-qq-com-s-pwhg5Kmh3wMlxqIlbVqGMw.png`
+- MindFlow/README-CN.md at main · neil-wang-global/MindFlow · GitHub
+  - Source: https://github.com/neil-wang-global/MindFlow/blob/main/README-CN.md
+  - Status: 200
+  - Markdown: `references/web/04-github-com-neil-wang-global-MindFlow-blob-main-README-CN-md.md`
+  - HTML: `references/web/04-github-com-neil-wang-global-MindFlow-blob-main-README-CN-md.html`
+  - Screenshot: `references/web/04-github-com-neil-wang-global-MindFlow-blob-main-README-CN-md.png`
+- MindFlow/SYSTEM.md at main · neil-wang-global/MindFlow · GitHub
+  - Source: https://github.com/neil-wang-global/MindFlow/blob/main/SYSTEM.md
+  - Status: 200
+  - Markdown: `references/web/05-github-com-neil-wang-global-MindFlow-blob-main-SYSTEM-md.md`
+  - HTML: `references/web/05-github-com-neil-wang-global-MindFlow-blob-main-SYSTEM-md.html`
+  - Screenshot: `references/web/05-github-com-neil-wang-global-MindFlow-blob-main-SYSTEM-md.png`
+- MindFlow tasks README
+  - Source: https://github.com/neil-wang-global/MindFlow/blob/main/tasks/README.md
+  - Status: 200
+  - Markdown: `references/web/06-github-com-neil-wang-global-MindFlow-blob-main-tasks-README-md.md`
+  - HTML: `references/web/06-github-com-neil-wang-global-MindFlow-blob-main-tasks-README-md.html`
+  - Screenshot: `references/web/06-github-com-neil-wang-global-MindFlow-blob-main-tasks-README-md.png`
+- MindFlow/capabilities/README.md at main · neil-wang-global/MindFlow · GitHub
+  - Source: https://github.com/neil-wang-global/MindFlow/blob/main/capabilities/README.md
+  - Status: 200
+  - Markdown: `references/web/07-github-com-neil-wang-global-MindFlow-blob-main-capabilities-README-md.md`
+  - HTML: `references/web/07-github-com-neil-wang-global-MindFlow-blob-main-capabilities-README-md.html`
+  - Screenshot: `references/web/07-github-com-neil-wang-global-MindFlow-blob-main-capabilities-README-md.png`
+- pomasa/README.md at main · eXtremeProgramming-cn/pomasa · GitHub
+  - Source: https://github.com/eXtremeProgramming-cn/pomasa/blob/main/README.md
+  - Status: 200
+  - Markdown: `references/web/08-github-com-eXtremeProgramming-cn-pomasa-blob-main-README-md.md`
+  - HTML: `references/web/08-github-com-eXtremeProgramming-cn-pomasa-blob-main-README-md.html`
+  - Screenshot: `references/web/08-github-com-eXtremeProgramming-cn-pomasa-blob-main-README-md.png`
+- pomasa/README.zh-cn.md at main · eXtremeProgramming-cn/pomasa · GitHub
+  - Source: https://github.com/eXtremeProgramming-cn/pomasa/blob/main/README.zh-cn.md
+  - Status: 200
+  - Markdown: `references/web/09-github-com-eXtremeProgramming-cn-pomasa-blob-main-README-zh-cn-md.md`
+  - HTML: `references/web/09-github-com-eXtremeProgramming-cn-pomasa-blob-main-README-zh-cn-md.html`
+  - Screenshot: `references/web/09-github-com-eXtremeProgramming-cn-pomasa-blob-main-README-zh-cn-md.png`
+- pomasa/skills/pomasa/SKILL.md at main · eXtremeProgramming-cn/pomasa · GitHub
+  - Source: https://github.com/eXtremeProgramming-cn/pomasa/blob/main/skills/pomasa/SKILL.md
+  - Status: 200
+  - Markdown: `references/web/10-github-com-eXtremeProgramming-cn-pomasa-blob-main-skills-pomasa-SKILL-md.md`
+  - HTML: `references/web/10-github-com-eXtremeProgramming-cn-pomasa-blob-main-skills-pomasa-SKILL-md.html`
+  - Screenshot: `references/web/10-github-com-eXtremeProgramming-cn-pomasa-blob-main-skills-pomasa-SKILL-md.png`
+- pomasa/skills/pomasa/pattern-catalog/README.md at main · eXtremeProgramming-cn/pomasa · GitHub
+  - Source: https://github.com/eXtremeProgramming-cn/pomasa/blob/main/skills/pomasa/pattern-catalog/README.md
+  - Status: 200
+  - Markdown: `references/web/11-github-com-eXtremeProgramming-cn-pomasa-blob-main-skills-pomasa-pattern-catalog-README-md.md`
+  - HTML: `references/web/11-github-com-eXtremeProgramming-cn-pomasa-blob-main-skills-pomasa-pattern-catalog-README-md.html`
+  - Screenshot: `references/web/11-github-com-eXtremeProgramming-cn-pomasa-blob-main-skills-pomasa-pattern-catalog-README-md.png`
+- pomasa/skills/pomasa/pattern-catalog/BHV-02-faithful-agent-instantiation.md at main · eXtremeProgramming-cn/pomasa · GitHub
+  - Source: https://github.com/eXtremeProgramming-cn/pomasa/blob/main/skills/pomasa/pattern-catalog/BHV-02-faithful-agent-instantiation.md
+  - Status: 200
+  - Markdown: `references/web/12-github-com-eXtremeProgramming-cn-pomasa-blob-main-skills-pomasa-pattern-catalog-BHV-02-faithful-agent-instantiation-md.md`
+  - HTML: `references/web/12-github-com-eXtremeProgramming-cn-pomasa-blob-main-skills-pomasa-pattern-catalog-BHV-02-faithful-agent-instantiation-md.html`
+  - Screenshot: `references/web/12-github-com-eXtremeProgramming-cn-pomasa-blob-main-skills-pomasa-pattern-catalog-BHV-02-faithful-agent-instantiation-md.png`
+- Building Effective AI Agents \\ Anthropic
+  - Source: https://www.anthropic.com/engineering/building-effective-agents
+  - Status: 200
+  - Markdown: `references/web/13-www-anthropic-com-engineering-building-effective-agents.md`
+  - HTML: `references/web/13-www-anthropic-com-engineering-building-effective-agents.html`
+  - Screenshot: `references/web/13-www-anthropic-com-engineering-building-effective-agents.png`
+- Demystifying evals for AI agents \\ Anthropic
+  - Source: https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents
+  - Status: 200
+  - Markdown: `references/web/14-www-anthropic-com-engineering-demystifying-evals-for-ai-agents.md`
+  - HTML: `references/web/14-www-anthropic-com-engineering-demystifying-evals-for-ai-agents.html`
+  - Screenshot: `references/web/14-www-anthropic-com-engineering-demystifying-evals-for-ai-agents.png`
+- Effective harnesses for long-running agents \\ Anthropic
+  - Source: https://www.anthropic.com/engineering/effective-harnesses-for-long-running-agents
+  - Status: 200
+  - Markdown: `references/web/15-www-anthropic-com-engineering-effective-harnesses-for-long-running-agents.md`
+  - HTML: `references/web/15-www-anthropic-com-engineering-effective-harnesses-for-long-running-agents.html`
+  - Screenshot: `references/web/15-www-anthropic-com-engineering-effective-harnesses-for-long-running-agents.png`
+- Harness design for long-running application development \\ Anthropic
+  - Source: https://www.anthropic.com/engineering/harness-design-long-running-apps
+  - Status: 200
+  - Markdown: `references/web/16-www-anthropic-com-engineering-harness-design-long-running-apps.md`
+  - HTML: `references/web/16-www-anthropic-com-engineering-harness-design-long-running-apps.html`
+  - Screenshot: `references/web/16-www-anthropic-com-engineering-harness-design-long-running-apps.png`
+- Harness engineering for coding agent users
+  - Source: https://martinfowler.com/articles/exploring-gen-ai/harness-engineering.html
+  - Status: 200
+  - Markdown: `references/web/17-martinfowler-com-articles-exploring-gen-ai-harness-engineering-html.md`
+  - HTML: `references/web/17-martinfowler-com-articles-exploring-gen-ai-harness-engineering-html.html`
+  - Screenshot: `references/web/17-martinfowler-com-articles-exploring-gen-ai-harness-engineering-html.png`
+- Harness Engineering - first thoughts
+  - Source: https://martinfowler.com/articles/exploring-gen-ai/harness-engineering-memo.html
+  - Status: 200
+  - Markdown: `references/web/18-martinfowler-com-articles-exploring-gen-ai-harness-engineering-memo-html.md`
+  - HTML: `references/web/18-martinfowler-com-articles-exploring-gen-ai-harness-engineering-memo-html.html`
+  - Screenshot: `references/web/18-martinfowler-com-articles-exploring-gen-ai-harness-engineering-memo-html.png`
+- Harness engineering: leveraging Codex in an agent-first world | OpenAI
+  - Source: https://openai.com/index/harness-engineering/
+  - Status: 200
+  - Markdown: `references/web/19-openai-com-index-harness-engineering.md`
+  - HTML: `references/web/19-openai-com-index-harness-engineering.html`
+  - Screenshot: `references/web/19-openai-com-index-harness-engineering.png`
+- My AI Adoption Journey – Mitchell Hashimoto
+  - Source: https://mitchellh.com/writing/my-ai-adoption-journey
+  - Status: 200
+  - Markdown: `references/web/20-mitchellh-com-writing-my-ai-adoption-journey.md`
+  - HTML: `references/web/20-mitchellh-com-writing-my-ai-adoption-journey.html`
+  - Screenshot: `references/web/20-mitchellh-com-writing-my-ai-adoption-journey.png`
+- Skill Issue: Harness Engineering for Coding Agents | HumanLayer Blog
+  - Source: https://www.humanlayer.dev/blog/skill-issue-harness-engineering-for-coding-agents
+  - Status: 200
+  - Markdown: `references/web/21-www-humanlayer-dev-blog-skill-issue-harness-engineering-for-coding-agents.md`
+  - HTML: `references/web/21-www-humanlayer-dev-blog-skill-issue-harness-engineering-for-coding-agents.html`
+  - Screenshot: `references/web/21-www-humanlayer-dev-blog-skill-issue-harness-engineering-for-coding-agents.png`
+- The Anatomy of an Agent Harness
+  - Source: https://blog.langchain.com/the-anatomy-of-an-agent-harness/
+  - Status: 200
+  - Markdown: `references/web/22-blog-langchain-com-the-anatomy-of-an-agent-harness.md`
+  - HTML: `references/web/22-blog-langchain-com-the-anatomy-of-an-agent-harness.html`
+  - Screenshot: `references/web/22-blog-langchain-com-the-anatomy-of-an-agent-harness.png`
+- Your Agent Needs a Harness, Not a Framework - Inngest Blog
+  - Source: https://www.inngest.com/blog/your-agent-needs-a-harness-not-a-framework
+  - Status: 200
+  - Markdown: `references/web/23-www-inngest-com-blog-your-agent-needs-a-harness-not-a-framework.md`
+  - HTML: `references/web/23-www-inngest-com-blog-your-agent-needs-a-harness-not-a-framework.html`
+  - Screenshot: `references/web/23-www-inngest-com-blog-your-agent-needs-a-harness-not-a-framework.png`
