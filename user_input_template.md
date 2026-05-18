@@ -42,6 +42,41 @@ ai-work-system-speech-20260518
 
 ## Initial Ideas and Insights
 
+### 后续修订要求：整体叙事框架
+
+本演讲应改为更适合现场讲述的结构。不要写成泛泛研究报告，也不要概括式带过。内容要丰富、周全、有工程判断，但语言保持干净、简单、简练。
+
+标题确定为：**《知识工程驱动的 AI 实践》**。
+
+开场不要铺垫太多，直接从三个基础概念讲起：SoC、抽象/面向对象、文件目录结构。这三个都是初级概念，讲清价值后快速带过。重点不是复述概念定义，而是说明它们在 AI 时代被放大的价值：边界、对象、位置、引用关系、上下文组织和可验证协作。
+
+整体主线应按以下顺序组织：
+
+1. 回到软件工程基本功：SoC、抽象/面向对象、文件目录结构。
+2. MindFlow：讲设计思想，说明文件化认知结构、状态、能力和按需加载如何帮助 AI 理解任务。
+3. 知识工程理论：结合熊节“不是提示词工程，是知识工程”的问题导向、价值框架、信息储备、理论方法、表现形式，并引出核心定义：**AI-native workflow = 模型推理 + 流程约束 + 状态反馈的动态系统**。
+4. POMASA / MAS 工程：讲多 Agent 系统为什么需要 Blueprint、references、workspace、orchestrator 和强状态，并引出后面 AI 编排。
+5. Skill / 工程文档：讲其本质是可执行知识。需要讲清智能体工程里的严格 Load：按流程确定性读取指定内容，本质上和 Skill 一样都是知识注入；区别是 Skill 调度不确定，严格 Load 是确定的。
+6. Story / Knowledge / user journey：讲 Story 是动态知识，Knowledge 是静态下来的 Story；user journey 是团队持续发现、验证、固化知识的路径。这个观点放在角色、敏捷与单仓库协作处展开。
+7. 角色而非人：讲软件团队中的 BA / DEV / QA / UI / Agent 都是能力单元，聚焦同一个仓库工作。要分别讲各角色能力、流程流水线，以及这些流水线如何统一、如何交叉检查。
+8. Agent 设计：从角色协议、上下文、权限、输入、输出、契约、验收出发。重点讲 Agent 文档本身必须通过验收，验收思路参考 `references/papers/CLI_for_AI_Agents.pdf` 和 Skill 合法性验证。
+9. 提速：不要写成“让模型多写代码”。提速来自前面流程足够健全、上下文足够清楚、验证足够稳定，并且需要评估标准。
+10. 检测与测试：讲如何控制代码产出水平，测试为什么重要，失败如何回流为 eval case、规则、Skill 和工程文档。
+11. AI 编排：讲 Vibe Coding、轻量 SDD、Sub-agent、分层 Plan、强状态编排的适用范围和局限。可参考第二篇 AI 编程文章的思路。
+12. 自动化与无人值守：说明通过强状态、权限、验证、评估和编排，如何逐步走向高度自治系统。
+
+叙事风格要求：
+
+- 语言干净、简单、简练。
+- 不要大量 bullet points，主稿应以自然讲述为主。
+- 少用“不是……而是……”句式。
+- 不要过度自由发挥，要优先阅读并化用已有资料、PDF 逐页摘取 Markdown、网页归档和用户提供的观点。
+- Demo 结构要更能强烈表达嵌套知识对象、文件位置、ID/link/reference 关系，不要使用过弱的平铺示例。
+- MindFlow 和 POMASA 略讲项目细节，重点讲设计思想；同时强调 AI-native 系统应该走向高度自治。
+- 提速章节必须重写为有价值的工程判断：提速来自健全流程、工程资产、测试环境、评估体系和反馈闭环。
+
+### 原始核心思路
+
 本演讲应以“回归软件工程基本功”作为入口，而不是直接讲 AI Coding 工具。核心论点：
 
 > AI 编程不是推翻软件工程，而是把 SoC、抽象、文件结构、角色协作、测试验证这些老原则，放大成 AI-native 工作系统。
@@ -145,13 +180,26 @@ ai-work-system-speech-20260518
 
 **Data Sources**:
 
-1. 用户提供并归档到仓库的 PDF：`references/papers`、`references/papers/CLI_for_AI_Agents.pdf`。
-2. 用户提供的微信文章链接。
-3. POMASA / MindFlow GitHub 项目资料。
-4. 公开 Harness Engineering、Agent Eval、AI Coding、Agent Runtime、Agent Observability、Agent QA、企业知识沉淀相关资料。
-5. 必要时补充公开网页、技术博客、论文、产品文档等，但必须保持引用可追溯。
+1. 用户提供并归档到仓库的 PDF 原件：`references/papers/`。
+2. PDF 逐页视觉信息摘取资料：`references/paper-visual/extracted/`，这是后续写作优先使用的本地素材源。
+3. PDF 页面图片归档：`references/paper-visual/images/`，用于回看原始页面视觉证据。
+4. PDF 视觉处理索引：`references/paper-visual/INDEX.md` 与 `references/paper-visual/manifest.json`。
+5. 已归档网页全文、HTML 与截图：`references/web/`。
+6. 用户提供的微信文章链接及其本地网页归档。
+7. POMASA / MindFlow GitHub 项目资料。
+8. 公开 Harness Engineering、Agent Eval、AI Coding、Agent Runtime、Agent Observability、Agent QA、企业知识沉淀相关资料。
+9. 必要时补充公开网页、技术博客、论文、产品文档等，但必须保持引用可追溯。
 
 **Existing Reference Materials**:
+
+本地引用素材源：
+
+- `references/papers/` — 用户提供的 PDF 原件，可用于引用文件名与核对原始资料。
+- `references/paper-visual/extracted/` — PDF 逐页视觉信息摘取 Markdown，后续写作应优先从这里取材。
+- `references/paper-visual/images/` — PDF 页面图片，用于核对 slide 视觉内容、图示、表格和页面上下文。
+- `references/paper-visual/INDEX.md` — PDF 原件、页面图片、逐页摘取 Markdown 的总索引。
+- `references/paper-visual/manifest.json` — 机器可读索引，记录每份 PDF 页数、图片目录、摘取文件和处理状态。
+- `references/web/` — 已抓取网页的 Markdown、HTML、截图和 README 索引。
 
 重要微信文章：
 
@@ -224,24 +272,25 @@ Harness Engineering 参考资料（如可访问则引用）：
 
 **Report Structure**:
 
-建议结构：
+建议结构应调整为更直接的演讲主线：
 
-1. 开场：AI 编程为什么要回到软件工程基本功
-2. 软件工程基本功：SoC、抽象、目录结构
-3. 上下文管理：AI 辅助编程的核心变量
-4. MindFlow：从软件结构到认知结构
-5. 知识工程理论：不是提示词工程，是知识工程
-6. POMASA：MAS 工程与 AI 编排样本
-7. Skill / 工程文档：本质是可执行知识
-8. 角色而非人：敏捷与 BA / DEV / QA / UI 的单仓库协作编码实践
-9. Agent 设计：从角色协议到上下文、权限、契约和验收
-10. 提速：控制代码产出水平，而不是盲目加速
-11. 测试、评估与检测：让提速可持续
-12. AI 编排常见办法：Vibe Coding、SDD、Sub-agent、分层 Plan、强状态
-13. 工具层改造：面向 Agent 的 CLI / MCP / Skill 注入
-14. 自动化与无人值守：长时间运行的条件和边界
-15. 展望：Agent Teams、AI 重塑架构形态、框架为了消灭自己而存在
-16. 附录/Q&A
+1. 开场：直接讲 SoC、抽象/面向对象、文件目录结构为什么在 AI 时代更重要
+2. 软件工程基本功：SoC 解决上下文污染，抽象形成对象边界，目录结构提供对象位置和引用关系
+3. MindFlow：从软件结构到认知结构，讲文件化状态、能力、计划和按需加载
+4. 知识工程理论：问题导向、价值框架、信息储备、理论方法、表现形式；引出 AI-native workflow
+5. POMASA / MAS 工程：多 Agent 系统需要 Blueprint、references、workspace、orchestrator 和强状态
+6. Skill / 工程文档：可执行知识、Skill 不确定调度、严格 Load 确定调度、Skill 合法性验收
+7. Story / Knowledge / user journey：Story 是动态知识，Knowledge 是静态 Story，user journey 是知识固化路径
+8. 角色而非人：BA / DEV / QA / UI / Agent 的能力单元、统一流水线、单仓库强状态、交叉检查
+9. Agent 设计：角色协议、上下文、权限、输入输出、契约、停止条件、验收和可观测
+10. 提速：通过健全流程、工程资产、任务边界、验证环境和评估标准控制代码产出水平
+11. 测试、评估与检测：测试、eval、benchmark、feedback loop、失败回流
+12. AI 编排常见办法：Vibe Coding、轻量 SDD、Sub-agent、分层 Plan、强状态编排
+13. 自动化与无人值守：状态、权限、checkpoint、review、回放、回滚和高度自治
+14. 展望：Agent Teams、AI 重塑架构形态、框架为了消灭自己而存在
+15. 附录/Q&A
+
+主稿不要写成层层 bullet 的报告，应以自然讲述段落为主；提纲和 slide 部分可以使用 bullet。
 
 **Deliverable File Formats**:
 
@@ -275,10 +324,11 @@ Harness Engineering 参考资料（如可访问则引用）：
 
 ## Other Requirements
 
-1. **语言风格**：中文，专业但不晦涩，有判断力；适合技术团队和客户技术听众；避免八股、空话、焦虑式表达。
-2. **引用要求**：用户提供的所有资料均可引用。引用时必须添加引用，形式可以是脚注、括号引用或章节后引用列表。对本地 PDF 可引用文件名；对微信文章和网页可引用标题及 URL。
-3. **输出定位**：这是“演讲稿/讲稿大纲”，不是公众号文章。应包含口语化但有结构的讲稿段落。
-4. **重点保留用户原创观点**：
+1. **语言风格**：中文，专业但不晦涩，有判断力；适合技术团队和客户技术听众；避免八股、空话、焦虑式表达。语言必须干净、简单、简练，少用“不是……而是……”句式。
+2. **引用要求**：用户提供的所有资料均可引用。引用时必须添加引用，形式可以是脚注、括号引用或章节后引用列表。对本地 PDF 可引用文件名；对微信文章和网页可引用标题及 URL。后续写作应优先使用 `references/paper-visual/extracted/` 中的逐页摘取资料、`references/web/` 中的网页归档，以及用户提供的核心观点，不要凭空自由发挥。需要核对原始材料时，回到 `references/papers/` 和 `references/paper-visual/images/`。
+3. **输出定位**：这是“演讲稿/讲稿大纲”，不是公众号文章。应包含口语化但有结构的讲稿段落。主稿不要堆大量 bullet points；bullet 主要用于结构大纲、slide 提纲和附录。
+4. **叙事要求**：标题为《知识工程驱动的 AI 实践》。开场直接讲 SoC、抽象/面向对象、文件目录结构，不要长铺垫。MindFlow 和 POMASA 讲设计思想即可，并强调 AI-native 系统应走向高度自治。Skill / 工程文档章节必须讲清 Skill 不确定调度与严格 Load 确定调度的区别。角色章节必须讲 BA / DEV / QA / UI / Agent 的能力、统一流水线和交叉检查。Agent 设计章节必须展开“Agent 文档本身如何通过验收”。提速章节必须围绕健全流程、工程资产、验证环境和评估标准重写。
+5. **重点保留用户原创观点**：
    - 模型负责推理，流程负责约束，状态负责让推理结果可以被恢复、检查和交接。
    - Story 是动态知识，Knowledge 是静态 Story；user journey 是团队发现、验证、固化知识的过程。
    - AI-native workflow = 模型推理 + 流程约束 + 状态反馈的动态系统。
@@ -306,3 +356,12 @@ Harness Engineering 参考资料（如可访问则引用）：
    - 必须包含 slide 提纲。
    - 必须包含附录/Q&A。
    - 必须报告最终产物完整路径。
+   - 主稿标题必须是《知识工程驱动的 AI 实践》。
+   - 开场必须直接进入 SoC、抽象/面向对象、文件目录结构。
+   - 主稿应以自然讲述段落为主，不得大量堆 bullet points。
+   - 不得频繁使用“不是……而是……”句式。
+   - 必须体现 Skill 不确定调度与严格 Load 确定调度的差异。
+   - 必须体现 BA / DEV / QA / UI / Agent 的统一流水线和交叉检查。
+   - 必须展开 Agent 文档验收，参考 `references/papers/CLI_for_AI_Agents.pdf` 和 Skill 合法性验证思路。
+   - 提速章节必须有评估标准，不能只写“让模型多写代码”。
+   - 必须优先化用 `references/paper-visual/extracted/`、`references/web/` 和用户提供观点。
