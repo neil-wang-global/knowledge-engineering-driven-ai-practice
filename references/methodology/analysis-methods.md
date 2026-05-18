@@ -1,17 +1,76 @@
 # Analysis Methods Guide
 
-## 分析框架
+## Analysis Framework
 
-采用“软件工程基本功 → AI 工作系统 → 组织协作 → 工程控制 → 自动化边界”的谱系分析。
+Use a progression from software engineering fundamentals to AI work systems:
 
-## 方法
+```text
+Software fundamentals
+→ AI file engineering
+→ Knowledge engineering
+→ Strong-state MAS orchestration
+→ Role-based team workflow
+→ Quality gates, eval, observability, and automation
+```
 
-1. 概念谱系分析：从 SoC、抽象、目录结构、契约、测试推导到上下文管理、Skill、MAS、强状态、分层 Plan。
-2. 案例归纳：提取 MindFlow、POMASA、归档 PDF 和公开文章中的工程实践片段。
-3. 工程模式抽象：总结渐进加载、文件数据总线、强状态、契约驱动、确定性工具、eval 闭环、Agent CLI 等模式。
-4. 演讲叙事设计：转换为可讲述的 60-90 分钟中文演讲稿，不写成论文。
-5. 章节引用校验：每章涉及外部资料时必须附来源。
+The central analytical question is how to construct a unified, high-quality workflow for AI-native software work.
 
-## 特别要求
+## Methods
 
-第 8 章必须保留并展开“角色而非人：敏捷与 BA / DEV / QA / UI 的单仓库协作编码实践”，包括 Story、Backlog、Sprint、DoR、DoD、Review、Retro、单仓库强状态空间、交叉检查、敏捷工件 Agent 化。
+### 1. Concept Lineage Analysis
+
+Trace how familiar engineering concepts reappear in AI work:
+
+- SoC → small, focused knowledge artifacts and agent roles.
+- Abstraction / object orientation → Skill, Rules, engineering files, Capability, and Agent Blueprint as bounded knowledge objects.
+- Directory structure → address space for AI-readable knowledge.
+- Interface contract → Story, AC, Blueprint parameters, output requirements, DoR, DoD.
+- Testing → verification, eval cases, citation checks, browser simulation, review gates.
+
+### 2. Case Synthesis
+
+Extract reusable lessons from MindFlow, Pomasa, archived AI Coding / Agent engineering talks, and web references. Do not pile up cases. Use each case only when it clarifies the unified workflow.
+
+### 3. Engineering Pattern Abstraction
+
+Abstract recurring patterns:
+
+- Progressive disclosure and context management.
+- Filesystem as data bus.
+- Strong state and handoff.
+- Contract-driven cross-layer consistency.
+- Deterministic tools for deterministic work.
+- Evidence-backed reflection loops.
+- Failures as eval cases.
+- Agents as untrusted operators.
+- Human experience and agent experience as separate design targets.
+
+### 4. Speech Narrative Design
+
+Convert analysis into spoken structure. The manuscript should read like a talk, not a report. Use short transitions, concrete engineering examples, and clear judgments. Avoid long bullet sections in the manuscript.
+
+### 5. Citation and Lineage Verification
+
+Every external fact, case, term, and quoted idea must map to a source ID. User original views should map to `USER-xxx`. If a claim cannot be verified, revise it as a judgment, downgrade it, or remove it.
+
+## Required Chapter Logic
+
+1. Start with why engineering and SDD still matter.
+2. Move directly to SoC, abstraction, and directory structure.
+3. Explain MindFlow as self-evolving knowledge structure.
+4. Explain POMASA / MAS as strong-state orchestration.
+5. Use the control taxonomy: fixed strong constraints, suggested AI autonomy, full AI control.
+6. Explain Skill, engineering files, and Rules as executable knowledge with different scheduling certainty.
+7. Explain Knowledge and Story, then Flyway Migration analogy.
+8. Explain role-based workflow and single-repository strong state.
+9. Explain automation and low-human-intervention development after the role workflow.
+10. Put Agent design, speed, testing, eval, orchestration, tooling, and outlook back into the unified workflow.
+
+## Quality Checklist
+
+- [ ] Does the analysis serve the unified workflow theme?
+- [ ] Are user original ideas preserved?
+- [ ] Are MindFlow and Pomasa explained by design thought rather than project detail?
+- [ ] Are references used as support rather than piled up?
+- [ ] Are claims traceable to local archives, GitHub URLs, or user input?
+- [ ] Does the final structure support a 60-90 minute live talk?

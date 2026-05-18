@@ -1,45 +1,71 @@
 # Data Sources Guide
 
-## 数据源类型
+## Data Source Types
 
-### 1. 用户指定资料
-- 优先级：最高
-- 可信度：高
-- 包含：`references/papers/` 中归档的 PDF，以及 MindFlow 与 POMASA GitHub 项目资料。
-- 引用方式：仓库相对路径、GitHub URL、页码/章节（如可得）。
+### 1. User Input
 
-### 2. 用户指定微信文章
-- 优先级：高
-- 可信度：中高；作为观点来源引用。
-- 包含：知识工程、AI 辅助编程入门、Agent eval 文章。
-- 引用方式：标题 + URL。
+- Priority: Highest
+- Credibility: High as project intent and original argument source
+- Includes: `user_input_template.md`
+- Citation: mark as `USER-xxx` in research notes
 
-### 3. 官方/一手工程文章
-- 优先级：高
-- 可信度：高
-- 包含：Martin Fowler、Anthropic、OpenAI、LangChain、Inngest 等。
-- 引用方式：标题 + URL + 发布机构。
+### 2. Local PDF Originals
 
-### 4. 会议材料和行业实践
-- 优先级：高
-- 可信度：中高
-- 引用方式：演讲 PDF 标题 + 作者/机构 + 本地路径。
+- Priority: High
+- Credibility: Medium to high, depending on speaker and material type
+- Includes: `references/papers/`
+- Citation: repository-relative PDF path, author/title from filename, page number when available
 
-## 记录格式
+### 3. PDF Visual Extraction Notes
 
-每条资料记录应包含：
-- ID：SRC-xxx
-- 标题
-- 来源类型
-- 来源 URL 或本地路径
-- 采集时间
-- 核心内容
-- 可引用片段
-- 可信度评估
+- Priority: Highest for slide-derived content
+- Credibility: Medium to high; verify against PDF or page images when precise wording matters
+- Includes: `references/paper-visual/extracted/`, `references/paper-visual/INDEX.md`, `references/paper-visual/manifest.json`, `references/paper-visual/images/`
+- Citation: repository-relative extracted Markdown path, plus original PDF when needed
 
-## 引用原则
+### 4. Web Archive
 
-- 不使用不可追溯的“业内普遍认为”。
-- WebSearch 摘要只可用于定位来源，不作为最终引用事实本身。
-- 本地 PDF 可引用文件名和页码范围。
-- 对用户原创观点需标注为“用户输入/演讲主线”。
+- Priority: High
+- Credibility: depends on original source; use archived Markdown as local evidence and original URL as external citation
+- Includes: `references/web/`
+- Citation: article title, original URL, and repository-relative archived Markdown path
+
+### 5. GitHub Project Materials
+
+- Priority: High for MindFlow and Pomasa design references
+- Credibility: High as project self-description
+- Approved URLs:
+  - MindFlow: `https://github.com/neil-wang-global/MindFlow`
+  - Pomasa: `https://github.com/eXtremeProgramming-cn/pomasa`
+- Citation: GitHub URL, not machine-local absolute paths
+
+### 6. External Engineering References
+
+- Priority: Medium to high
+- Credibility: depends on publisher and author
+- Includes: Anthropic, OpenAI, Martin Fowler, LangChain, Inngest, HumanLayer, and other archived references already stored under `references/web/`
+- Citation: title, publisher, original URL, archived Markdown path
+
+## Recording Format
+
+Each source record should include:
+
+- ID: `SRC-xxx` or `USER-xxx`
+- Title
+- Source type
+- Source URL or repository-relative path
+- Collection or archive location
+- Core content summary
+- Usable quote or paraphrase
+- Credibility assessment
+- Notes on how the source can support the speech
+
+## Citation Principles
+
+- Do not use untraceable claims such as “industry consensus” unless the claim is clearly framed as the speaker's judgment.
+- Search summaries can locate sources, but cannot serve as final evidence.
+- Prefer local archived materials already in this repository.
+- Use repository-relative paths for local evidence.
+- Use GitHub URLs for MindFlow and Pomasa.
+- User original ideas should be marked as user input, not external evidence.
+- If evidence is weak, downgrade the claim rather than forcing a citation.
