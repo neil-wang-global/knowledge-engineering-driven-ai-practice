@@ -6,25 +6,25 @@
   <title>知识工程驱动的 AI 实践</title>
   <style>
     :root {
-      --bg:#07111f; --bg2:#0f172a; --panel:#111827; --panel2:#162033;
-      --text:#f8fafc; --muted:#cbd5e1; --soft:#94a3b8;
-      --accent:#38bdf8; --accent2:#a78bfa; --ok:#34d399; --warn:#f59e0b; --bad:#fb7185;
-      --line:rgba(148,163,184,.28); --shadow:0 24px 80px rgba(0,0,0,.35);
+      --bg:#ffffff; --bg2:#fafafa; --panel:#ffffff; --panel2:#f5f5f5;
+      --text:#09090b; --muted:#52525b; --soft:#71717a;
+      --accent:#09090b; --accent2:#18181b; --ok:#18181b; --warn:#71717a; --bad:#a1a1aa;
+      --line:#e4e4e7; --line-strong:#d4d4d8; --shadow:0 18px 46px rgba(24,24,27,.08);
     }
     * { box-sizing:border-box; }
     body {
-      margin:0; font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;
-      background:radial-gradient(circle at 20% 15%, rgba(56,189,248,.18), transparent 32%),
-                 radial-gradient(circle at 88% 22%, rgba(167,139,250,.16), transparent 34%),
-                 linear-gradient(135deg, var(--bg), var(--bg2));
+      margin:0; font-family:Avenir,"Avenir Next",sans-serif;
+      background:radial-gradient(circle at 50% -12%, rgba(0,0,0,.055), transparent 36%),
+                 linear-gradient(180deg, var(--bg), var(--bg2));
       color:var(--text);
     }
     main { scroll-snap-type:y mandatory; height:100vh; overflow-y:auto; }
     section {
       position:relative; min-height:100vh; scroll-snap-align:start; padding:5.2vh 7vw;
-      display:flex; flex-direction:column; justify-content:center; border-bottom:1px solid rgba(255,255,255,.08);
+      display:flex; flex-direction:column; justify-content:center; border-bottom:1px solid var(--line);
+      background:linear-gradient(180deg, rgba(255,255,255,.88), rgba(250,250,250,.94));
     }
-    section::after { content:attr(data-page); position:absolute; right:3vw; bottom:3vh; color:rgba(203,213,225,.38); font-size:18px; }
+    section::after { content:attr(data-page); position:absolute; right:3vw; bottom:3vh; color:#a1a1aa; font-size:18px; }
     h1 { font-size:clamp(46px,7vw,98px); line-height:1.02; margin:0 0 24px; letter-spacing:-.05em; }
     h2 { font-size:clamp(34px,5vw,66px); line-height:1.08; margin:0 0 26px; letter-spacing:-.035em; }
     h3 { font-size:clamp(22px,2.4vw,34px); margin:0 0 14px; color:var(--accent); }
@@ -36,59 +36,60 @@
     .lead { font-size:clamp(26px,2.85vw,42px); color:var(--text); max-width:1250px; }
     .small { font-size:clamp(14px,1.25vw,19px); color:var(--soft); margin-top:22px; }
     .quote { border-left:7px solid var(--accent); padding-left:26px; font-size:clamp(30px,3.35vw,50px); line-height:1.32; color:var(--text); max-width:1260px; }
-    .note { border:1px solid rgba(56,189,248,.34); border-radius:22px; padding:20px 24px; background:rgba(56,189,248,.08); max-width:1260px; color:var(--muted); font-size:clamp(18px,1.6vw,24px); line-height:1.45; }
+    .note { border:1px solid var(--line); border-radius:22px; padding:20px 24px; background:#f4f4f5; max-width:1260px; color:var(--muted); font-size:clamp(18px,1.6vw,24px); line-height:1.45; }
     .grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); column-gap:20px; row-gap:24px; max-width:1320px; }
     .grid.two { grid-template-columns:repeat(2,minmax(0,1fr)); }
     .grid.four { grid-template-columns:repeat(4,minmax(0,1fr)); }
-    .card { border:1px solid var(--line); border-radius:24px; padding:24px; background:linear-gradient(180deg, rgba(17,24,39,.86), rgba(17,24,39,.58)); box-shadow:var(--shadow); min-height:180px; margin-bottom:8px; }
+    .card { border:1px solid var(--line); border-radius:24px; padding:24px; background:linear-gradient(180deg, #ffffff, #fafafa); box-shadow:var(--shadow); min-height:180px; margin-bottom:8px; }
     .card strong { display:block; color:var(--text); font-size:clamp(22px,2.05vw,31px); margin-bottom:10px; }
     .card span { display:block; color:var(--muted); font-size:clamp(16px,1.45vw,22px); line-height:1.45; }
-    .tag { display:inline-flex; align-items:center; border:1px solid rgba(56,189,248,.42); background:rgba(56,189,248,.12); color:var(--text); border-radius:999px; padding:10px 16px; font-size:clamp(17px,1.5vw,23px); margin:5px; }
+    .tag { display:inline-flex; align-items:center; border:1px solid var(--line-strong); background:#ffffff; color:var(--text); border-radius:999px; padding:10px 16px; font-size:clamp(17px,1.5vw,23px); margin:5px; box-shadow:0 1px 2px rgba(24,24,27,.04); }
     .flow { display:flex; flex-wrap:wrap; column-gap:12px; row-gap:18px; align-items:center; max-width:1320px; }
-    .node { padding:14px 20px; border-radius:999px; background:rgba(56,189,248,.12); border:1px solid rgba(56,189,248,.45); font-size:clamp(18px,1.65vw,25px); color:var(--text); margin:4px 0; }
+    .node { padding:14px 20px; border-radius:999px; background:#ffffff; border:1px solid var(--line-strong); font-size:clamp(18px,1.65vw,25px); color:var(--text); margin:4px 0; box-shadow:0 1px 2px rgba(24,24,27,.05); }
     .arrow { color:var(--accent); font-size:clamp(22px,2vw,32px); }
     .matrix { display:grid; grid-template-columns:1fr 1fr; grid-template-rows:1fr 1fr; gap:18px; max-width:1120px; }
-    .quadrant { position:relative; border:1px solid var(--line); border-radius:24px; padding:24px; min-height:210px; background:rgba(17,24,39,.68); }
+    .quadrant { position:relative; border:1px solid var(--line); border-radius:24px; padding:24px; min-height:210px; background:#ffffff; box-shadow:var(--shadow); }
     .quadrant b { color:var(--text); font-size:clamp(24px,2.2vw,34px); }
     .axis-x, .axis-y { color:var(--soft); font-size:16px; letter-spacing:.08em; text-transform:uppercase; }
     .axis-x { max-width:1120px; text-align:center; margin-top:12px; }
     .axis-y { position:absolute; left:2.4vw; top:50%; transform:rotate(-90deg) translateX(-50%); transform-origin:left top; }
     .funnel { display:grid; grid-template-columns:1.15fr .95fr .8fr .65fr .5fr; gap:12px; align-items:end; max-width:1260px; }
-    .funnel div { border:1px solid var(--line); border-radius:22px 22px 8px 8px; padding:22px 18px; background:linear-gradient(180deg, rgba(251,113,133,.34), rgba(245,158,11,.12)); min-height:var(--h); }
+    .funnel div { border:1px solid var(--line); border-radius:22px 22px 8px 8px; padding:22px 18px; background:linear-gradient(180deg, #ffffff, #f4f4f5); min-height:var(--h); box-shadow:var(--shadow); }
     .funnel strong { display:block; font-size:clamp(20px,1.8vw,28px); color:var(--text); margin-bottom:8px; }
     .funnel span { font-size:clamp(15px,1.25vw,20px); color:var(--muted); }
-    .compare { display:grid; grid-template-columns:1fr 1fr 1fr; border:1px solid var(--line); border-radius:26px; overflow:hidden; max-width:1300px; background:rgba(17,24,39,.66); }
+    .compare { display:grid; grid-template-columns:1fr 1fr 1fr; border:1px solid var(--line); border-radius:26px; overflow:hidden; max-width:1300px; background:#ffffff; box-shadow:var(--shadow); }
     .compare.two { grid-template-columns:1fr 1fr; }
     .compare > div { padding:22px; border-right:1px solid var(--line); }
     .compare > div:last-child { border-right:0; }
     .compare h3 { color:var(--text); }
     .compare p { font-size:clamp(16px,1.42vw,22px); }
     .stack { display:grid; gap:12px; max-width:1220px; }
-    .layer { display:grid; grid-template-columns:.34fr .66fr; gap:18px; align-items:center; border:1px solid var(--line); border-radius:18px; padding:16px 22px; background:rgba(17,24,39,.7); }
+    .layer { display:grid; grid-template-columns:.34fr .66fr; gap:18px; align-items:center; border:1px solid var(--line); border-radius:18px; padding:16px 22px; background:#ffffff; box-shadow:0 1px 3px rgba(24,24,27,.05); }
     .layer strong { font-size:clamp(21px,1.9vw,29px); color:var(--text); }
     .layer span { font-size:clamp(16px,1.35vw,21px); color:var(--muted); line-height:1.4; }
     .timeline { display:grid; grid-template-columns:repeat(5,1fr); column-gap:12px; row-gap:20px; max-width:1320px; }
-    .step { border:1px solid var(--line); border-radius:22px; padding:20px; background:rgba(17,24,39,.72); min-height:190px; margin-bottom:8px; }
+    .step { border:1px solid var(--line); border-radius:22px; padding:20px; background:#ffffff; min-height:190px; margin-bottom:8px; box-shadow:var(--shadow); }
     .step b { display:block; color:var(--accent); font-size:clamp(18px,1.55vw,24px); margin-bottom:10px; }
     .step span { color:var(--muted); font-size:clamp(15px,1.25vw,20px); line-height:1.4; }
     .rail { display:grid; grid-template-columns:repeat(4,1fr); gap:18px; max-width:1320px; align-items:stretch; }
     .rail.three { grid-template-columns:repeat(3,1fr); }
     .rail.five { grid-template-columns:repeat(5,1fr); }
-    .rail-card { position:relative; border:1px solid var(--line); border-radius:24px; padding:22px; background:linear-gradient(180deg, rgba(17,24,39,.86), rgba(30,41,59,.58)); min-height:230px; box-shadow:var(--shadow); }
+    .rail-card { position:relative; border:1px solid var(--line); border-radius:24px; padding:22px; background:linear-gradient(180deg, #ffffff, #fafafa); min-height:230px; box-shadow:var(--shadow); }
     .rail-card::after { content:"→"; position:absolute; right:-18px; top:42%; color:var(--accent); font-size:30px; }
     .rail-card:last-child::after { content:""; }
     .rail-card b { display:block; color:var(--text); font-size:clamp(20px,1.8vw,28px); margin-bottom:10px; }
     .rail-card span { display:block; color:var(--muted); font-size:clamp(15px,1.25vw,20px); line-height:1.42; }
-    .tool { display:inline-block; margin:10px 8px 0 0; padding:7px 11px; border-radius:999px; background:rgba(167,139,250,.18); border:1px solid rgba(167,139,250,.42); color:var(--text); font-size:clamp(13px,1.05vw,17px); }
+    .tool { display:inline-block; margin:10px 8px 0 0; padding:7px 11px; border-radius:999px; background:#f4f4f5; border:1px solid var(--line); color:var(--text); font-size:clamp(13px,1.05vw,17px); }
     .swimlane { display:grid; grid-template-columns:.7fr repeat(4,1fr); gap:10px; max-width:1320px; }
-    .lane-head,.lane-cell { border:1px solid var(--line); border-radius:16px; padding:14px; background:rgba(17,24,39,.7); min-height:96px; }
+    .lane-head,.lane-cell { border:1px solid var(--line); border-radius:16px; padding:14px; background:#ffffff; min-height:96px; box-shadow:0 1px 3px rgba(24,24,27,.05); }
     .lane-head { color:var(--accent); font-weight:800; font-size:clamp(18px,1.5vw,24px); }
     .lane-cell { color:var(--muted); font-size:clamp(14px,1.15vw,18px); line-height:1.35; }
     .risk-grid { display:grid; grid-template-columns:1.1fr 1fr 1fr; gap:20px; max-width:1320px; }
-    .risk-panel { border:1px solid var(--line); border-radius:26px; padding:24px; background:rgba(17,24,39,.72); min-height:360px; }
+    .risk-panel { border:1px solid var(--line); border-radius:26px; padding:24px; background:#ffffff; min-height:360px; box-shadow:var(--shadow); }
     .risk-panel h3 { color:var(--text); }
     .source-list { columns:2; column-gap:48px; max-width:1320px; }
     .source-list li { break-inside:avoid; font-size:clamp(15px,1.25vw,20px); margin:0 0 10px; }
+    .closing-line { max-width:none; white-space:nowrap; font-size:clamp(24px,2.35vw,36px); }
     .accent { color:var(--accent); } .purple { color:var(--accent2); } .ok { color:var(--ok); } .warn { color:var(--warn); } .bad { color:var(--bad); }
     @media (max-width: 980px) { .grid,.grid.two,.grid.four,.compare,.compare.two,.matrix,.funnel,.timeline,.rail,.rail.three,.rail.five,.swimlane,.risk-grid { grid-template-columns:1fr; } section { padding:5vh 6vw; } .axis-y { display:none; } .layer { grid-template-columns:1fr; } .rail-card::after { display:none; } .source-list { columns:1; } }
   </style>
@@ -712,7 +713,6 @@
   <section data-page="38A">
     <h2>参考来源（一）：项目输入与核心案例</h2>
     <ul class="source-list">
-      <li>`user_input_template.md`</li>
       <li>https://mp.weixin.qq.com/s/b4Fh-3SQyWiB1HypUxk9wA</li>
       <li>https://mp.weixin.qq.com/s/MGnWz2b2H63lC8tK7UbrDA</li>
       <li>https://mp.weixin.qq.com/s/pwhg5Kmh3wMlxqIlbVqGMw</li>
@@ -759,8 +759,8 @@
   <section data-page="39">
     <div class="kicker">knowledge-engineering-driven-ai-practice</div>
     <h1>谢谢</h1>
-    <p class="lead">让 AI 在高质量流程里，持续产出可验证、可交接、可演进的工程资产。</p>
-    <p class="small">王唯力 Neil Wang</p>
+    <p class="lead closing-line">让 AI 在高质量流程里，持续产出可验证、可交接、可演进的工程资产。</p>
+    <p class="small">王唯力 Neil Wang · https://github.com/neil-wang-global/knowledge-engineering-driven-ai-practice</p>
   </section>
 </main>
 </body>
