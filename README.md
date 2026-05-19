@@ -186,6 +186,23 @@
 - MindFlow: <https://github.com/neil-wang-global/MindFlow>
 - Pomasa: <https://github.com/eXtremeProgramming-cn/pomasa>
 
+## 许可证
+
+本项目中的原创内容采用 [Creative Commons Attribution 4.0 International License](LICENSE)（CC BY 4.0）授权。
+
+你可以复制、分享、改编和二次创作，也可以用于商业场景，但必须保留作者署名、注明来源链接，并说明是否做过修改。
+
+推荐署名方式：
+
+```text
+《知识工程驱动的 AI 实践》
+作者：Neil Wang
+项目地址：https://github.com/neil-wang-global/knowledge-engineering-driven-ai-practice
+许可证：CC BY 4.0
+```
+
+注意：`references/` 下归档的第三方资料可能有各自的版权或使用条款。CC BY 4.0 仅适用于本仓库中的原创内容和整理成果，不改变第三方资料的原始授权。
+
 ## 一句话总结
 
 这个仓库不是在展示“AI 帮我写了一篇演讲稿”。
