@@ -89,9 +89,45 @@
     .risk-panel h3 { color:var(--text); }
     .source-list { columns:2; column-gap:48px; max-width:1320px; }
     .source-list li { break-inside:avoid; font-size:clamp(15px,1.25vw,20px); margin:0 0 10px; }
+    .visual-wrap { display:grid; grid-template-columns:1fr 1fr; gap:28px; align-items:center; max-width:1320px; }
+    .visual-card { border:1px solid var(--line); border-radius:30px; background:#fff; box-shadow:var(--shadow); padding:26px; }
+    .visual-title { color:var(--text); font-size:clamp(18px,1.45vw,24px); font-weight:800; margin-bottom:16px; }
+    .system-orbit { position:relative; width:min(560px,38vw); aspect-ratio:1; margin:auto; border:1px solid var(--line); border-radius:50%; background:radial-gradient(circle, #fff 0 28%, #f4f4f5 29% 30%, #fff 31%); }
+    .system-orbit .core { position:absolute; inset:35%; display:grid; place-items:center; text-align:center; border:1px solid var(--line-strong); border-radius:50%; background:#09090b; color:#fff; font-weight:800; font-size:clamp(18px,1.5vw,26px); }
+    .system-orbit .sat { position:absolute; width:32%; min-height:70px; display:grid; place-items:center; text-align:center; padding:10px; border:1px solid var(--line); border-radius:20px; background:#fff; color:var(--text); box-shadow:0 12px 28px rgba(24,24,27,.08); font-size:clamp(14px,1.1vw,18px); font-weight:700; }
+    .sat.top { left:34%; top:-3%; } .sat.right { right:-8%; top:38%; } .sat.bottom { left:34%; bottom:-3%; } .sat.left { left:-8%; top:38%; }
+    .pipeline-map { display:grid; grid-template-columns:repeat(5,1fr); gap:12px; max-width:1320px; align-items:stretch; }
+    .pipe-stage { position:relative; border:1px solid var(--line); border-radius:24px; background:#fff; box-shadow:var(--shadow); padding:20px; min-height:150px; }
+    .pipe-stage::after { content:""; position:absolute; right:-20px; top:50%; width:28px; height:1px; background:var(--line-strong); }
+    .pipe-stage:last-child::after { display:none; }
+    .pipe-stage b { display:block; color:var(--text); font-size:clamp(18px,1.45vw,24px); margin-bottom:8px; }
+    .pipe-stage span { color:var(--muted); font-size:clamp(14px,1.1vw,18px); line-height:1.35; }
+    .knowledge-map { display:grid; grid-template-columns:repeat(3,1fr); gap:14px; max-width:1180px; }
+    .knowledge-box { border:1px solid var(--line); border-radius:22px; background:#fff; padding:18px; min-height:130px; box-shadow:0 10px 24px rgba(24,24,27,.06); }
+    .knowledge-box b { color:var(--text); display:block; font-size:clamp(18px,1.45vw,24px); margin-bottom:8px; }
+    .knowledge-box span { color:var(--muted); font-size:clamp(14px,1.1vw,18px); line-height:1.35; }
+    .mesh { display:grid; grid-template-columns:repeat(5,1fr); gap:10px; max-width:1280px; }
+    .mesh-cell { border:1px solid var(--line); border-radius:18px; background:#fff; padding:16px; min-height:112px; box-shadow:0 8px 18px rgba(24,24,27,.05); }
+    .mesh-cell.dark { background:#09090b; color:#fff; }
+    .mesh-cell b { display:block; font-size:clamp(16px,1.2vw,21px); margin-bottom:8px; }
+    .mesh-cell span { color:var(--muted); font-size:clamp(13px,1vw,16px); line-height:1.3; }
+    .mesh-cell.dark span { color:#d4d4d8; }
+    .svg-board { width:min(1180px,100%); height:auto; display:block; margin:0 auto; }
+    .repo-tree { border:1px solid var(--line); border-radius:24px; background:#fff; box-shadow:var(--shadow); padding:16px 22px; max-height:76vh; overflow:hidden; }
+    .repo-tree pre { margin:0; font-family:"SFMono-Regular",Consolas,"Liberation Mono",Menlo,monospace; font-size:clamp(9px,.78vw,13px); line-height:1.14; color:#18181b; white-space:pre; }
+    .repo-grid { display:grid; grid-template-columns:.72fr 1.28fr; gap:24px; align-items:center; max-width:1440px; }
+    .repo-tree.only { width:min(980px,100%); margin:0 auto; max-height:78vh; }
+    .compact-title { font-size:clamp(32px,4.4vw,58px); }
+    .compact-stack .layer { min-height:auto; padding:13px 18px; }
+    .compact-stack .layer strong { font-size:clamp(18px,1.55vw,25px); }
+    .compact-stack .layer span { font-size:clamp(14px,1.15vw,18px); }
+    .svg-text { font-family:Avenir,"Avenir Next",sans-serif; fill:#09090b; font-weight:800; }
+    .svg-muted { font-family:Avenir,"Avenir Next",sans-serif; fill:#52525b; }
+    .svg-invert { font-family:Avenir,"Avenir Next",sans-serif; fill:#fff; font-weight:800; }
+    .svg-invert-muted { font-family:Avenir,"Avenir Next",sans-serif; fill:#d4d4d8; }
     .closing-line { max-width:none; white-space:nowrap; font-size:clamp(24px,2.35vw,36px); }
     .accent { color:var(--accent); } .purple { color:var(--accent2); } .ok { color:var(--ok); } .warn { color:var(--warn); } .bad { color:var(--bad); }
-    @media (max-width: 980px) { .grid,.grid.two,.grid.four,.compare,.compare.two,.matrix,.funnel,.timeline,.rail,.rail.three,.rail.five,.swimlane,.risk-grid { grid-template-columns:1fr; } section { padding:5vh 6vw; } .axis-y { display:none; } .layer { grid-template-columns:1fr; } .rail-card::after { display:none; } .source-list { columns:1; } }
+    @media (max-width: 980px) { .grid,.grid.two,.grid.four,.compare,.compare.two,.matrix,.funnel,.timeline,.rail,.rail.three,.rail.five,.swimlane,.risk-grid,.visual-wrap,.pipeline-map,.knowledge-map,.mesh { grid-template-columns:1fr; } section { padding:5vh 6vw; } .axis-y { display:none; } .layer { grid-template-columns:1fr; } .rail-card::after,.pipe-stage::after { display:none; } .source-list { columns:1; } .system-orbit { width:min(520px,86vw); } .closing-line { white-space:normal; } }
   </style>
 </head>
 <body>
@@ -160,10 +196,19 @@
 
   <section data-page="08">
     <h2>AI-native workflow</h2>
-    <div class="grid">
-      <div class="card"><strong>模型推理</strong><span>生成方案、代码、解释、判断；负责开放问题里的推理能力。</span></div>
-      <div class="card"><strong>流程约束</strong><span>先想清楚，固定检查点，验收显化；负责把开放推理收束到工程轨道。</span></div>
-      <div class="card"><strong>状态反馈</strong><span>可恢复、可检查、可交接、可回写；负责让一次执行变成系统记忆。</span></div>
+    <div class="visual-wrap">
+      <div class="system-orbit">
+        <div class="core">AI-native<br>workflow</div>
+        <div class="sat top">模型推理<br><span>生成 / 判断</span></div>
+        <div class="sat right">流程约束<br><span>检查点 / 权限</span></div>
+        <div class="sat bottom">状态反馈<br><span>恢复 / 交接</span></div>
+        <div class="sat left">知识回写<br><span>资产增长</span></div>
+      </div>
+      <div class="grid" style="grid-template-columns:1fr;">
+        <div class="card"><strong>模型推理</strong><span>生成方案、代码、解释、判断；负责开放问题里的推理能力。</span></div>
+        <div class="card"><strong>流程约束</strong><span>先想清楚，固定检查点，验收显化；负责把开放推理收束到工程轨道。</span></div>
+        <div class="card"><strong>状态反馈</strong><span>可恢复、可检查、可交接、可回写；负责让一次执行变成系统记忆。</span></div>
+      </div>
     </div>
   </section>
 
@@ -207,13 +252,28 @@
 
   <section data-page="11">
     <h2>第 2 章：MindFlow 的自我演进</h2>
-    <div class="stack">
-      <div class="layer"><strong>Soul</strong><span>长期原则与方向，回答系统为什么存在、不能偏离什么。</span></div>
-      <div class="layer"><strong>Learning</strong><span>外部知识与经验输入，避免把材料一次性塞进 prompt。</span></div>
-      <div class="layer"><strong>Capability</strong><span>可复用能力单元，把反复出现的做法沉淀下来。</span></div>
-      <div class="layer"><strong>Plan / Task State</strong><span>执行路径与当前状态，让任务跨上下文窗口可恢复。</span></div>
-      <div class="layer"><strong>Reflection</strong><span>复盘、沉淀、更新，让失败变成下一次执行的资产。</span></div>
-    </div>
+    <svg class="svg-board" viewBox="0 0 1180 430" role="img" aria-label="MindFlow learning and capability evolution">
+      <defs><marker id="arrow-mf" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#09090b"/></marker></defs>
+      <rect x="430" y="18" width="320" height="58" rx="22" fill="#09090b"/><text x="590" y="54" text-anchor="middle" class="svg-invert" font-size="24">Soul：长期原则 / 判断标准</text>
+      <text x="590" y="100" text-anchor="middle" class="svg-muted" font-size="18">学习、执行、反思、Knowledge 升级、Capability 维护，都要参考 Soul</text>
+
+      <rect x="32" y="150" width="118" height="70" rx="22" fill="#fff" stroke="#d4d4d8"/><text x="91" y="192" text-anchor="middle" class="svg-text" font-size="19">Task</text>
+      <rect x="190" y="150" width="158" height="70" rx="22" fill="#fff" stroke="#d4d4d8"/><text x="269" y="179" text-anchor="middle" class="svg-text" font-size="18">Learning</text><text x="269" y="203" text-anchor="middle" class="svg-muted" font-size="14">Read：正式知识</text>
+      <rect x="388" y="150" width="158" height="70" rx="22" fill="#fff" stroke="#d4d4d8"/><text x="467" y="179" text-anchor="middle" class="svg-text" font-size="18">Recognition</text><text x="467" y="203" text-anchor="middle" class="svg-muted" font-size="14">识别任务</text>
+      <rect x="586" y="150" width="138" height="70" rx="22" fill="#fff" stroke="#d4d4d8"/><text x="655" y="192" text-anchor="middle" class="svg-text" font-size="19">Analysis</text>
+      <rect x="764" y="150" width="138" height="70" rx="22" fill="#fff" stroke="#d4d4d8"/><text x="833" y="192" text-anchor="middle" class="svg-text" font-size="19">Planning</text>
+      <rect x="942" y="150" width="170" height="70" rx="22" fill="#09090b"/><text x="1027" y="179" text-anchor="middle" class="svg-invert" font-size="18">Execution</text><text x="1027" y="203" text-anchor="middle" class="svg-invert-muted" font-size="14">Plan / State</text>
+
+      <rect x="750" y="300" width="150" height="70" rx="22" fill="#fff" stroke="#d4d4d8"/><text x="825" y="342" text-anchor="middle" class="svg-text" font-size="19">Reflection</text>
+      <rect x="520" y="300" width="178" height="70" rx="22" fill="#fff" stroke="#d4d4d8"/><text x="609" y="329" text-anchor="middle" class="svg-text" font-size="18">Learning</text><text x="609" y="353" text-anchor="middle" class="svg-muted" font-size="14">Acquire：非 Read</text>
+      <rect x="292" y="300" width="178" height="70" rx="22" fill="#fff" stroke="#d4d4d8"/><text x="381" y="329" text-anchor="middle" class="svg-text" font-size="18">Knowledge</text><text x="381" y="353" text-anchor="middle" class="svg-muted" font-size="14">选型 / 升级</text>
+      <rect x="64" y="300" width="178" height="70" rx="22" fill="#fff" stroke="#d4d4d8"/><text x="153" y="329" text-anchor="middle" class="svg-text" font-size="18">Capability</text><text x="153" y="353" text-anchor="middle" class="svg-muted" font-size="14">维护 / 升级</text>
+
+      <path d="M150 185 L190 185" stroke="#09090b" stroke-width="2" marker-end="url(#arrow-mf)"/><path d="M348 185 L388 185" stroke="#09090b" stroke-width="2" marker-end="url(#arrow-mf)"/><path d="M546 185 L586 185" stroke="#09090b" stroke-width="2" marker-end="url(#arrow-mf)"/><path d="M724 185 L764 185" stroke="#09090b" stroke-width="2" marker-end="url(#arrow-mf)"/><path d="M902 185 L942 185" stroke="#09090b" stroke-width="2" marker-end="url(#arrow-mf)"/>
+      <path d="M1027 220 C1020 286 920 326 900 335" fill="none" stroke="#09090b" stroke-width="2" marker-end="url(#arrow-mf)"/><path d="M750 335 L698 335" stroke="#09090b" stroke-width="2" marker-end="url(#arrow-mf)"/><path d="M520 335 L470 335" stroke="#09090b" stroke-width="2" marker-end="url(#arrow-mf)"/><path d="M292 335 L242 335" stroke="#09090b" stroke-width="2" marker-end="url(#arrow-mf)"/>
+      <path d="M381 300 C390 260 300 242 269 220" fill="none" stroke="#a1a1aa" stroke-width="2" stroke-dasharray="7 7" marker-end="url(#arrow-mf)"/><path d="M153 300 C176 254 208 236 243 220" fill="none" stroke="#a1a1aa" stroke-width="2" stroke-dasharray="7 7" marker-end="url(#arrow-mf)"/>
+      <path d="M590 76 L590 136" stroke="#a1a1aa" stroke-width="2" stroke-dasharray="8 8"/><path d="M590 136 L269 150" stroke="#a1a1aa" stroke-width="2" stroke-dasharray="8 8"/><path d="M590 136 L1027 150" stroke="#a1a1aa" stroke-width="2" stroke-dasharray="8 8"/><path d="M590 136 L609 300" stroke="#a1a1aa" stroke-width="2" stroke-dasharray="8 8"/><path d="M590 136 L381 300" stroke="#a1a1aa" stroke-width="2" stroke-dasharray="8 8"/><path d="M590 136 L153 300" stroke="#a1a1aa" stroke-width="2" stroke-dasharray="8 8"/>
+    </svg>
     <p class="small">GitHub: https://github.com/neil-wang-global/MindFlow · Paper: https://zenodo.org/records/18977748</p>
   </section>
 
@@ -229,12 +289,12 @@
   <section data-page="13">
     <h2>知识工程是什么</h2>
     <p class="lead">不是把提示词写长，而是把人类判断组织成 AI 可消费的知识资产。</p>
-    <div class="timeline">
-      <div class="step"><b>问题导向</b><span>定义要解决什么问题，以及为什么值得解决。</span></div>
-      <div class="step"><b>价值框架</b><span>选择分析视角、约束和判断标准。</span></div>
-      <div class="step"><b>信息储备</b><span>积累、筛选、组织高质量材料。</span></div>
-      <div class="step"><b>理论方法</b><span>决定研究路径、拆解方法和执行范式。</span></div>
-      <div class="step"><b>表现形式</b><span>根据场景选择报告、代码、演示、流程或系统资产。</span></div>
+    <div class="pipeline-map">
+      <div class="pipe-stage"><b>问题导向</b><span>定义要解决什么问题，以及为什么值得解决。</span></div>
+      <div class="pipe-stage"><b>价值框架</b><span>选择分析视角、约束和判断标准。</span></div>
+      <div class="pipe-stage"><b>信息储备</b><span>积累、筛选、组织高质量材料。</span></div>
+      <div class="pipe-stage"><b>理论方法</b><span>决定研究路径、拆解方法和执行范式。</span></div>
+      <div class="pipe-stage"><b>表现形式</b><span>根据场景选择报告、代码、演示、流程或系统资产。</span></div>
     </div>
   </section>
 
@@ -250,7 +310,20 @@
   <section data-page="14">
     <h2>第 3 章：POMASA 与 MAS 的强状态</h2>
     <p class="lead">MAS 的关键不是“几个 Agent 聊天”，而是围绕状态推进的编排系统。</p>
-    <div class="flow"><span class="node">谁读取</span><span class="node">谁产出</span><span class="node">放在哪里</span><span class="node">谁验收</span><span class="node">失败如何回流</span></div>
+    <svg class="svg-board" viewBox="0 0 1160 400" role="img" aria-label="POMASA pattern generated MAS architecture">
+      <defs><marker id="arrow-mas" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#09090b"/></marker></defs>
+      <rect x="28" y="46" width="210" height="110" rx="26" fill="#fff" stroke="#d4d4d8"/><text x="133" y="92" text-anchor="middle" class="svg-text" font-size="22">Pattern Catalog</text><text x="133" y="122" text-anchor="middle" class="svg-muted" font-size="16">COR / STR / BHV / QUA</text>
+      <rect x="28" y="244" width="210" height="110" rx="26" fill="#fff" stroke="#d4d4d8"/><text x="133" y="290" text-anchor="middle" class="svg-text" font-size="22">User Input</text><text x="133" y="320" text-anchor="middle" class="svg-muted" font-size="16">topic / sources / output</text>
+      <rect x="300" y="134" width="210" height="132" rx="30" fill="#09090b"/><text x="405" y="188" text-anchor="middle" class="svg-invert" font-size="24">POMASA</text><text x="405" y="222" text-anchor="middle" class="svg-invert-muted" font-size="17">Generator Skill</text>
+      <rect x="590" y="36" width="190" height="86" rx="24" fill="#fff" stroke="#d4d4d8"/><text x="685" y="70" text-anchor="middle" class="svg-text" font-size="21">agents/</text><text x="685" y="98" text-anchor="middle" class="svg-muted" font-size="15">Blueprints</text>
+      <rect x="590" y="156" width="190" height="86" rx="24" fill="#fff" stroke="#d4d4d8"/><text x="685" y="190" text-anchor="middle" class="svg-text" font-size="21">references/</text><text x="685" y="218" text-anchor="middle" class="svg-muted" font-size="15">methodology / domain</text>
+      <rect x="590" y="276" width="190" height="86" rx="24" fill="#fff" stroke="#d4d4d8"/><text x="685" y="310" text-anchor="middle" class="svg-text" font-size="21">workspace/</text><text x="685" y="338" text-anchor="middle" class="svg-muted" font-size="15">runtime state</text>
+      <rect x="858" y="66" width="250" height="110" rx="28" fill="#fff" stroke="#d4d4d8"/><text x="983" y="112" text-anchor="middle" class="svg-text" font-size="23">Orchestrator</text><text x="983" y="144" text-anchor="middle" class="svg-muted" font-size="16">strict blueprint dispatch</text>
+      <rect x="858" y="224" width="250" height="110" rx="28" fill="#fff" stroke="#d4d4d8"/><text x="983" y="270" text-anchor="middle" class="svg-text" font-size="23">_output/ + Lineage</text><text x="983" y="302" text-anchor="middle" class="svg-muted" font-size="16">deliverable / trace / verification</text>
+      <path d="M238 101 L300 172" stroke="#09090b" stroke-width="2" marker-end="url(#arrow-mas)"/><path d="M238 299 L300 226" stroke="#09090b" stroke-width="2" marker-end="url(#arrow-mas)"/>
+      <path d="M510 180 L590 79" stroke="#09090b" stroke-width="2" marker-end="url(#arrow-mas)"/><path d="M510 200 L590 199" stroke="#09090b" stroke-width="2" marker-end="url(#arrow-mas)"/><path d="M510 222 L590 319" stroke="#09090b" stroke-width="2" marker-end="url(#arrow-mas)"/>
+      <path d="M780 79 L858 121" stroke="#09090b" stroke-width="2" marker-end="url(#arrow-mas)"/><path d="M780 199 L858 121" stroke="#09090b" stroke-width="2" marker-end="url(#arrow-mas)"/><path d="M780 319 L858 279" stroke="#09090b" stroke-width="2" marker-end="url(#arrow-mas)"/><path d="M983 176 L983 224" stroke="#09090b" stroke-width="2" marker-end="url(#arrow-mas)"/>
+    </svg>
     <p class="note">先定义状态和产物，再定义 Agent；否则多智能体只会变成聊天接力。</p>
   </section>
 
@@ -284,10 +357,23 @@
 
   <section data-page="17">
     <h2>第 4 章：状态控制三分法</h2>
-    <div class="grid">
-      <div class="card"><strong>强约束固定</strong><span>Rules、Hooks、必读文件、测试、提交检查。适合安全、权限、验收声明。</span></div>
-      <div class="card"><strong>建议式调度</strong><span>Skill、推荐流程、可选 checklist。适合可复用能力和经验方法。</span></div>
-      <div class="card"><strong>完全 AI 控制</strong><span>探索、低风险实验、一次性任务。适合开放发散，不适合关键交付兜底。</span></div>
+    <div class="visual-wrap">
+      <svg class="svg-board" viewBox="0 0 620 420" role="img" aria-label="control modes triangle">
+        <defs><marker id="arrow-control" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#09090b"/></marker></defs>
+        <polygon points="310,35 565,342 55,342" fill="#fff" stroke="#d4d4d8" stroke-width="2"/>
+        <line x1="188" y1="196" x2="432" y2="196" stroke="#e4e4e7" stroke-width="2"/>
+        <line x1="128" y1="270" x2="492" y2="270" stroke="#e4e4e7" stroke-width="2"/>
+        <circle cx="310" cy="94" r="52" fill="#09090b"/><text x="310" y="88" text-anchor="middle" class="svg-invert" font-size="20">AI</text><text x="310" y="116" text-anchor="middle" class="svg-invert-muted" font-size="16">自主</text>
+        <circle cx="310" cy="238" r="58" fill="#fff" stroke="#d4d4d8"/><text x="310" y="231" text-anchor="middle" class="svg-text" font-size="20">Skill</text><text x="310" y="259" text-anchor="middle" class="svg-muted" font-size="16">建议式</text>
+        <circle cx="310" cy="334" r="58" fill="#f4f4f5" stroke="#d4d4d8"/><text x="310" y="327" text-anchor="middle" class="svg-text" font-size="20">Rules</text><text x="310" y="355" text-anchor="middle" class="svg-muted" font-size="16">强约束</text>
+        <line x1="92" y1="382" x2="226" y2="382" stroke="#09090b" stroke-width="2" marker-end="url(#arrow-control)"/><text x="92" y="408" class="svg-muted" font-size="17">可靠性增强：固定、可验收</text>
+        <line x1="528" y1="382" x2="394" y2="382" stroke="#09090b" stroke-width="2" marker-end="url(#arrow-control)"/><text x="344" y="408" class="svg-muted" font-size="17">灵活性增强：开放、可探索</text>
+      </svg>
+      <div class="grid" style="grid-template-columns:1fr;">
+        <div class="card"><strong>强约束固定</strong><span>Rules、Hooks、必读文件、测试、提交检查。适合安全、权限、验收声明。</span></div>
+        <div class="card"><strong>建议式调度</strong><span>Skill、推荐流程、可选 checklist。适合可复用能力和经验方法。</span></div>
+        <div class="card"><strong>完全 AI 控制</strong><span>探索、低风险实验、一次性任务。适合开放发散，不适合关键交付兜底。</span></div>
+      </div>
     </div>
   </section>
 
@@ -369,8 +455,22 @@
 
   <section data-page="21">
     <h2>第 6 章：Knowledge 与 Story</h2>
-    <div class="quote">Story 是动态知识，Knowledge 是静态 Story。</div>
-    <p class="lead">User journey 是团队发现、验证、固化知识的过程。</p>
+    <div class="visual-wrap">
+      <div>
+        <div class="quote">Story 是动态知识，Knowledge 是静态 Story。</div>
+        <p class="lead">User journey 是团队发现、验证、固化知识的过程。</p>
+      </div>
+      <svg class="svg-board" viewBox="0 0 680 380" role="img" aria-label="story to knowledge loop">
+        <defs><marker id="arrow3" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#09090b"/></marker></defs>
+        <rect x="36" y="74" width="150" height="92" rx="24" fill="#fff" stroke="#d4d4d8"/><text x="111" y="112" text-anchor="middle" class="svg-text" font-size="24">Story</text><text x="111" y="140" text-anchor="middle" class="svg-muted" font-size="16">动态知识</text>
+        <rect x="264" y="74" width="150" height="92" rx="24" fill="#fff" stroke="#d4d4d8"/><text x="339" y="112" text-anchor="middle" class="svg-text" font-size="22">Build</text><text x="339" y="140" text-anchor="middle" class="svg-muted" font-size="16">实现 / 验证</text>
+        <rect x="492" y="74" width="150" height="92" rx="24" fill="#09090b"/><text x="567" y="112" text-anchor="middle" class="svg-invert" font-size="22">Knowledge</text><text x="567" y="140" text-anchor="middle" class="svg-invert-muted" font-size="16">当前状态</text>
+        <rect x="264" y="236" width="150" height="92" rx="24" fill="#fff" stroke="#d4d4d8"/><text x="339" y="274" text-anchor="middle" class="svg-text" font-size="22">回写</text><text x="339" y="302" text-anchor="middle" class="svg-muted" font-size="16">Skill / Eval / Doc</text>
+        <path d="M186 120 L264 120" stroke="#09090b" stroke-width="2" marker-end="url(#arrow3)"/><path d="M414 120 L492 120" stroke="#09090b" stroke-width="2" marker-end="url(#arrow3)"/>
+        <path d="M567 166 L567 206 L414 282" fill="none" stroke="#09090b" stroke-width="2" marker-end="url(#arrow3)"/><path d="M264 282 L111 206 L111 166" fill="none" stroke="#a1a1aa" stroke-width="2" stroke-dasharray="7 7" marker-end="url(#arrow3)"/>
+        <text x="503" y="230" class="svg-muted" font-size="15">沉淀验证过的增量</text><text x="54" y="230" class="svg-muted" font-size="15">下一次 Story 读取当前状态</text>
+      </svg>
+    </div>
   </section>
 
   <section data-page="22">
@@ -411,8 +511,24 @@
 
   <section data-page="27">
     <h2>单仓库原则</h2>
-    <div class="quote">仓库是 BA / DEV / QA / UI / Agent 共享的强状态空间。</div>
-    <p class="note">需求、设计、实现、测试、验收和回写都在同一个可审计空间里发生，减少部门墙和上下文传递损耗。</p>
+    <div class="visual-wrap">
+      <div>
+        <div class="quote">仓库是 BA / DEV / QA / UI / Agent 共享的强状态空间。</div>
+        <p class="note">需求、设计、实现、测试、验收和回写都在同一个可审计空间里发生，减少部门墙和上下文传递损耗。</p>
+      </div>
+      <div class="mesh">
+        <div class="mesh-cell dark"><b>Repo &amp; Knowledge</b><span>当前事实</span></div>
+        <div class="mesh-cell"><b>BA</b><span>意图 / AC</span></div>
+        <div class="mesh-cell"><b>UI</b><span>路径 / 交互</span></div>
+        <div class="mesh-cell"><b>DEV</b><span>实现 / Review</span></div>
+        <div class="mesh-cell"><b>QA</b><span>测试 / 验收</span></div>
+        <div class="mesh-cell"><b>Story</b><span>业务增量</span></div>
+        <div class="mesh-cell"><b>Spec</b><span>边界契约</span></div>
+        <div class="mesh-cell"><b>Plan</b><span>执行路径</span></div>
+        <div class="mesh-cell"><b>Test</b><span>完成证据</span></div>
+        <div class="mesh-cell"><b>Skill</b><span>复用能力</span></div>
+      </div>
+    </div>
   </section>
 
   <section data-page="27A">
@@ -480,11 +596,213 @@
 
   <section data-page="30">
     <h2>统一流程是资产生产线</h2>
-    <div class="flow"><span class="node">输入</span><span class="node">输出</span><span class="node">状态</span><span class="node">角色</span><span class="node">检查点</span><span class="node">验收</span><span class="node">回写</span></div>
+    <div class="pipeline-map">
+      <div class="pipe-stage"><b>输入</b><span>需求、用户路径、业务目标进入流程。</span></div>
+      <div class="pipe-stage"><b>加工</b><span>Tasking、澄清、设计、计划、实现。</span></div>
+      <div class="pipe-stage"><b>检查</b><span>Review、测试、浏览器验证、trace。</span></div>
+      <div class="pipe-stage"><b>输出</b><span>代码、文档、测试结果、可交付增量。</span></div>
+      <div class="pipe-stage"><b>回写</b><span>Skill、Knowledge、SOUL.md、Eval case。</span></div>
+    </div>
     <p class="lead">流程中发现的新规则、新失败模式、新业务判断，要回写到 Skill、工程文件、Knowledge 或长期原则文件。</p>
   </section>
 
-  <section data-page="30A">
+  <section data-page="30A" style="padding-top:4.2vh; padding-bottom:4.2vh;">
+    <h2 class="compact-title" style="font-size:clamp(30px,3.8vw,52px); margin-bottom:18px;">成功实践：项目仓库就是资产生产线</h2>
+    <div class="repo-tree only">
+<pre>project-repo/
+├─ CLAUDE.md
+│
+├─ .claude/
+│  ├─ settings.json
+│  └─ rules/
+│     └─ must-read-claude.md
+│
+├─ references/
+│  ├─ chats/
+│  ├─ meeting-minutes/
+│  └─ wips/
+│
+├─ products/
+│  └─ mvp-001/
+│     └─ user-journey-001/
+│        └─ story-001/
+│           ├─ story.md
+│           ├─ tests.md
+│           ├─ ui.md
+│           └─ plans/
+│              ├─ plan.md
+│              ├─ frontend-plan.md
+│              ├─ backend-plan.md
+│              ├─ api-contract.md
+│              ├─ qa.md
+│              ├─ review.md
+│              └─ progress.md
+│
+├─ src/
+│  ├─ frontend/
+│  └─ backend/
+│
+├─ agents/
+│  ├─ orchestrator.md
+│  └─ skills/
+│
+└─ knowledge/
+   ├─ SOUL.md
+   ├─ qas/
+   ├─ uis/
+   ├─ user-journeys/
+   ├─ domains/
+   ├─ architectures/
+   ├─ frontends/
+   ├─ backends/
+   └─ deliveries/</pre>
+    </div>
+  </section>
+
+  <section data-page="30B">
+    <h2>上游入口：原始材料先进入 references</h2>
+    <div class="pipeline-map">
+      <div class="pipe-stage"><b>chats/</b><span>客户聊天、销售沟通、即时反馈，保留最原始的客户语言。</span></div>
+      <div class="pipe-stage"><b>meeting-minutes/</b><span>会议纪要、访谈记录、决策背景，把共识结构化。</span></div>
+      <div class="pipe-stage"><b>wips/</b><span>方案、标书、合同草稿、阶段性分析、候选知识。</span></div>
+      <div class="pipe-stage"><b>再输入</b><span>所有阶段性输出都继续喂给产品拆解和工程执行。</span></div>
+      <div class="pipe-stage"><b>沉淀</b><span>稳定后才进入 knowledge/，不稳定就继续留在 wips/。</span></div>
+    </div>
+    <div class="visual-card" style="margin-top:22px; max-width:1320px;">
+      <div class="visual-title">输出即输入：wips/ 不是垃圾桶，而是流动资产缓冲区</div>
+      <div class="flow">
+        <span class="node">客户反馈</span><span class="arrow">→</span>
+        <span class="node">方案草稿</span><span class="arrow">→</span>
+        <span class="node">标书 / 合同草稿</span><span class="arrow">→</span>
+        <span class="node">范围确认</span><span class="arrow">→</span>
+        <span class="node">Story / 测试 / 验收</span><span class="arrow">→</span>
+        <span class="node">新的客户反馈</span>
+      </div>
+    </div>
+    <p class="note">这一步把售前、需求、交付承诺和后续验收放进同一条资产线，避免上下文散落在聊天记录和个人脑子里。</p>
+  </section>
+
+  <section data-page="30C">
+    <h2 class="compact-title">产品资产：MVP → 用户旅程 → Story</h2>
+    <div class="visual-wrap" style="gap:34px;">
+      <div class="stack compact-stack">
+        <div class="layer"><strong>products/mvp-001/</strong><span>阶段目标、范围边界、先做什么和暂时不做什么。</span></div>
+        <div class="layer"><strong>user-journey-001/</strong><span>一条完整用户路径：从触发、操作、反馈到业务结果。</span></div>
+        <div class="layer"><strong>story-001/story.md</strong><span>用户故事、AC、边界条件、异常路径和验收口径。</span></div>
+        <div class="layer"><strong>story-001/tests.md</strong><span>不放测试本体，而是引用 knowledge/qas/ 中对应测试资产。</span></div>
+        <div class="layer"><strong>story-001/ui.md</strong><span>可选文件：如果有 UI，则引用 knowledge/uis/ 中的设计资产。</span></div>
+      </div>
+      <svg class="svg-board" viewBox="0 0 690 430" role="img" aria-label="产品资产嵌套结构">
+        <rect x="42" y="24" width="606" height="330" rx="32" fill="#fafafa" stroke="#d4d4d8" />
+        <text x="76" y="74" class="svg-text" font-size="28">products/</text>
+        <rect x="88" y="106" width="514" height="206" rx="26" fill="#fff" stroke="#d4d4d8" />
+        <text x="120" y="152" class="svg-text" font-size="25">mvp-001/</text>
+        <rect x="138" y="176" width="414" height="104" rx="24" fill="#f4f4f5" stroke="#d4d4d8" />
+        <text x="168" y="222" class="svg-text" font-size="24">user-journey-001/</text>
+        <rect x="196" y="250" width="298" height="94" rx="22" fill="#09090b" stroke="#09090b" />
+        <text x="226" y="288" class="svg-invert" font-size="24">story-001/</text>
+        <text x="226" y="318" class="svg-invert-muted" font-size="17">story.md · tests.md · ui.md · plans/</text>
+        <text x="76" y="398" class="svg-muted" font-size="19">Story 不是孤立需求，而是某个 MVP 中某条用户旅程上的可验收闭环。</text>
+      </svg>
+    </div>
+  </section>
+
+  <section data-page="30D">
+    <h2>Story 内部：plans/ 是执行控制台</h2>
+    <div class="mesh" style="grid-template-columns:repeat(4,1fr);">
+      <div class="mesh-cell dark"><b>story.md</b><span>业务意图、AC、边界条件，是执行的最小需求单元。</span></div>
+      <div class="mesh-cell"><b>tests.md</b><span>引用 knowledge/qas/，说明对应测试、缺口和通过状态。</span></div>
+      <div class="mesh-cell"><b>ui.md</b><span>可选引用 knowledge/uis/，没有 UI 就不强行生成设计资产。</span></div>
+      <div class="mesh-cell dark"><b>plans/progress.md</b><span>记录当前状态、阻塞点、下一步，支持断点续跑。</span></div>
+      <div class="mesh-cell"><b>plans/plan.md</b><span>总计划：任务拆解、风险、执行顺序和验收路径。</span></div>
+      <div class="mesh-cell"><b>frontend-plan.md</b><span>前端 Agent 重点读取：页面、组件、状态和交互。</span></div>
+      <div class="mesh-cell"><b>backend-plan.md</b><span>后端 Agent 重点读取：接口、领域逻辑、数据和权限。</span></div>
+      <div class="mesh-cell"><b>api-contract.md</b><span>前后端协作契约：请求、响应、错误码、字段含义。</span></div>
+      <div class="mesh-cell"><b>qa.md</b><span>验收证据、测试结果、截图、录屏和人工确认。</span></div>
+      <div class="mesh-cell"><b>review.md</b><span>代码 Review、设计 Review、测试 Review 的结论和遗留项。</span></div>
+      <div class="mesh-cell"><b>knowledge 回写</b><span>稳定经验进入 knowledge/，不稳定判断继续回到 references/wips/。</span></div>
+      <div class="mesh-cell dark"><b>小闭环</b><span>一个 Story 自带计划、状态、契约、QA、Review 和回写位置。</span></div>
+    </div>
+    <p class="note">`plans/` 不只是计划文件夹，而是一个 Story 的调度台：谁读什么、做到哪一步、怎么恢复、如何验收，都写在这里。</p>
+  </section>
+
+  <section data-page="30E">
+    <h2>Agent 编排：入口、规则、技能、知识分层</h2>
+    <div class="visual-wrap">
+      <div class="knowledge-map">
+        <div class="knowledge-box"><b>CLAUDE.md</b><span>项目入口。Agent 进项目必须从这里理解启动方式、边界和基本约束。</span></div>
+        <div class="knowledge-box"><b>.claude/settings.json</b><span>Hook 配置。把“必须走 CLAUDE.md”变成可执行门禁。</span></div>
+        <div class="knowledge-box"><b>.claude/rules/</b><span>项目级强约束。这里只保留关键规则，例如 must-read-claude.md。</span></div>
+        <div class="knowledge-box"><b>agents/orchestrator.md</b><span>流程编排器：定义角色顺序、读写边界、进入下一步的条件。</span></div>
+        <div class="knowledge-box"><b>agents/skills/</b><span>BA、UI、Frontend、Backend、QA、Reviewer 等角色技能。</span></div>
+        <div class="knowledge-box"><b>knowledge/soul/SOUL.md</b><span>长期方向总纲，引用 soul/ 下持续增长的原则和演进文件。</span></div>
+      </div>
+      <svg class="svg-board" viewBox="0 0 700 510" role="img" aria-label="入口规则编排知识分层">
+        <defs>
+          <marker id="arrow30e" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L0,6 L9,3 z" fill="#18181b" /></marker>
+        </defs>
+        <rect x="244" y="28" width="212" height="72" rx="28" fill="#09090b" />
+        <text x="286" y="73" class="svg-invert" font-size="25">CLAUDE.md</text>
+        <rect x="64" y="150" width="220" height="92" rx="24" fill="#fff" stroke="#d4d4d8" />
+        <text x="94" y="188" class="svg-text" font-size="23">.claude/</text>
+        <text x="94" y="218" class="svg-muted" font-size="17">settings + rules</text>
+        <rect x="416" y="150" width="220" height="92" rx="24" fill="#fff" stroke="#d4d4d8" />
+        <text x="446" y="188" class="svg-text" font-size="23">agents/</text>
+        <text x="446" y="218" class="svg-muted" font-size="17">orchestrator + skills</text>
+        <rect x="110" y="306" width="480" height="122" rx="28" fill="#f4f4f5" stroke="#d4d4d8" />
+        <text x="144" y="350" class="svg-text" font-size="25">knowledge/</text>
+        <text x="144" y="382" class="svg-muted" font-size="18">soul · qas · uis · user-journeys · domains · architectures</text>
+        <text x="144" y="412" class="svg-muted" font-size="18">frontends · backends · deliveries</text>
+        <line x1="310" y1="100" x2="210" y2="150" stroke="#18181b" stroke-width="2" marker-end="url(#arrow30e)" />
+        <line x1="390" y1="100" x2="490" y2="150" stroke="#18181b" stroke-width="2" marker-end="url(#arrow30e)" />
+        <line x1="174" y1="242" x2="286" y2="306" stroke="#18181b" stroke-width="2" marker-end="url(#arrow30e)" />
+        <line x1="526" y1="242" x2="414" y2="306" stroke="#18181b" stroke-width="2" marker-end="url(#arrow30e)" />
+        <text x="116" y="472" class="svg-text" font-size="23">入口管约束，规则管门禁，编排器管流程，知识树管沉淀。</text>
+      </svg>
+    </div>
+  </section>
+
+  <section data-page="30F">
+    <h2 class="compact-title">最终形态：仓库管理天然适合权限控制</h2>
+    <div class="visual-wrap" style="align-items:start; gap:24px;">
+      <svg class="svg-board" viewBox="0 0 700 500" role="img" aria-label="GitLab Group 多仓库权限结构">
+        <defs>
+          <marker id="arrow30f" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L0,6 L9,3 z" fill="#18181b" /></marker>
+        </defs>
+        <rect x="34" y="28" width="632" height="428" rx="34" fill="#fafafa" stroke="#d4d4d8" />
+        <text x="70" y="78" class="svg-text" font-size="28">GitLab Group：customer-project/</text>
+        <rect x="82" y="116" width="220" height="116" rx="22" fill="#09090b" stroke="#09090b" />
+        <text x="112" y="158" class="svg-invert" font-size="24">documents</text>
+        <text x="112" y="190" class="svg-invert-muted" font-size="17">references · products</text>
+        <text x="112" y="214" class="svg-invert-muted" font-size="17">agents · knowledge</text>
+        <rect x="398" y="116" width="220" height="96" rx="22" fill="#fff" stroke="#d4d4d8" />
+        <text x="430" y="156" class="svg-text" font-size="24">frontend</text>
+        <text x="430" y="186" class="svg-muted" font-size="17">只保留前端代码</text>
+        <rect x="398" y="248" width="220" height="96" rx="22" fill="#fff" stroke="#d4d4d8" />
+        <text x="430" y="288" class="svg-text" font-size="24">backend</text>
+        <text x="430" y="318" class="svg-muted" font-size="17">只保留后端代码</text>
+        <rect x="82" y="292" width="220" height="96" rx="22" fill="#fff" stroke="#d4d4d8" />
+        <text x="112" y="332" class="svg-text" font-size="24">materials</text>
+        <text x="112" y="362" class="svg-muted" font-size="17">标书 · 合同 · 商务资料</text>
+        <line x1="302" y1="166" x2="398" y2="166" stroke="#18181b" stroke-width="2" marker-end="url(#arrow30f)" />
+        <line x1="302" y1="190" x2="398" y2="292" stroke="#18181b" stroke-width="2" marker-end="url(#arrow30f)" />
+        <text x="336" y="146" class="svg-muted" font-size="16">frontend-plan</text>
+        <text x="322" y="254" class="svg-muted" font-size="16">backend-plan</text>
+        <rect x="164" y="414" width="372" height="52" rx="26" fill="#fff" stroke="#d4d4d8" />
+        <text x="204" y="448" class="svg-text" font-size="21">本地 clone group，在 group 目录下打开 Claude</text>
+      </svg>
+      <div class="stack compact-stack">
+        <div class="layer"><strong>documents 项目</strong><span>知识性东西全部放这里：references、products、story、plans、agents、knowledge。</span></div>
+        <div class="layer"><strong>frontend / backend 项目</strong><span>代码仓库回到纯粹：前端项目只有前端代码，后端项目只有后端代码。</span></div>
+        <div class="layer"><strong>按角色读取</strong><span>前端读 Story 中 plans/frontend-plan.md 和 api-contract.md；后端读 backend-plan.md 和 api-contract.md。</span></div>
+        <div class="layer"><strong>商务资料隔离</strong><span>标书、合同等敏感资料可以放在另一个项目，只给需要的人开放权限。</span></div>
+        <div class="layer"><strong>权限天然分层</strong><span>不同级别用户能 clone 的项目不同，在本地 group 目录下可工作的范围也自然不同。</span></div>
+      </div>
+    </div>
+    <p class="note">多仓库不是把知识打散，而是把代码、知识、商务材料按权限边界拆开；统一流程仍然由 documents 项目承载。</p>
+  </section>
+
+  <section data-page="30G">
     <h2>从单线程到低人工干预</h2>
     <div class="rail four">
       <div class="rail-card"><b>单线程闭环</b><span>一个需求先能从输入、实现、测试到验收稳定跑通。</span></div>
@@ -496,20 +814,40 @@
   </section>
 
   <section data-page="31">
-    <h2>多线程不是更多 Agent 同时写代码</h2>
-    <div class="swimlane">
-      <div class="lane-head">层次</div><div class="lane-head">拆分</div><div class="lane-head">隔离</div><div class="lane-head">验证</div><div class="lane-head">汇合</div>
-      <div class="lane-head">Epic</div><div class="lane-cell">拆成可验收 User Story。</div><div class="lane-cell">识别共享接口和依赖。</div><div class="lane-cell">定义全局验收路径。</div><div class="lane-cell">确认业务目标满足。</div>
-      <div class="lane-head">Story</div><div class="lane-cell">明确 Scope、AC、边界。</div><div class="lane-cell">进入独立 worktree。</div><div class="lane-cell">运行测试、Review、浏览器验证。</div><div class="lane-cell">合并前回写状态和知识。</div>
-      <div class="lane-head">Gate</div><div class="lane-cell">判断是否可并行。</div><div class="lane-cell">避免互相覆盖。</div><div class="lane-cell">重跑合并后验证。</div><div class="lane-cell">统一验收和失败回流。</div>
+    <h2>多线程不只是更多 Agent 同时写代码</h2>
+    <div class="pipeline-map">
+      <div class="pipe-stage"><b>Feature List</b><span>先列出功能增量，保持范围清楚。</span></div>
+      <div class="pipe-stage"><b>Story</b><span>拆成可验收、可回写的用户故事。</span></div>
+      <div class="pipe-stage"><b>解依赖</b><span>识别接口、数据、顺序和共享文件。</span></div>
+      <div class="pipe-stage"><b>并行推进</b><span>无依赖 Story 进入隔离 worktree。</span></div>
+      <div class="pipe-stage"><b>完成 / 下一项</b><span>验收、合并、回写，再推进下一批。</span></div>
+    </div>
+    <div class="knowledge-map" style="margin-top:18px; max-width:1320px;">
+      <div class="knowledge-box"><b>BA 技能</b><span>拆 Scope、AC、业务边界和依赖。</span></div>
+      <div class="knowledge-box"><b>QA 技能</b><span>生成主路径、异常路径和测试矩阵。</span></div>
+      <div class="knowledge-box"><b>DEV 技能</b><span>按 Spec、Plan、Test 实现最小增量。</span></div>
+      <div class="knowledge-box"><b>UI 技能</b><span>确认用户路径、交互状态和可用性。</span></div>
+      <div class="knowledge-box"><b>验收技能</b><span>Review、E2E、trace、outcome 统一判断。</span></div>
+      <div class="knowledge-box"><b>回写技能</b><span>把经验写回 Knowledge、Skill 和 Eval case。</span></div>
     </div>
   </section>
 
   <section data-page="32">
     <h2>低人工干预：降低沟通损耗，不是取消治理</h2>
-    <div class="quote">人月神话讲的是沟通损耗；结构化知识让 AI 协作的沟通损耗大幅下降。</div>
-    <div class="flow"><span class="node">任务边界</span><span class="node">Worktree</span><span class="node">Progress File</span><span class="node">自动测试</span><span class="node">可观测</span><span class="node">人工 Gate</span></div>
-    <p class="note">当 Agent 共享同一套知识资产、状态文件和验收标准，软件迭代速度的跃迁来自协作结构变化，而不是 token 生成更快。</p>
+    <div class="visual-wrap">
+      <div>
+        <div class="quote">人月神话讲的是沟通损耗；结构化知识让 AI 协作的沟通损耗大幅下降。</div>
+        <p class="note">当 Agent 共享同一套知识资产、状态文件和验收标准，软件迭代速度的跃迁来自协作结构变化，而不是 token 生成更快。</p>
+      </div>
+      <div class="knowledge-map">
+        <div class="knowledge-box"><b>任务边界</b><span>避免 Agent 自己扩大范围。</span></div>
+        <div class="knowledge-box"><b>Worktree</b><span>隔离并行执行状态。</span></div>
+        <div class="knowledge-box"><b>Progress File</b><span>跨 session 保持连续性。</span></div>
+        <div class="knowledge-box"><b>自动测试</b><span>用确定性工具给反馈。</span></div>
+        <div class="knowledge-box"><b>可观测</b><span>看见路径、错误和修复。</span></div>
+        <div class="knowledge-box"><b>人工 Gate</b><span>高风险处停下来确认。</span></div>
+      </div>
+    </div>
   </section>
 
   <section data-page="33">
@@ -560,20 +898,40 @@
 
   <section data-page="36C">
     <h2>Agent 友好的工具协议</h2>
-    <div class="compare">
-      <div><h3>稳定错误码</h3><p>不要只返回“失败了”，要让 Agent 知道是权限、校验、网络、状态冲突还是服务端错误。</p></div>
-      <div><h3>可审计轨迹</h3><p>记录读了什么、改了什么、调用了什么工具、为什么停下，Review 才能判断是否可信。</p></div>
-      <div><h3>可恢复状态</h3><p>失败后能回到安全状态，下一轮 Agent 能从状态文件和工具结果继续，而不是重新猜。</p></div>
+    <div class="visual-wrap">
+      <div class="compare" style="grid-template-columns:1fr;">
+        <div><h3>稳定错误码</h3><p>不要只返回“失败了”，要让 Agent 知道是权限、校验、网络、状态冲突还是服务端错误。</p></div>
+        <div><h3>可审计轨迹</h3><p>记录读了什么、改了什么、调用了什么工具、为什么停下，Review 才能判断是否可信。</p></div>
+        <div><h3>可恢复状态</h3><p>失败后能回到安全状态，下一轮 Agent 能从状态文件和工具结果继续，而不是重新猜。</p></div>
+      </div>
+      <svg class="svg-board" viewBox="0 0 620 420" role="img" aria-label="agent tool protocol">
+        <defs><marker id="arrow4" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#09090b"/></marker></defs>
+        <rect x="40" y="158" width="140" height="100" rx="24" fill="#09090b"/><text x="110" y="201" text-anchor="middle" class="svg-invert" font-size="22">Agent</text><text x="110" y="230" text-anchor="middle" class="svg-invert-muted" font-size="16">不可信操作员</text>
+        <rect x="250" y="60" width="140" height="82" rx="22" fill="#fff" stroke="#d4d4d8"/><text x="320" y="110" text-anchor="middle" class="svg-text" font-size="20">Schema</text>
+        <rect x="250" y="169" width="140" height="82" rx="22" fill="#fff" stroke="#d4d4d8"/><text x="320" y="219" text-anchor="middle" class="svg-text" font-size="20">Permission</text>
+        <rect x="250" y="278" width="140" height="82" rx="22" fill="#fff" stroke="#d4d4d8"/><text x="320" y="328" text-anchor="middle" class="svg-text" font-size="20">Trace</text>
+        <rect x="460" y="158" width="120" height="100" rx="24" fill="#fff" stroke="#d4d4d8"/><text x="520" y="201" text-anchor="middle" class="svg-text" font-size="22">Tool</text><text x="520" y="230" text-anchor="middle" class="svg-muted" font-size="16">可控副作用</text>
+        <path d="M180 208 L250 101" stroke="#09090b" stroke-width="2" marker-end="url(#arrow4)"/><path d="M180 208 L250 210" stroke="#09090b" stroke-width="2" marker-end="url(#arrow4)"/><path d="M180 208 L250 319" stroke="#09090b" stroke-width="2" marker-end="url(#arrow4)"/><path d="M390 101 L460 190" stroke="#09090b" stroke-width="2" marker-end="url(#arrow4)"/><path d="M390 210 L460 210" stroke="#09090b" stroke-width="2" marker-end="url(#arrow4)"/><path d="M390 319 L460 230" stroke="#09090b" stroke-width="2" marker-end="url(#arrow4)"/>
+      </svg>
     </div>
     <p class="note">工具层的目标不是限制 AI，而是把不确定性关在可观察、可回滚、可验收的边界内。</p>
   </section>
 
   <section data-page="36D">
     <h2>最后一个议题：先选形态，再谈 Agent</h2>
-    <div class="compare">
-      <div><h3>Workflow</h3><p>路径预定义，LLM 和工具按固定代码路径执行。适合可拆解、验收明确、需要一致性的任务。</p></div>
-      <div><h3>Agent</h3><p>模型动态决定步骤和工具。适合开放、多轮、路径难以预判的问题。</p></div>
-      <div><h3>选择原则</h3><p>先用最简单方案，只有当复杂度明确改善 outcome 时才升级。</p></div>
+    <div class="visual-wrap">
+      <div class="compare" style="grid-template-columns:1fr;">
+        <div><h3>Workflow</h3><p>路径预定义，LLM 和工具按固定代码路径执行。适合可拆解、验收明确、需要一致性的任务。</p></div>
+        <div><h3>Agent</h3><p>模型动态决定步骤和工具。适合开放、多轮、路径难以预判的问题。</p></div>
+        <div><h3>选择原则</h3><p>先用最简单方案，只有当复杂度明确改善 outcome 时才升级。</p></div>
+      </div>
+      <svg class="svg-board" viewBox="0 0 640 420" role="img" aria-label="workflow to agent spectrum">
+        <line x1="90" y1="210" x2="550" y2="210" stroke="#09090b" stroke-width="3"/>
+        <circle cx="120" cy="210" r="46" fill="#09090b"/><text x="120" y="205" text-anchor="middle" class="svg-invert" font-size="18">固定</text><text x="120" y="228" text-anchor="middle" class="svg-invert-muted" font-size="14">Workflow</text>
+        <circle cx="320" cy="210" r="54" fill="#fff" stroke="#d4d4d8"/><text x="320" y="205" text-anchor="middle" class="svg-text" font-size="18">混合</text><text x="320" y="230" text-anchor="middle" class="svg-muted" font-size="14">Patterns</text>
+        <circle cx="520" cy="210" r="46" fill="#fff" stroke="#09090b"/><text x="520" y="205" text-anchor="middle" class="svg-text" font-size="18">自主</text><text x="520" y="228" text-anchor="middle" class="svg-muted" font-size="14">Agent</text>
+        <text x="88" y="300" class="svg-muted" font-size="18">可预测 / 易验收</text><text x="420" y="300" class="svg-muted" font-size="18">开放 / 高成本</text>
+      </svg>
     </div>
     <p class="note">建立有效代理不是追求最复杂，而是为问题选择合适的复杂度。</p>
   </section>
@@ -684,12 +1042,22 @@
 
   <section data-page="36N+">
     <h2>企业级：知识工程体系</h2>
-    <div class="flow"><span class="node">业务知识</span><span class="arrow">→</span><span class="node">工程文件</span><span class="arrow">→</span><span class="node">角色 Skill</span><span class="arrow">→</span><span class="node">测试 / Eval</span><span class="arrow">→</span><span class="node">回写 Knowledge</span></div>
-    <div class="grid four">
-      <div class="card"><strong>统一仓库</strong><span>需求、设计、代码、测试、状态和规则都在同一个强状态空间里。</span></div>
-      <div class="card"><strong>角色协议</strong><span>BA、UI、DEV、QA、Agent 按输入、输出、权限和验收协作。</span></div>
-      <div class="card"><strong>知识资产</strong><span>Story、Spec、Plan、SOUL.md、Skill、Eval case 共同承载团队判断。</span></div>
-      <div class="card"><strong>持续回写</strong><span>每次交付后的经验、失败和标准，都沉淀回 Knowledge。</span></div>
+    <div class="visual-wrap">
+      <div class="system-orbit">
+        <div class="core">Enterprise<br>Knowledge</div>
+        <div class="sat top">统一仓库<br><span>强状态空间</span></div>
+        <div class="sat right">角色协议<br><span>BA / UI / DEV / QA</span></div>
+        <div class="sat bottom">持续回写<br><span>Knowledge 增长</span></div>
+        <div class="sat left">知识资产<br><span>Story / Skill / Eval</span></div>
+      </div>
+      <div class="knowledge-map">
+        <div class="knowledge-box"><b>业务知识</b><span>用户路径、规则、验收标准。</span></div>
+        <div class="knowledge-box"><b>工程文件</b><span>Spec、Plan、State、ADR。</span></div>
+        <div class="knowledge-box"><b>角色 Skill</b><span>不同角色可复用能力。</span></div>
+        <div class="knowledge-box"><b>测试 / Eval</b><span>完成证据和回归能力。</span></div>
+        <div class="knowledge-box"><b>SOUL.md</b><span>长期原则和演进方向。</span></div>
+        <div class="knowledge-box"><b>Knowledge</b><span>当前可信状态。</span></div>
+      </div>
     </div>
     <p class="note">企业级不是把提示词写长，而是把组织知识变成 Agent 可读取、可执行、可验收、可演进的工程体系。</p>
   </section>
